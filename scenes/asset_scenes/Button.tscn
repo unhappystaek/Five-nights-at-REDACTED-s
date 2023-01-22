@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 
@@ -6,11 +6,14 @@
 size = 51
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxFlat" id=2]
+
 [node name="Button" type="Button"]
 margin_top = 469.0
 margin_right = 346.0
 margin_bottom = 536.0
 custom_fonts/font = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
 text = "New Game"
 flat = true
 align = 0
