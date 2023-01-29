@@ -16,3 +16,9 @@ func saveValue(section, key):
 	
 func loadValue(section, key):
 	night = config.get_value(section, key, night)
+	
+func reset(section, key):
+	night = 1
+	saveValue(section, key)
+	get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
+
