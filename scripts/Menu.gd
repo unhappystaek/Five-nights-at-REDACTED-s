@@ -26,10 +26,10 @@ func _on_newGame_pressed():
 	if SaveSystem.night != 1:
 		get_tree().change_scene("res://scenes/actuall_scenes/New_game.tscn")
 	else:
-		get_tree().change_scene("res://scenes/actuall_scenes/New_game.tscn")
+		get_tree().change_scene("res://scenes/actuall_scenes/Office.tscn")
 
 func _on_continue_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://scenes/actuall_scenes/Office.tscn")
 
 
 func _on_quit_pressed():
