@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://textures/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -6,10 +6,13 @@
 [ext_resource path="res://textures/office/walls/Concrete030_1K_Roughness.jpg" type="Texture" id=4]
 [ext_resource path="res://textures/office/Metal/Metal038_1K_Metalness.jpg" type="Texture" id=5]
 [ext_resource path="res://textures/office/Metal/Metal038_1K_Roughness.jpg" type="Texture" id=6]
-[ext_resource path="res://things/Door_close.tres" type="Animation" id=7]
+[ext_resource path="res://things/Door_close_left.tres" type="Animation" id=7]
 [ext_resource path="res://scripts/Door_left.gd" type="Script" id=8]
-[ext_resource path="res://things/Door_open.tres" type="Animation" id=9]
+[ext_resource path="res://things/Door_open_left.tres" type="Animation" id=9]
 [ext_resource path="res://scripts/Room.gd" type="Script" id=10]
+[ext_resource path="res://scripts/Door_right.gd" type="Script" id=11]
+[ext_resource path="res://things/Door_close_right.tres" type="Animation" id=12]
+[ext_resource path="res://things/Door_open_right.tres" type="Animation" id=13]
 
 [sub_resource type="Environment" id=3]
 glow_intensity = 0.0
@@ -83,162 +86,7 @@ extents = Vector3( 0.2, 0.2, 0.2 )
 [sub_resource type="BoxShape" id=19]
 extents = Vector3( 0.2, 0.2, 0.2 )
 
-[sub_resource type="Animation" id=20]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("actuall_door_main:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector3( 0, 3, 0 ) ]
-}
-tracks/1/type = "bezier"
-tracks/1/path = NodePath("actuall_door_main:translation:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("actuall_door_main:translation:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( 3, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("actuall_door_main:translation:z")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:r")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/5/type = "bezier"
-tracks/5/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:g")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/6/type = "bezier"
-tracks/6/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:b")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/7/type = "bezier"
-tracks/7/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:a")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/8/type = "bezier"
-tracks/8/path = NodePath("Buttons/button_door/button_door_box:material:emission:r")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/9/type = "bezier"
-tracks/9/path = NodePath("Buttons/button_door/button_door_box:material:emission:g")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/10/type = "bezier"
-tracks/10/path = NodePath("Buttons/button_door/button_door_box:material:emission:b")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/11/type = "bezier"
-tracks/11/path = NodePath("Buttons/button_door/button_door_box:material:emission:a")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/12/type = "bezier"
-tracks/12/path = NodePath("Buttons/button_door/button_door_box:translation:x")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/keys = {
-"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/13/type = "bezier"
-tracks/13/path = NodePath("Buttons/button_door/button_door_box:translation:y")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-tracks/14/type = "bezier"
-tracks/14/path = NodePath("Buttons/button_door/button_door_box:translation:z")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
-}
-
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=31]
 resource_name = "Door_close"
 length = 0.7
 tracks/0/type = "bezier"
@@ -252,7 +100,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.1, 0.7 )
 }
 tracks/1/type = "bezier"
-tracks/1/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:r")
+tracks/1/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:r")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -262,7 +110,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 tracks/2/type = "bezier"
-tracks/2/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:g")
+tracks/2/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:g")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -272,7 +120,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 tracks/3/type = "bezier"
-tracks/3/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:b")
+tracks/3/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:b")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -282,7 +130,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 tracks/4/type = "bezier"
-tracks/4/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:a")
+tracks/4/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:a")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -292,7 +140,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 tracks/5/type = "bezier"
-tracks/5/path = NodePath("Buttons/button_door/button_door_box:material:emission:r")
+tracks/5/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:r")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -302,7 +150,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 tracks/6/type = "bezier"
-tracks/6/path = NodePath("Buttons/button_door/button_door_box:material:emission:g")
+tracks/6/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:g")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -312,7 +160,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 tracks/7/type = "bezier"
-tracks/7/path = NodePath("Buttons/button_door/button_door_box:material:emission:b")
+tracks/7/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:b")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -322,7 +170,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 tracks/8/type = "bezier"
-tracks/8/path = NodePath("Buttons/button_door/button_door_box:material:emission:a")
+tracks/8/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:a")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -332,7 +180,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0, 0.1 )
 }
 tracks/9/type = "bezier"
-tracks/9/path = NodePath("Buttons/button_door/button_door_box:translation:x")
+tracks/9/path = NodePath("Buttons/button_door_right/button_door_box_right:translation:x")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -342,7 +190,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0, 0.1, 0.3 )
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=32]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("actuall_door_main:translation")
@@ -387,7 +235,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/4/type = "bezier"
-tracks/4/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:r")
+tracks/4/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:r")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -397,7 +245,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/5/type = "bezier"
-tracks/5/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:g")
+tracks/5/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:g")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -407,7 +255,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/6/type = "bezier"
-tracks/6/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:b")
+tracks/6/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:b")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -417,7 +265,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/7/type = "bezier"
-tracks/7/path = NodePath("Buttons/button_door/button_door_box:material:albedo_color:a")
+tracks/7/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:a")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -427,7 +275,7 @@ tracks/7/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/8/type = "bezier"
-tracks/8/path = NodePath("Buttons/button_door/button_door_box:material:emission:r")
+tracks/8/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:r")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -437,7 +285,7 @@ tracks/8/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/9/type = "bezier"
-tracks/9/path = NodePath("Buttons/button_door/button_door_box:material:emission:g")
+tracks/9/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:g")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -447,7 +295,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/10/type = "bezier"
-tracks/10/path = NodePath("Buttons/button_door/button_door_box:material:emission:b")
+tracks/10/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:b")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
@@ -457,7 +305,7 @@ tracks/10/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/11/type = "bezier"
-tracks/11/path = NodePath("Buttons/button_door/button_door_box:material:emission:a")
+tracks/11/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:a")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
@@ -467,7 +315,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/12/type = "bezier"
-tracks/12/path = NodePath("Buttons/button_door/button_door_box:translation:x")
+tracks/12/path = NodePath("Buttons/button_door_right/button_door_box_right:translation:x")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/imported = false
@@ -477,7 +325,7 @@ tracks/12/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/13/type = "bezier"
-tracks/13/path = NodePath("Buttons/button_door/button_door_box:translation:y")
+tracks/13/path = NodePath("Buttons/button_door_right/button_door_box_right:translation:y")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/imported = false
@@ -487,7 +335,816 @@ tracks/13/keys = {
 "times": PoolRealArray( 0 )
 }
 tracks/14/type = "bezier"
-tracks/14/path = NodePath("Buttons/button_door/button_door_box:translation:z")
+tracks/14/path = NodePath("Buttons/button_door_right/button_door_box_right:translation:z")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Buttons/button_door_right/button_door_box_right:material")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 17 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "Door_close"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("actuall_door_main:translation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 0.7 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.776471, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.121569, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.776471, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.121569, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Buttons/button_door_right/button_door_box_right:translation:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0, -0.15, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.3 )
+}
+
+[sub_resource type="Animation" id=34]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("actuall_door_main:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 3, 0 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("actuall_door_main:translation:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("actuall_door_main:translation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 3, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("actuall_door_main:translation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Buttons/button_door_right/button_door_box_right:material:albedo_color:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:r")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:g")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:b")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("Buttons/button_door_right/button_door_box_right:material:emission:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("Buttons/button_door_right/button_door_box_right:translation:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("Buttons/button_door_right/button_door_box_right:translation:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("Buttons/button_door_right/button_door_box_right:translation:z")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Buttons/button_door_right/button_door_box_right:material")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ SubResource( 17 ) ]
+}
+
+[sub_resource type="SpatialMaterial" id=35]
+albedo_color = Color( 1, 0, 0, 1 )
+emission_enabled = true
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 0.5
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="Animation" id=26]
+resource_name = "Door_close"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("actuall_door_main:translation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 0.7 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.776471, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.121569, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.776471, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.121569, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Buttons/button_door_left/button_door_box_left:translation:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0, -0.15, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.3 )
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("actuall_door_main:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 3, 0 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("actuall_door_main:translation:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("actuall_door_main:translation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 3, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("actuall_door_main:translation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:r")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:g")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:b")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("Buttons/button_door_left/button_door_box_left:translation:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("Buttons/button_door_left/button_door_box_left:translation:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("Buttons/button_door_left/button_door_box_left:translation:z")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "Door_close"
+length = 0.7
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("actuall_door_main:translation:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 3, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 0.7 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:r")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:g")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:b")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.133333, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:a")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.133333, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Buttons/button_door_left/button_door_box_left:translation:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0, -0.15, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.3 )
+}
+
+[sub_resource type="Animation" id=38]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("actuall_door_main:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 3, 0 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("actuall_door_main:translation:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("actuall_door_main:translation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 3, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("actuall_door_main:translation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Buttons/button_door_left/button_door_box_left:material:albedo_color:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:r")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:g")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:b")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("Buttons/button_door_left/button_door_box_left:material:emission:a")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("Buttons/button_door_left/button_door_box_left:translation:x")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("Buttons/button_door_left/button_door_box_left:translation:y")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/14/type = "bezier"
+tracks/14/path = NodePath("Buttons/button_door_left/button_door_box_left:translation:z")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
@@ -559,6 +1216,84 @@ transform = Transform( -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 3, 0
 mesh = SubResource( 1 )
 skeleton = NodePath("../..")
 
+[node name="Door_right" type="Spatial" parent="Room"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+script = ExtResource( 11 )
+
+[node name="Doorframe" type="Spatial" parent="Room/Door_right"]
+
+[node name="frame_bottom" type="CSGBox" parent="Room/Door_right/Doorframe"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 1, -3.1, -0.1, 0 )
+material = SubResource( 9 )
+
+[node name="frame_left" type="CSGBox" parent="Room/Door_right/Doorframe"]
+transform = Transform( 0.1, 0, 0, 0, 1.5, 0, 0, 0, 0.1, -3.1, 1.5, 1.1 )
+material = SubResource( 10 )
+
+[node name="frame_right" type="CSGBox" parent="Room/Door_right/Doorframe"]
+transform = Transform( 0.1, 0, 0, 0, 1.5, 0, 0, 0, 0.1, -3.1, 1.5, -1.1 )
+material = SubResource( 11 )
+
+[node name="frame_top" type="CSGBox" parent="Room/Door_right/Doorframe"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 1, -3.1, 3.1, 0 )
+material = SubResource( 12 )
+
+[node name="actuall_door_main" type="Spatial" parent="Room/Door_right"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+
+[node name="actuall_door" type="CSGBox" parent="Room/Door_right/actuall_door_main"]
+transform = Transform( 0.1, 0, 0, 0, 1.5, 0, 0, 0, 1, -3.3, 1.5, 0 )
+material = SubResource( 13 )
+
+[node name="warning_stripe" type="MeshInstance" parent="Room/Door_right/actuall_door_main"]
+transform = Transform( -4.37114e-08, 1, -8.74228e-09, 0, -4.37114e-08, -0.2, -1, -4.37114e-08, 3.82137e-16, -3.199, 1, 0 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
+
+[node name="Buttons" type="Spatial" parent="Room/Door_right"]
+
+[node name="Frame" type="CSGBox" parent="Room/Door_right/Buttons"]
+transform = Transform( 0.1, 0, 0, 0, 0.45, 0, 0, 0, 0.2, -3.05, 1.4, -1.4 )
+material = SubResource( 16 )
+
+[node name="door_label" type="Label3D" parent="Room/Door_right/Buttons"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.949, 1.45, -1.4 )
+text = "Door"
+
+[node name="light_label" type="Label3D" parent="Room/Door_right/Buttons"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.949, 1.03, -1.4 )
+text = "Light"
+
+[node name="button_door_right" type="Area" parent="Room/Door_right/Buttons"]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -3, 1.65, -1.4 )
+
+[node name="button_door_box_right" type="CSGBox" parent="Room/Door_right/Buttons/button_door_right"]
+transform = Transform( 0.26, 0, 0, 0, 0.185714, 0, 0, 0, 0.185714, -0.0999999, 0, 0 )
+material = SubResource( 17 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Door_right/Buttons/button_door_right"]
+shape = SubResource( 18 )
+
+[node name="button_light" type="Area" parent="Room/Door_right/Buttons"]
+transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -3, 1.24, -1.4 )
+
+[node name="button_light_box" type="CSGBox" parent="Room/Door_right/Buttons/button_light"]
+transform = Transform( 0.26, 0, 0, 0, 0.185714, 0, 0, 0, 0.185714, -0.0999999, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Door_right/Buttons/button_light"]
+shape = SubResource( 19 )
+
+[node name="Door_close_right" type="AnimationPlayer" parent="Room/Door_right"]
+anims/Door_close = SubResource( 31 )
+anims/Door_close_right = ExtResource( 12 )
+anims/RESET = SubResource( 32 )
+
+[node name="Door_open_right" type="AnimationPlayer" parent="Room/Door_right"]
+anims/Door_close = SubResource( 33 )
+anims/Door_close_right = ExtResource( 13 )
+anims/Door_open_right = ExtResource( 13 )
+anims/RESET = SubResource( 34 )
+
 [node name="Door_left" type="Spatial" parent="Room"]
 script = ExtResource( 8 )
 
@@ -606,14 +1341,14 @@ text = "Door"
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.949, 1.03, 1.4 )
 text = "Light"
 
-[node name="button_door" type="Area" parent="Room/Door_left/Buttons"]
+[node name="button_door_left" type="Area" parent="Room/Door_left/Buttons"]
 transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -3, 1.65, 1.4 )
 
-[node name="button_door_box" type="CSGBox" parent="Room/Door_left/Buttons/button_door"]
+[node name="button_door_box_left" type="CSGBox" parent="Room/Door_left/Buttons/button_door_left"]
 transform = Transform( 0.26, 0, 0, 0, 0.185714, 0, 0, 0, 0.185714, -0.0999999, 0, 0 )
-material = SubResource( 17 )
+material = SubResource( 35 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Room/Door_left/Buttons/button_door"]
+[node name="CollisionShape" type="CollisionShape" parent="Room/Door_left/Buttons/button_door_left"]
 shape = SubResource( 18 )
 
 [node name="button_light" type="Area" parent="Room/Door_left/Buttons"]
@@ -625,13 +1360,16 @@ transform = Transform( 0.26, 0, 0, 0, 0.185714, 0, 0, 0, 0.185714, -0.0999999, 0
 [node name="CollisionShape" type="CollisionShape" parent="Room/Door_left/Buttons/button_light"]
 shape = SubResource( 19 )
 
-[node name="Door_open" type="AnimationPlayer" parent="Room/Door_left"]
-anims/Door_close = ExtResource( 7 )
-anims/Door_open = ExtResource( 9 )
-anims/RESET = SubResource( 20 )
+[node name="Door_close_left" type="AnimationPlayer" parent="Room/Door_left"]
+anims/Door_close = SubResource( 26 )
+anims/Door_close_left = ExtResource( 7 )
+anims/RESET = SubResource( 27 )
 
-[node name="Door_close" type="AnimationPlayer" parent="Room/Door_left"]
-anims/Door_close = SubResource( 21 )
-anims/RESET = SubResource( 22 )
+[node name="Door_open_left" type="AnimationPlayer" parent="Room/Door_left"]
+anims/Door_close = ExtResource( 9 )
+anims/Door_close_left = SubResource( 37 )
+anims/Door_open_left = ExtResource( 9 )
+anims/RESET = SubResource( 38 )
 
-[connection signal="input_event" from="Room/Door_left/Buttons/button_door" to="Room/Door_left" method="_on_button_door_input_event"]
+[connection signal="input_event" from="Room/Door_right/Buttons/button_door_right" to="Room/Door_right" method="_on_button_door_right_input_event"]
+[connection signal="input_event" from="Room/Door_left/Buttons/button_door_left" to="Room/Door_left" method="_on_button_door_left_input_event"]
