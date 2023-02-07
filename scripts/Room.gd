@@ -14,7 +14,7 @@ func _ready():
 func _process(delta):
 	pos = get_viewport().get_mouse_position()
 	angle = $main_camera.rotation.y
-	if pos.x < minLeft.x and angle < 0.8 :
+	if pos.x < minLeft.x and angle < 0.6 :
 		$main_camera.rotation.y += 0.03
-	if pos.x > minRight.x and angle > -0.8:
+	if pos.x > minRight.x and angle > -0.6:
 		$main_camera.rotation.y -= 0.03
