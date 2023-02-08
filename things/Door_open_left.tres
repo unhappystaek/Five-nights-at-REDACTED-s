@@ -2,7 +2,7 @@
 
 [resource]
 resource_name = "Door_close"
-length = 0.7
+length = 2.0
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("actuall_door_main:translation:y")
 tracks/0/interp = 1
