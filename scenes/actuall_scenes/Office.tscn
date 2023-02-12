@@ -882,7 +882,7 @@ margin_left = 145.0
 margin_top = 552.0
 margin_right = 175.0
 margin_bottom = 592.0
-color = Color( 0.545098, 0.823529, 0, 1 )
+color = Color( 0.521569, 1, 0, 1 )
 
 [node name="ColorRect3" type="ColorRect" parent="Room/main_camera/UI/Control"]
 margin_left = 179.0
@@ -907,11 +907,6 @@ color = Color( 0.823529, 0, 0, 1 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Room/main_camera/UI"]
 layer = -1
-
-[node name="ColorRect" type="ColorRect" parent="Room/main_camera/UI/CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-color = Color( 0.713726, 0, 0, 1 )
 
 [node name="Main_light" type="OmniLight" parent="Room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21454, -0.602322 )

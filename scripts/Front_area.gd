@@ -1,32 +1,31 @@
 extends Spatial
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var is_energy: bool = true
 
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
-	if SaveSystem.night == 1:
-		$Fan.rotation.z += 1
-	elif SaveSystem.night == 2:
-		$Fan.rotation.x += 1
-	elif SaveSystem.night == 3:
-		$Fan.rotation.y += 1
-	elif SaveSystem.night == 4:
-		$Fan.rotation.x += 1
-		$Fan.rotation.z += 1
-	elif SaveSystem.night == 5:
-		$Fan.rotation.y += 1
-		$Fan.rotation.x += 1
-	elif SaveSystem.night == 6:
-		$Fan.rotation.y += 1
-		$Fan.rotation.z += 1
-	elif SaveSystem.night == 7:
-		$Fan.rotation.y += 1
-		$Fan.rotation.z += 1
-		$Fan.rotation.x += 1
+	if is_energy == true:
+		if SaveSystem.night == 1:
+			$Fan.rotation.z += 1
+		elif SaveSystem.night == 2:
+			$Fan.rotation.x += 1
+		elif SaveSystem.night == 3:
+			$Fan.rotation.y += 1
+		elif SaveSystem.night == 4:
+			$Fan.rotation.x += 1
+			$Fan.rotation.z += 1
+		elif SaveSystem.night == 5:
+			$Fan.rotation.y += 1
+			$Fan.rotation.x += 1
+		elif SaveSystem.night == 6:
+			$Fan.rotation.y += 1
+			$Fan.rotation.z += 1
+		elif SaveSystem.night == 7:
+			$Fan.rotation.y += 1
+			$Fan.rotation.z += 1
+			$Fan.rotation.x += 1
 	
 
 
