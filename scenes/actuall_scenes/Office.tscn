@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -21,6 +21,8 @@
 [ext_resource path="res://scripts/Front_area.gd" type="Script" id=19]
 [ext_resource path="res://textures_and_assets/office/Phone/scene.gltf" type="PackedScene" id=20]
 [ext_resource path="res://things/sounds/door-slamming-fnaf-1-sound-effects.mp3" type="AudioStream" id=21]
+[ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=22]
+[ext_resource path="res://scripts/Office.gd" type="Script" id=23]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -29,6 +31,22 @@ ambient_light_sky_contribution = 0.0
 glow_intensity = 0.0
 glow_strength = 2.0
 glow_blend_mode = 0
+
+[sub_resource type="DynamicFont" id=41]
+size = 46
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=42]
+size = 28
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=43]
+size = 28
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=44]
+size = 42
+font_data = ExtResource( 22 )
 
 [sub_resource type="SpatialMaterial" id=5]
 albedo_texture = ExtResource( 1 )
@@ -781,6 +799,7 @@ roughness_texture = ExtResource( 16 )
 extents = Vector3( 1, 1, 1.79273 )
 
 [node name="Office" type="Spatial"]
+script = ExtResource( 23 )
 
 [node name="Room" type="Spatial" parent="."]
 script = ExtResource( 10 )
@@ -790,6 +809,109 @@ transform = Transform( 1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0
 environment = SubResource( 3 )
 fov = 60.0
 far = 20.0
+
+[node name="UI" type="Control" parent="Room/main_camera"]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+input_pass_on_modal_close_click = false
+
+[node name="Time_label" type="Label" parent="Room/main_camera/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 872.0
+margin_top = 16.0
+margin_right = -24.0
+margin_bottom = -529.0
+custom_fonts/font = SubResource( 41 )
+text = "12 PM"
+
+[node name="Night_label" type="Label" parent="Room/main_camera/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 904.0
+margin_top = 64.0
+margin_right = -24.0
+margin_bottom = -494.0
+custom_fonts/font = SubResource( 42 )
+text = "Night 1"
+
+[node name="Usage_label" type="Label" parent="Room/main_camera/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 552.0
+margin_right = -912.0
+margin_bottom = -6.0
+custom_fonts/font = SubResource( 43 )
+text = "Usage:"
+
+[node name="Power_label" type="Label" parent="Room/main_camera/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 512.0
+margin_right = -912.0
+margin_bottom = -46.0
+custom_fonts/font = SubResource( 43 )
+text = "Power left:"
+
+[node name="Percent_label" type="Label" parent="Room/main_camera/UI"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 176.0
+margin_top = 504.0
+margin_right = -744.0
+margin_bottom = -45.0
+custom_fonts/font = SubResource( 44 )
+text = "100%"
+
+[node name="Control" type="Control" parent="Room/main_camera/UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Room/main_camera/UI/Control"]
+margin_left = 111.0
+margin_top = 552.0
+margin_right = 141.0
+margin_bottom = 592.0
+color = Color( 0.298039, 0.823529, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="Room/main_camera/UI/Control"]
+margin_left = 145.0
+margin_top = 552.0
+margin_right = 175.0
+margin_bottom = 592.0
+color = Color( 0.545098, 0.823529, 0, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="Room/main_camera/UI/Control"]
+margin_left = 179.0
+margin_top = 552.0
+margin_right = 209.0
+margin_bottom = 592.0
+color = Color( 0.862745, 0.807843, 0, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="Room/main_camera/UI/Control"]
+margin_left = 213.0
+margin_top = 552.0
+margin_right = 243.0
+margin_bottom = 592.0
+color = Color( 0.823529, 0.270588, 0, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="Room/main_camera/UI/Control"]
+margin_left = 247.0
+margin_top = 552.0
+margin_right = 277.0
+margin_bottom = 592.0
+color = Color( 0.823529, 0, 0, 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Room/main_camera/UI"]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Room/main_camera/UI/CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+color = Color( 0.713726, 0, 0, 1 )
 
 [node name="Main_light" type="OmniLight" parent="Room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21454, -0.602322 )
@@ -1072,6 +1194,11 @@ shape = SubResource( 40 )
 
 [node name="phone_scene" parent="Room/Front_area/phone/Area" instance=ExtResource( 20 )]
 transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.573025, 1.37573, -1.84085 )
+
+[node name="Phone_audio" type="Spatial" parent="Room/Front_area/phone"]
+
+[node name="Day1" type="AudioStreamPlayer3D" parent="Room/Front_area/phone/Phone_audio"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.551471, 1.5115, -1.91397 )
 
 [connection signal="input_event" from="Room/Door_right/Buttons/button_door_right" to="Room/Door_right" method="_on_button_door_right_input_event"]
 [connection signal="animation_finished" from="Room/Door_right/Door_close_right" to="Room/Door_right" method="_on_Door_close_right_animation_finished"]
