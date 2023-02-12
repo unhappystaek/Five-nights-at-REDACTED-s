@@ -101,5 +101,5 @@ func _on_Timer_hour_timeout():
 	if (hour == 0):
 		$Room/main_camera/UI/Time_label.text = "12 PM"
 	else:
-		$Room/main_camera/UI/Time_label.text = str(hour) + "AM"
+		$Room/main_camera/UI/Time_label.text = str(hour) + " AM"
 	
