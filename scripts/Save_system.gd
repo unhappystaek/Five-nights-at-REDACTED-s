@@ -1,6 +1,6 @@
 extends Node
 
-var night = 2
+var night = 3
 
 
 var save_path = 'res://config.cfg'

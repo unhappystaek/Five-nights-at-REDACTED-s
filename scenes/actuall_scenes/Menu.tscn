@@ -1,9 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scenes/asset_scenes/Button.tscn" type="PackedScene" id=1]
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/Menu.gd" type="Script" id=3]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=4]
+[ext_resource path="res://textures_and_assets/Menu_animation/red.jpg" type="Texture" id=5]
+[ext_resource path="res://textures_and_assets/Menu_animation/right.jpg" type="Texture" id=6]
+[ext_resource path="res://textures_and_assets/Menu_animation/wrong.jpg" type="Texture" id=7]
+[ext_resource path="res://textures_and_assets/Menu_animation/stock.jpg" type="Texture" id=8]
+[ext_resource path="res://textures_and_assets/Menu_animation/left.jpg" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="DynamicFont" id=1]
 size = 52
@@ -45,6 +58,12 @@ anchor_bottom = 1.0
 script = ExtResource( 3 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.256, 0.266667 )
+frames = SubResource( 5 )
+frame = 43
+speed_scale = 2.0
+playing = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 32.0
