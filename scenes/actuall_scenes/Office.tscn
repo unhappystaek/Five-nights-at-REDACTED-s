@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -23,6 +23,9 @@
 [ext_resource path="res://things/sounds/door-slamming-fnaf-1-sound-effects.mp3" type="AudioStream" id=21]
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=22]
 [ext_resource path="res://scripts/Office.gd" type="Script" id=23]
+[ext_resource path="res://scripts/UI.gd" type="Script" id=24]
+[ext_resource path="res://textures_and_assets/camera_ui/cam_arrows.png" type="Texture" id=25]
+[ext_resource path="res://scripts/main_camera.gd" type="Script" id=26]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -46,6 +49,19 @@ font_data = ExtResource( 22 )
 
 [sub_resource type="DynamicFont" id=44]
 size = 42
+font_data = ExtResource( 22 )
+
+[sub_resource type="SpatialMaterial" id=45]
+albedo_color = Color( 0, 0, 0, 1 )
+metallic = 1.0
+
+[sub_resource type="PlaneMesh" id=46]
+
+[sub_resource type="SpatialMaterial" id=47]
+albedo_color = Color( 0.0431373, 0.0431373, 0.0431373, 1 )
+
+[sub_resource type="DynamicFont" id=48]
+size = 47
 font_data = ExtResource( 22 )
 
 [sub_resource type="SpatialMaterial" id=5]
@@ -809,12 +825,14 @@ transform = Transform( 1, 0, 0, 0, 0.978148, 0.207912, 0, -0.207912, 0.978148, 0
 environment = SubResource( 3 )
 fov = 60.0
 far = 20.0
+script = ExtResource( 26 )
 
 [node name="UI" type="Control" parent="Room/main_camera"]
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
 input_pass_on_modal_close_click = false
+script = ExtResource( 24 )
 
 [node name="Time_label" type="Label" parent="Room/main_camera/UI"]
 anchor_right = 1.0
@@ -905,8 +923,55 @@ margin_right = 277.0
 margin_bottom = 592.0
 color = Color( 0.823529, 0, 0, 1 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Room/main_camera/UI"]
-layer = -1
+[node name="CamArrows" type="Button" parent="Room/main_camera/UI"]
+margin_left = 304.0
+margin_top = 520.0
+margin_right = 2212.0
+margin_bottom = 860.0
+rect_scale = Vector2( 0.2, 0.2 )
+icon = ExtResource( 25 )
+flat = true
+
+[node name="Cambook" type="Spatial" parent="Room/main_camera"]
+
+[node name="Light" type="OmniLight" parent="Room/main_camera/Cambook"]
+light_energy = 2.163
+omni_range = 1.741
+
+[node name="rotation_axis" type="Spatial" parent="Room/main_camera/Cambook"]
+transform = Transform( 1, 0, 0, 0, -0.939693, 0.34202, 0, -0.34202, -0.939693, -0.00370443, -0.534131, -0.95589 )
+
+[node name="main_part" type="CSGBox" parent="Room/main_camera/Cambook/rotation_axis"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.546118, -0.00985622 )
+width = 1.86067
+height = 1.07456
+depth = 0.0587423
+material = SubResource( 45 )
+
+[node name="bottom_frame" type="MeshInstance" parent="Room/main_camera/Cambook/rotation_axis"]
+transform = Transform( 9.55343e-17, 4.37114e-08, 0.93, 0.05, -4.37114e-08, 0, 2.18557e-09, 1, -4.06516e-08, 0, 0.0517447, 0.02 )
+mesh = SubResource( 46 )
+material/0 = SubResource( 47 )
+
+[node name="top_frame" type="MeshInstance" parent="Room/main_camera/Cambook/rotation_axis"]
+transform = Transform( 3.82137e-17, 4.37114e-08, 0.93, 0.02, -4.37114e-08, 0, 8.74228e-10, 1, -4.06516e-08, 0, 1.06192, 0.02 )
+mesh = SubResource( 46 )
+material/0 = SubResource( 47 )
+
+[node name="left_frame" type="MeshInstance" parent="Room/main_camera/Cambook/rotation_axis"]
+transform = Transform( 0.02, 8.35187e-23, -1.97139e-30, 0, -4.37114e-08, -0.54, -1.67037e-24, 1, -2.36041e-08, -0.924833, 0.545799, 0.02 )
+mesh = SubResource( 46 )
+material/0 = SubResource( 47 )
+
+[node name="right_frame" type="MeshInstance" parent="Room/main_camera/Cambook/rotation_axis"]
+transform = Transform( 0.02, 8.35187e-23, -1.97139e-30, 0, -4.37114e-08, -0.54, -1.67037e-24, 1, -2.36041e-08, 0.907448, 0.543159, 0.0209626 )
+mesh = SubResource( 46 )
+material/0 = SubResource( 47 )
+
+[node name="name" type="Label3D" parent="Room/main_camera/Cambook/rotation_axis"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 1, 0, 0.0565615, 0.023573 )
+text = "CamBook Pro"
+font = SubResource( 48 )
 
 [node name="Main_light" type="OmniLight" parent="Room"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21454, -0.602322 )
@@ -1195,6 +1260,7 @@ transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.573025, 1.37573, -
 [node name="Day1" type="AudioStreamPlayer3D" parent="Room/Front_area/phone/Phone_audio"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.551471, 1.5115, -1.91397 )
 
+[connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
 [connection signal="input_event" from="Room/Door_right/Buttons/button_door_right" to="Room/Door_right" method="_on_button_door_right_input_event"]
 [connection signal="animation_finished" from="Room/Door_right/Door_close_right" to="Room/Door_right" method="_on_Door_close_right_animation_finished"]
 [connection signal="animation_finished" from="Room/Door_right/Door_open_right" to="Room/Door_right" method="_on_Door_open_right_animation_finished"]

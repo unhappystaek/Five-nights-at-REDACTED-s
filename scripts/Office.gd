@@ -16,10 +16,8 @@ func _process(delta):
 		power_usage += 1
 	if ($Room/Door_right.doorOpen == false):
 		power_usage += 1
-		
-	
-	
-	
+	if ($Room/main_camera.cam_up == true):
+		power_usage += 1
 	
 	if (power_usage == 1):
 		$Room/main_camera/UI/Control/ColorRect2.color = Color(0, 0, 0, 0)
