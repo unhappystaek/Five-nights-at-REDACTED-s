@@ -75,15 +75,15 @@ func _on_Timer_timeout():
 	power_display = stepify(power, 1)
 	if (power_display != 0):
 		if (power_usage == 1):
-			power -= 0.141
+			power -= 0.1
 		elif (power_usage == 2):
-			power -= 0.235
+			power -= 0.2
 		elif (power_usage == 3):
-			power -= 0.341
+			power -= 0.3
 		elif (power_usage == 4):
-			power -= 0.447
+			power -= 0.4
 		elif (power_usage == 5):
-			power -= 0.553
+			power -= 0.5
 	
 	$Room/main_camera/UI/Percent_label.text = str(power_display) + "%"
 	

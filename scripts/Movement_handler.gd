@@ -50,3 +50,20 @@ func _ready():
 
 func _process(delta):
 	pass
+	
+func _on_Timer_Fuzow_timeout():
+	if get_parent().FuzowLevel >= randi()%20+1:
+		pass
+	
+func _on_Timer_Wier_timeout():
+	if get_parent().FuzowLevel >= randi()%20+1:
+		pass
+	
+func _on_Timer_Lichu_timeout():
+	if get_parent().FuzowLevel >= randi()%20+1:
+		pass
+
+func _on_Timer_Terpil_timeout():
+	if get_parent().FuzowLevel >= randi()%20+1:
+		pass
+	
