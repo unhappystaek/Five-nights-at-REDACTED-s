@@ -1,9 +1,6 @@
 extends Node
 
-var FuzowLocation: String = "stage"
-var LichuLocation: String = "stage"
-var TerpilLocation: String = "stage"
-var WierStage: float = 0
+
 
 var FuzowLevel: float = 0
 var LichuLevel: float = 0
