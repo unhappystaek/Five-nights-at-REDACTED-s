@@ -92,6 +92,17 @@ func _on_Timer_timeout():
 		$Room/Front_area/Desk_lamp/Bulb_light.hide()
 		$Room/Front_area/Desk_lamp/Lamp_light.hide()
 		$Room/Main_light.hide()
+		
+		$Room/Door_left.ready = false
+		$Room/Door_left.doorOpen = true
+		$Room/Door_left/Door_open_left.play("Door_open_left")
+			
+		$Room/Door_right.ready = false
+		$Room/Door_right.doorOpen = true
+		$Room/Door_right/Door_open_right.play("Door_open_right")
+		
+		$Room/Door_left.isEnergy = false
+		$Room/Door_right.isEnergy = false
 	
 func _on_Timer_hour_timeout():
 	if (hour !=6):
