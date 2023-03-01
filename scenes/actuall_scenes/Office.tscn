@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://textures_and_assets/doors/door_dark.jpg" type="Texture" id=28]
 [ext_resource path="res://scripts/Animatronic_handler.gd" type="Script" id=29]
 [ext_resource path="res://scripts/Movement_handler.gd" type="Script" id=30]
+[ext_resource path="res://things/Blackout_animation.tres" type="Animation" id=31]
+[ext_resource path="res://things/sounds/turning-down-power-48657.mp3" type="AudioStream" id=32]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -853,6 +855,21 @@ roughness_texture = ExtResource( 16 )
 [sub_resource type="BoxShape" id=40]
 extents = Vector3( 1, 1, 1.79273 )
 
+[sub_resource type="Animation" id=53]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Blackout_sound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
 [node name="Office" type="Spatial"]
 script = ExtResource( 23 )
 
@@ -1342,6 +1359,17 @@ transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.573025, 1.37573, -
 
 [node name="Day1" type="AudioStreamPlayer3D" parent="Room/Front_area/phone/Phone_audio"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.551471, 1.5115, -1.91397 )
+
+[node name="Blackout" type="Spatial" parent="Room"]
+
+[node name="Blackout_sound" type="AudioStreamPlayer3D" parent="Room/Blackout"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.11205 )
+stream = ExtResource( 32 )
+unit_size = 9.0
+
+[node name="Blackout_animation" type="AnimationPlayer" parent="Room/Blackout"]
+anims/Blackout_animation = ExtResource( 31 )
+anims/RESET = SubResource( 53 )
 
 [node name="Animatronic_handler" type="Node" parent="."]
 script = ExtResource( 29 )

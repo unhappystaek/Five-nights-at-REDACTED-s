@@ -7,6 +7,7 @@ var power_usage: float = 1
 var _timer = null
 var _timer_hour = null
 var hour: float = 0
+var isBlackout: bool = false
 
 
 func _process(delta):
@@ -87,7 +88,7 @@ func _on_Timer_timeout():
 	
 	$Room/main_camera/UI/Percent_label.text = str(power_display) + "%"
 	
-	if power_display == 0:
+	if power_display == 0 and isBlackout == false:
 		$Room/Front_area.is_energy = false
 		$Room/Front_area/Desk_lamp/Bulb_light.hide()
 		$Room/Front_area/Desk_lamp/Lamp_light.hide()
@@ -103,6 +104,9 @@ func _on_Timer_timeout():
 		
 		$Room/Door_left.isEnergy = false
 		$Room/Door_right.isEnergy = false
+		
+		$Room/Blackout/Blackout_animation.play("Blackout_animation")
+		isBlackout = true
 	
 func _on_Timer_hour_timeout():
 	if (hour !=6):

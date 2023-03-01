@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/turning-down-power-48657.mp3-73a10afb6310bbce25d506a7cf877531.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/turning-down-power-48657.mp3"
+dest_files=[ "res://.import/turning-down-power-48657.mp3-73a10afb6310bbce25d506a7cf877531.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
