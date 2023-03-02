@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=2]
+[gd_scene load_steps=73 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -32,6 +32,7 @@
 [ext_resource path="res://scripts/Movement_handler.gd" type="Script" id=30]
 [ext_resource path="res://things/Blackout_animation.tres" type="Animation" id=31]
 [ext_resource path="res://things/sounds/turning-down-power-48657.mp3" type="AudioStream" id=32]
+[ext_resource path="res://things/sounds/Buzz-SoundBible.com-1790490578.mp3" type="AudioStream" id=33]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1321,6 +1322,10 @@ transform = Transform( 0.906308, 0, -0.422618, 0, 1, 0, 0.422618, 0, 0.906308, 0
 
 [node name="Desk_fan" parent="Room/Front_area/Fan" instance=ExtResource( 17 )]
 transform = Transform( 0.00984886, 0, 0, 0, 0.01, 0, 0, 0, 0.00984886, 0.0343897, -0.420372, -0.0502295 )
+
+[node name="Buzzing_sound" type="AudioStreamPlayer3D" parent="Room/Front_area/Fan"]
+stream = ExtResource( 33 )
+unit_db = -13.334
 
 [node name="Desk_lamp" type="Spatial" parent="Room/Front_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.230003, 0.0336845, -0.00714117 )

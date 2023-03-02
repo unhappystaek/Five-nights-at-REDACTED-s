@@ -1,7 +1,7 @@
 extends Spatial
 
-var power: float = 99
-var power_display: int = 99
+var power: float = 20
+var power_display: int = 20
 var power_usage_math: float = 1
 var power_usage: float = 1
 var _timer = null
@@ -53,6 +53,8 @@ func _process(delta):
 	
 
 func _ready():
+	$Room/Front_area/Fan/Buzzing_sound.playing = true
+	
 	_timer = Timer.new()
 	add_child(_timer)
 
@@ -76,15 +78,15 @@ func _on_Timer_timeout():
 	power_display = stepify(power, 1)
 	if (power_display != 0):
 		if (power_usage == 1):
-			power -= 0.1
+			power -= 0.15
 		elif (power_usage == 2):
-			power -= 0.2
+			power -= 0.25
 		elif (power_usage == 3):
-			power -= 0.3
+			power -= 0.35
 		elif (power_usage == 4):
-			power -= 0.4
+			power -= 0.45
 		elif (power_usage == 5):
-			power -= 0.5
+			power -= 0.55
 	
 	$Room/main_camera/UI/Percent_label.text = str(power_display) + "%"
 	
@@ -107,6 +109,8 @@ func _on_Timer_timeout():
 		
 		$Room/Blackout/Blackout_animation.play("Blackout_animation")
 		isBlackout = true
+		
+		$Room/Front_area/Fan/Buzzing_sound.playing = false
 	
 func _on_Timer_hour_timeout():
 	if (hour !=6):

@@ -8,7 +8,7 @@ func _ready():
 
 
 func _process(delta):
-	if cam_up == true and $Cambook/rotation_axis.rotation_degrees.x < 0:
+	if cam_up == true and $Cambook/rotation_axis.rotation_degrees.x < 0 :
 		$Cambook/rotation_axis.rotation_degrees.x += 6
 	elif cam_up == false and $Cambook/rotation_axis.rotation_degrees.x > -200:
 		$Cambook/rotation_axis.rotation_degrees.x -= 6
@@ -29,11 +29,14 @@ func _process(delta):
 	
 	if $Cambook/rotation_axis.rotation_degrees.x > 2:
 		$Cambook/rotation_axis.rotation_degrees.x = 2
+		
+	if get_parent().get_parent().isBlackout == true and $Cambook/rotation_axis.rotation_degrees.x > -200:
+		$Cambook/rotation_axis.rotation_degrees.x -= 6
 	
 		
 func _on_CamArrows_pressed():
 	if cam_up == true:
 		cam_up =false
-	elif cam_up == false:
+	elif cam_up == false and get_parent().get_parent().isBlackout == false:
 		cam_up = true
 	

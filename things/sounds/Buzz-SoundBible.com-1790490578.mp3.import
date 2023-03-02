@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Buzz-SoundBible.com-1790490578.mp3-5220399dae3a24d094609c6ce7eafa5b.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/Buzz-SoundBible.com-1790490578.mp3"
+dest_files=[ "res://.import/Buzz-SoundBible.com-1790490578.mp3-5220399dae3a24d094609c6ce7eafa5b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

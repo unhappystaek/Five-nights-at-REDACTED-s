@@ -62,4 +62,11 @@ If you use this 3D model in your project be sure to copy paste this credit where
 This work is based on "DESK LAMP FREE DOWNLOAD" (https://sketchfab.com/3d-models/desk-lamp-free-download-cc1187e9dd744486b499498510d7269d) by Fred Drabble (https://sketchfab.com/FredDrabble) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 
 
+### Buzzing ambient sound:
+
+source: https://soundbible.com/1204-Buzz.html
+author: Mike Koenig
+license: Attribution 3.0
+
+
 ## Photos
