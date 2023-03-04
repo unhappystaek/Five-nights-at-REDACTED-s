@@ -30,8 +30,8 @@ func _process(delta):
 	if $Cambook/rotation_axis.rotation_degrees.x > 2:
 		$Cambook/rotation_axis.rotation_degrees.x = 2
 		
-	if get_parent().get_parent().isBlackout == true and $Cambook/rotation_axis.rotation_degrees.x > -200:
-		$Cambook/rotation_axis.rotation_degrees.x -= 6
+	if get_parent().get_parent().isBlackout == true:
+		$Cambook/rotation_axis.rotation_degrees.x = -200
 	
 		
 func _on_CamArrows_pressed():

@@ -13,6 +13,14 @@ var _timer_Terpil = null
 var _timer_Lichu = null
 var _timer_Wier = null
 
+var Frand: int
+var Wrand: int
+var Trand: int
+var Lrand: int
+
+
+var isBlackout: bool = false
+
 func _ready():
 	_timer_Fuzow = Timer.new()
 	add_child(_timer_Fuzow)
@@ -47,23 +55,69 @@ func _ready():
 	_timer_Wier.set_one_shot(false) # Make sure it loops
 	_timer_Wier.start()
 
+# cams: 1a - stage, 1b - dining, 7 - wc, 6 - kitchen, 5 - backstage, 1c - cave,
+# 3 - closet, 2a - leftCorridor, 2b - leftDetector, 4a - rightCorridor, 4b - rightDetector
+
+#doorLeft, doorRight
 
 func _process(delta):
-	pass
+	isBlackout = get_parent().get_parent().isBlackout
 	
 func _on_Timer_Fuzow_timeout():
-	if get_parent().FuzowLevel >= randi()%20+1:
-		pass
+	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
+		if FuzowLocation == "stage":
+			Frand = randi()%2+1
+			if Frand == 2:
+				FuzowLocation = "dining"
+			else:
+				FuzowLocation = "backstage"
+		elif FuzowLocation == "dining":
+			Frand = randi()%2+1
+			if Frand == 2:
+				FuzowLocation = "leftCorridor"
+			else:
+				FuzowLocation = "backstage"
+		elif FuzowLocation == "backstage":
+			Frand = randi()%2+1
+			if Frand == 2:
+				FuzowLocation = "leftCorridor"
+			else:
+				FuzowLocation = "dining"
+		elif FuzowLocation == "leftCorridor":
+			Frand = randi()%2+1
+			if Frand == 2:
+				FuzowLocation = "leftDetector"
+			else:
+				FuzowLocation = "closet"
+		elif FuzowLocation == "closet":
+			Frand = randi()%2+1
+			if Frand == 2:
+				FuzowLocation = "doorLeft"
+			else:
+				FuzowLocation = "leftCorridor"
+		elif FuzowLocation == "leftDetector":
+			Frand = randi()%2+1
+			if Frand == 2:
+				FuzowLocation = "doorLeft"
+			else:
+				FuzowLocation = "closet"
+		elif FuzowLocation == "doorLeft":
+			pass
+			#tbc
+	
 	
 func _on_Timer_Wier_timeout():
-	if get_parent().FuzowLevel >= randi()%20+1:
+	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
 		pass
 	
+	
 func _on_Timer_Lichu_timeout():
-	if get_parent().FuzowLevel >= randi()%20+1:
+	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
 		pass
-
+	
+	
 func _on_Timer_Terpil_timeout():
-	if get_parent().FuzowLevel >= randi()%20+1:
+	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
 		pass
+	
 	
