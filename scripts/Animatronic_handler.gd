@@ -234,33 +234,7 @@ func _on_Timer_hour_timeout():
 			WierLevel = 8
 
 	if n == 7:
-		if get_parent().hour == 0:
-			FuzowLevel = 20
-			LichuLevel = 20
-			TerpilLevel = 20
-			WierLevel = 20
-		if get_parent().hour == 1:
-			FuzowLevel = 20
-			LichuLevel = 20
-			TerpilLevel = 20
-			WierLevel = 20
-		if get_parent().hour == 2:
-			FuzowLevel = 20
-			LichuLevel = 20
-			TerpilLevel = 20
-			WierLevel = 20
-		if get_parent().hour == 3:
-			FuzowLevel = 20
-			LichuLevel = 20
-			TerpilLevel = 20
-			WierLevel = 20
-		if get_parent().hour == 4:
-			FuzowLevel = 20
-			LichuLevel = 20
-			TerpilLevel = 20
-			WierLevel = 20
-		if get_parent().hour == 5:
-			FuzowLevel = 20
-			LichuLevel = 20
-			TerpilLevel = 20
-			WierLevel = 20
+		FuzowLevel = 20
+		LichuLevel = 20
+		TerpilLevel = 20
+		WierLevel = 20

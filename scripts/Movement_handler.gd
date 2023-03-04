@@ -117,7 +117,38 @@ func _on_Timer_Lichu_timeout():
 	
 	
 func _on_Timer_Terpil_timeout():
-	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
-		pass
+	if get_parent().TerpilLevel >= randi()%20+1 and isBlackout == false:
+		if TerpilLocation == "stage":
+			TerpilLocation = "dining"
+		elif TerpilLocation == "dining":
+			Trand = randi()%2+1
+			if Trand == 2:
+				TerpilLocation = "kitchen"
+			elif Trand == 1:
+				TerpilLocation = "wc"
+		elif TerpilLocation == "wc":
+			Trand = randi()%2+1
+			if Trand == 2:
+				TerpilLocation = "rightCorridor"
+			elif Trand == 1:
+				TerpilLocation = "kitchen"
+		elif TerpilLocation == "kitchen":
+			Trand = randi()%2+1
+			if Trand == 2:
+				TerpilLocation = "rightCorridor"
+			elif Trand == 1:
+				TerpilLocation = "wc"
+		elif TerpilLocation == "rightCorridor":
+			Trand = randi()%2+1
+			if Trand == 2:
+				TerpilLocation = "rightDetector"
+			elif Trand == 1:
+				TerpilLocation = "dining"
+		elif TerpilLocation == "rightDetector":
+			Trand = randi()%2+1
+			if Trand == 2:
+				TerpilLocation = "rightCorridor"
+			elif Trand == 1:
+				TerpilLocation = "doorRight"
 	
 	
