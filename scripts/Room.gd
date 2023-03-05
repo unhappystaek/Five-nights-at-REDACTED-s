@@ -18,6 +18,7 @@ func _process(delta):
 		$main_camera.rotation.y += 0.03
 	if pos.x > minRight.x and angle > -0.6:
 		$main_camera.rotation.y -= 0.03
+	
 
 func _on_Door_close_right_animation_finished(anim_name):
 	pass # Replace with function body.

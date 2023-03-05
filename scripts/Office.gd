@@ -1,7 +1,7 @@
 extends Spatial
 
-var power: float = 10
-var power_display: int = 10
+var power: float = 99
+var power_display: int = 99
 var power_usage_math: float = 1
 var power_usage: float = 1
 var _timer = null

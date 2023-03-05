@@ -37,6 +37,8 @@ func _process(delta):
 func _on_CamArrows_pressed():
 	if cam_up == true:
 		cam_up =false
+		get_parent().get_parent().get_child(1).get_child(0).cam_up = cam_up
 	elif cam_up == false and get_parent().get_parent().isBlackout == false:
 		cam_up = true
+		get_parent().get_parent().get_child(1).get_child(0).cam_up = cam_up
 	

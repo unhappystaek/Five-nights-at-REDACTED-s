@@ -1,7 +1,7 @@
 extends Node
 
 
-# locations:
+var rand_generate = RandomNumberGenerator.new()
 
 var FuzowLocation: String = "stage"
 var LichuLocation: String = "stage"
@@ -18,8 +18,24 @@ var Wrand: int
 var Trand: int
 var Lrand: int
 
+var time = 0
+var timer_on = false
+var timer_goal: float
 
 var isBlackout: bool = false
+
+var cam_up: bool = false setget set_cam_up
+var Wier_locked: bool = false 
+
+func set_cam_up(val):
+	cam_up = val
+	if cam_up == true:
+		Wier_locked = true
+		time = 0
+		timer_on = false
+	if cam_up == false:
+		timer_on = true
+		timer_goal = rand_generate.randf_range(0.83, 16.67)
 
 func _ready():
 	_timer_Fuzow = Timer.new()
@@ -62,6 +78,10 @@ func _ready():
 
 func _process(delta):
 	isBlackout = get_parent().get_parent().isBlackout
+	if(timer_on):
+		time += delta
+	if time >= timer_goal:
+		Wier_locked = false
 	
 func _on_Timer_Fuzow_timeout():
 	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
@@ -152,3 +172,4 @@ func _on_Timer_Terpil_timeout():
 				TerpilLocation = "doorRight"
 	
 	
+
