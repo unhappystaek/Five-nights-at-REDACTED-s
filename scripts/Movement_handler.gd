@@ -127,12 +127,15 @@ func _on_Timer_Fuzow_timeout():
 	
 	
 func _on_Timer_Wier_timeout():
-	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
-		pass
+	if get_parent().WierLevel >= randi()%20+1 and isBlackout == false and Wier_locked == false:
+		if WierStage < 3:
+			WierStage += 1
+		elif WierStage == 3:
+			pass
 	
 	
 func _on_Timer_Lichu_timeout():
-	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
+	if get_parent().LichuLevel >= randi()%20+1 and isBlackout == false:
 		pass
 	
 	
@@ -170,6 +173,8 @@ func _on_Timer_Terpil_timeout():
 				TerpilLocation = "rightCorridor"
 			elif Trand == 1:
 				TerpilLocation = "doorRight"
+		elif TerpilLocation == "doorRight":
+			pass
 	
 	
 
