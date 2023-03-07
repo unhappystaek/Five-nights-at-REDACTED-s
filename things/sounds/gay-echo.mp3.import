@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/gay-echo.mp3-8a1392a78ab33910a48c36fb4be9852d.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/gay-echo.mp3"
+dest_files=[ "res://.import/gay-echo.mp3-8a1392a78ab33910a48c36fb4be9852d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

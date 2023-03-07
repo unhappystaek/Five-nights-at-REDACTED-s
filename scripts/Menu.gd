@@ -23,7 +23,7 @@ func _ready():
 
 
 func _on_newGame_pressed():
-	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/vierJumpscare.tscn")
+	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/lichuJumpscare.tscn")
 	#if SaveSystem.night != 1:
 	#	get_tree().change_scene("res://scenes/actuall_scenes/New_game.tscn")
 	#else:

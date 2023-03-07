@@ -20,7 +20,7 @@ func _on_timer_timeout():
 	add_child(_timer2)
 
 	_timer2.connect("timeout", self, "_on_timer2_timeout")
-	_timer2.set_wait_time(3)
+	_timer2.set_wait_time(4)
 	_timer2.set_one_shot(true) # Make sure it loops
 	_timer2.start()
 	$color.visible = true
