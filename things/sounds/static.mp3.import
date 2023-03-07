@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/static.mp3-e7dd85724effc0c2c6d98027c76f65fd.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/static.mp3"
+dest_files=[ "res://.import/static.mp3-e7dd85724effc0c2c6d98027c76f65fd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
