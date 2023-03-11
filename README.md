@@ -2,6 +2,13 @@
 ## Game
 Game mechanics are based on Scott Cawthon's "Five nights at Freddy's".
 My idea was to make "crappy off brand" of this game, with me and my friends as animatronics (retards).
+
+## Retards:
+Freddy - Lee Hoota
+Foxy - Vier
+Bonny - Fuzow
+Chica - Terpil
+
 ## Used assets
 Most textures use CC0 license or are made by me/my friends
 
@@ -68,5 +75,3 @@ source: https://soundbible.com/1204-Buzz.html
 author: Mike Koenig
 license: Attribution 3.0
 
-
-## Photos
