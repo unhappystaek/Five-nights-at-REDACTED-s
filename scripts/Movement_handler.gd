@@ -122,7 +122,10 @@ func _on_Timer_Fuzow_timeout():
 			else:
 				FuzowLocation = "closet"
 		elif FuzowLocation == "doorLeft":
-			pass
+			if get_parent().get_parent().get_child(0).get_child(4).doorOpen == true:
+				pass
+			else:
+				pass
 			#tbc
 	
 	
@@ -174,7 +177,10 @@ func _on_Timer_Terpil_timeout():
 			elif Trand == 1:
 				TerpilLocation = "doorRight"
 		elif TerpilLocation == "doorRight":
-			pass
+			if get_parent().get_parent().get_child(0).get_child(3).doorOpen == true:
+				pass
+			else:
+				pass
 	
 	
 
