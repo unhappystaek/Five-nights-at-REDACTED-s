@@ -4,7 +4,7 @@
 resource_name = "Door_close"
 length = 2.0
 tracks/0/type = "bezier"
-tracks/0/path = NodePath("actuall_door_main:translation:y")
+tracks/0/path = NodePath("offset_left/actuall_door_main:translation:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false

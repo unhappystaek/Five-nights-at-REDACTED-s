@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/door_lit.jpg-39230b0413e1e11b1ffe2e65b55748b7.s3tc.stex"
-path.etc="res://.import/door_lit.jpg-39230b0413e1e11b1ffe2e65b55748b7.etc.stex"
+path.s3tc="res://.import/door_fuzow.jpg-286bebf60508fc2c78f3a2f98abb8bb3.s3tc.stex"
+path.etc="res://.import/door_fuzow.jpg-286bebf60508fc2c78f3a2f98abb8bb3.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures_and_assets/doors/door_lit.jpg"
-dest_files=[ "res://.import/door_lit.jpg-39230b0413e1e11b1ffe2e65b55748b7.s3tc.stex", "res://.import/door_lit.jpg-39230b0413e1e11b1ffe2e65b55748b7.etc.stex" ]
+source_file="res://textures_and_assets/doors/door_fuzow.jpg"
+dest_files=[ "res://.import/door_fuzow.jpg-286bebf60508fc2c78f3a2f98abb8bb3.s3tc.stex", "res://.import/door_fuzow.jpg-286bebf60508fc2c78f3a2f98abb8bb3.etc.stex" ]
 
 [params]
 

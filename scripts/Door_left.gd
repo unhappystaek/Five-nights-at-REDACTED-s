@@ -27,3 +27,7 @@ func _on_Door_close_left_animation_finished(anim_name):
 
 func _on_Door_open_left_animation_finished(anim_name):
 	ready = true
+
+
+func _process(delta):
+	pass
