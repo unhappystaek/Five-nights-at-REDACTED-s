@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://textures_and_assets/doors/door_terpil.jpg" type="Texture" id=34]
 [ext_resource path="res://textures_and_assets/doors/door_dark.jpg" type="Texture" id=35]
 [ext_resource path="res://textures_and_assets/doors/door_lit.jpg" type="Texture" id=36]
+[ext_resource path="res://things/Light_on_left.tres" type="Animation" id=37]
+[ext_resource path="res://things/Light_on_right.tres" type="Animation" id=38]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -157,8 +159,95 @@ emission_on_uv2 = false
 [sub_resource type="BoxShape" id=18]
 extents = Vector3( 0.2, 0.2, 0.2 )
 
+[sub_resource type="SpatialMaterial" id=65]
+
 [sub_resource type="BoxShape" id=19]
 extents = Vector3( 0.2, 0.2, 0.2 )
+
+[sub_resource type="Animation" id=66]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("button_light_box:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("button_light_box:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("button_light_box:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("button_light_box:material:emission_enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("button_light_box:material:emission:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0.772549, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("button_light_box:material:emission:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0.937255, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("button_light_box:material:emission:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("button_light_box:material:emission:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="Animation" id=32]
 length = 0.001
@@ -865,72 +954,6 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="Animation" id=62]
-resource_name = "Light_on_left"
-length = 0.3
-tracks/0/type = "bezier"
-tracks/0/path = NodePath("../button_light/button_light_box:translation:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"points": PoolRealArray( -0.0999999, -0.25, 0, 0.25, 0, -0.14, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3 )
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("../button_light/button_light_box:material:emission_enabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
-}
-tracks/2/type = "bezier"
-tracks/2/path = NodePath("../button_light/button_light_box:material:emission:r")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.772549, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3 )
-}
-tracks/3/type = "bezier"
-tracks/3/path = NodePath("../button_light/button_light_box:material:emission:g")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.937255, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3 )
-}
-tracks/4/type = "bezier"
-tracks/4/path = NodePath("../button_light/button_light_box:material:emission:b")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3 )
-}
-tracks/5/type = "bezier"
-tracks/5/path = NodePath("../button_light/button_light_box:material:emission:a")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/keys = {
-"points": PoolRealArray( 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.3 )
-}
-
 [sub_resource type="Animation" id=63]
 length = 0.001
 tracks/0/type = "bezier"
@@ -1338,9 +1361,14 @@ transform = Transform( 0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -3, 1.24, -1.4 )
 
 [node name="button_light_box" type="CSGBox" parent="Room/Door_right/Buttons/button_light"]
 transform = Transform( 0.26, 0, 0, 0, 0.185714, 0, 0, 0, 0.185714, -0.0999999, 0, 0 )
+material = SubResource( 65 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Room/Door_right/Buttons/button_light"]
 shape = SubResource( 19 )
+
+[node name="Light_on_right" type="AnimationPlayer" parent="Room/Door_right/Buttons/button_light"]
+anims/Light_on_right = ExtResource( 38 )
+anims/RESET = SubResource( 66 )
 
 [node name="Door_close_right" type="AnimationPlayer" parent="Room/Door_right"]
 anims/Door_close_right = ExtResource( 12 )
@@ -1459,7 +1487,7 @@ shape = SubResource( 19 )
 
 [node name="Light_on_left" type="AnimationPlayer" parent="Room/Door_left/Buttons/button_light"]
 root_node = NodePath("../../button_door_left")
-anims/Light_on_left = SubResource( 62 )
+anims/Light_on_left = ExtResource( 37 )
 anims/RESET = SubResource( 63 )
 
 [node name="light_left" type="Spatial" parent="Room/Door_left"]
@@ -1596,6 +1624,7 @@ script = ExtResource( 30 )
 
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
 [connection signal="input_event" from="Room/Door_right/Buttons/button_door_right" to="Room/Door_right" method="_on_button_door_right_input_event"]
+[connection signal="input_event" from="Room/Door_right/Buttons/button_light" to="Room/Door_right" method="_on_button_light_input_event"]
 [connection signal="animation_finished" from="Room/Door_right/Door_close_right" to="Room/Door_right" method="_on_Door_close_right_animation_finished"]
 [connection signal="animation_finished" from="Room/Door_right/Door_open_right" to="Room/Door_right" method="_on_Door_open_right_animation_finished"]
 [connection signal="animation_finished" from="Room/Door_left/Door_close_left" to="Room/Door_left" method="_on_Door_close_left_animation_finished"]

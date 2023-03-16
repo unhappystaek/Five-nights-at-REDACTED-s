@@ -3,7 +3,7 @@ extends Node
 
 var rand_generate = RandomNumberGenerator.new()
 
-var FuzowLocation: String = "doorLeft"
+var FuzowLocation: String = "stage"
 var LichuLocation: String = "stage"
 var TerpilLocation: String = "stage"
 var WierStage: float = 0
@@ -12,6 +12,9 @@ var _timer_Fuzow = null
 var _timer_Terpil = null
 var _timer_Lichu = null
 var _timer_Wier = null
+
+var _timer_Fuzow_ready = null
+var _timer_Terpil_ready = null
 
 var Frand: int
 var Wrand: int
@@ -74,7 +77,7 @@ func _ready():
 # cams: 1a - stage, 1b - dining, 7 - wc, 6 - kitchen, 5 - backstage, 1c - cave,
 # 3 - closet, 2a - leftCorridor, 2b - leftDetector, 4a - rightCorridor, 4b - rightDetector
 
-#doorLeft, doorRight
+#doorLeft, doorRight, ready (to jumpscare)
 
 func _process(delta):
 	isBlackout = get_parent().get_parent().isBlackout
@@ -123,10 +126,20 @@ func _on_Timer_Fuzow_timeout():
 				FuzowLocation = "closet"
 		elif FuzowLocation == "doorLeft":
 			if get_parent().get_parent().get_child(0).get_child(4).doorOpen == true:
-				pass
+				FuzowLocation = "ready"
+				if get_parent().get_parent().get_child(0).get_child(0).cam_up == true:
+					_timer_Fuzow_ready = Timer.new()
+					add_child(_timer_Fuzow_ready)
+					
+					_timer_Fuzow_ready.connect("timeout", self, "_on_Timer_Fuzow_ready_timeout")
+					_timer_Fuzow_ready.set_wait_time(20)
+					_timer_Fuzow_ready.set_one_shot(true) # Make sure it loops
+					_timer_Fuzow_ready.start()
+				else:
+					get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
 			else:
-				pass
-			#tbc
+				FuzowLocation = "dining"
+
 	
 	
 func _on_Timer_Wier_timeout():
@@ -184,3 +197,5 @@ func _on_Timer_Terpil_timeout():
 	
 	
 
+func _on_Timer_Fuzow_ready_timeout():
+	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
