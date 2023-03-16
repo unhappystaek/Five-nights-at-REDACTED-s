@@ -32,8 +32,14 @@ func _process(delta):
 		
 	if get_parent().get_parent().isBlackout == true:
 		$Cambook/rotation_axis.rotation_degrees.x = -200
-	
 		
+	if cam_up == false and get_parent().get_parent().get_child(1).get_child(0).FuzowLocation == "ready":
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
+		
+	if cam_up == false and get_parent().get_parent().get_child(1).get_child(0).TerpilLocation == "ready":
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/terpilJumpscare.tscn")
+	
+	
 func _on_CamArrows_pressed():
 	if cam_up == true:
 		cam_up =false

@@ -135,8 +135,6 @@ func _on_Timer_Fuzow_timeout():
 					_timer_Fuzow_ready.set_wait_time(20)
 					_timer_Fuzow_ready.set_one_shot(true) # Make sure it loops
 					_timer_Fuzow_ready.start()
-				else:
-					get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
 			else:
 				FuzowLocation = "dining"
 
@@ -191,9 +189,17 @@ func _on_Timer_Terpil_timeout():
 				TerpilLocation = "doorRight"
 		elif TerpilLocation == "doorRight":
 			if get_parent().get_parent().get_child(0).get_child(3).doorOpen == true:
-				pass
+				FuzowLocation = "ready"
+				if get_parent().get_parent().get_child(0).get_child(0).cam_up == true:
+					_timer_Terpil_ready = Timer.new()
+					add_child(_timer_Fuzow_ready)
+					
+					_timer_Fuzow_ready.connect("timeout", self, "_on_Timer_Fuzow_ready_timeout")
+					_timer_Fuzow_ready.set_wait_time(20)
+					_timer_Fuzow_ready.set_one_shot(true) # Make sure it loops
+					_timer_Fuzow_ready.start()
 			else:
-				pass
+				FuzowLocation = "dining"
 	
 	
 
