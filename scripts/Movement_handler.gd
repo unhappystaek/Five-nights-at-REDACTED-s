@@ -5,7 +5,7 @@ var rand_generate = RandomNumberGenerator.new()
 
 var FuzowLocation: String = "stage"
 var LichuLocation: String = "stage"
-var TerpilLocation: String = "stage"
+var TerpilLocation: String = "doorRight"
 var WierStage: float = 0
 
 var _timer_Fuzow = null
@@ -85,6 +85,7 @@ func _process(delta):
 		time += delta
 	if time >= timer_goal:
 		Wier_locked = false
+		
 	
 func _on_Timer_Fuzow_timeout():
 	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
@@ -189,19 +190,22 @@ func _on_Timer_Terpil_timeout():
 				TerpilLocation = "doorRight"
 		elif TerpilLocation == "doorRight":
 			if get_parent().get_parent().get_child(0).get_child(3).doorOpen == true:
-				FuzowLocation = "ready"
+				TerpilLocation = "ready"
 				if get_parent().get_parent().get_child(0).get_child(0).cam_up == true:
 					_timer_Terpil_ready = Timer.new()
-					add_child(_timer_Fuzow_ready)
+					add_child(_timer_Terpil_ready)
 					
-					_timer_Fuzow_ready.connect("timeout", self, "_on_Timer_Fuzow_ready_timeout")
-					_timer_Fuzow_ready.set_wait_time(20)
-					_timer_Fuzow_ready.set_one_shot(true) # Make sure it loops
-					_timer_Fuzow_ready.start()
+					_timer_Terpil_ready.connect("timeout", self, "_on_Timer_Terpil_ready_timeout")
+					_timer_Terpil_ready.set_wait_time(20)
+					_timer_Terpil_ready.set_one_shot(true) # Make sure it loops
+					_timer_Terpil_ready.start()
 			else:
-				FuzowLocation = "dining"
+				TerpilLocation = "dining"
 	
 	
 
 func _on_Timer_Fuzow_ready_timeout():
 	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
+	
+func _on_Timer_Terpil_ready_timeout():
+	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/terpilJumpscare.tscn")
