@@ -19,6 +19,9 @@ func _process(delta):
 		power_usage += 1
 	if ($Room/main_camera.cam_up == true):
 		power_usage += 1
+	if ($Room/Door_left.lightOn == true):
+		power_usage +=1
+		
 	
 	if (power_usage == 1):
 		$Room/main_camera/UI/Control/ColorRect2.color = Color(0, 0, 0, 0)
@@ -120,3 +123,6 @@ func _on_Timer_hour_timeout():
 	else:
 		$Room/main_camera/UI/Time_label.text = str(hour) + " AM"
 	
+
+
+

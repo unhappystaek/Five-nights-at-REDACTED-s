@@ -3,7 +3,7 @@ extends Node
 
 var rand_generate = RandomNumberGenerator.new()
 
-var FuzowLocation: String = "stage"
+var FuzowLocation: String = "doorLeft"
 var LichuLocation: String = "stage"
 var TerpilLocation: String = "stage"
 var WierStage: float = 0
