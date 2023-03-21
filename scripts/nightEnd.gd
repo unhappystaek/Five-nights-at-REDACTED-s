@@ -10,7 +10,7 @@ func _ready():
 	add_child(_timer)
 
 	_timer.connect("timeout", self, "_on_timer_timeout")
-	_timer.set_wait_time(1.5)
+	_timer.set_wait_time(2)
 	_timer.set_one_shot(true) # Make sure it loops
 	_timer.start()
 	
@@ -24,14 +24,14 @@ func _on_timer_timeout():
 	add_child(_timer2)
 
 	_timer2.connect("timeout", self, "_on_timer2_timeout")
-	_timer2.set_wait_time(2.4)
+	_timer2.set_wait_time(9.0)
 	_timer2.set_one_shot(true) # Make sure it loops
 	_timer2.start()
 
 	
 func _on_timer2_timeout():
 	if SaveSystem.night == 5:
-		pass
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/night5end.tscn")
 	else:
 		if SaveSystem.night != 7:
 			SaveSystem.night += 1

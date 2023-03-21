@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/five-nights-at-freddys-6-am.mp3-a11b11da21d16d78df8c4fbce78e56d0.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/five-nights-at-freddys-6-am.mp3"
+dest_files=[ "res://.import/five-nights-at-freddys-6-am.mp3-a11b11da21d16d78df8c4fbce78e56d0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

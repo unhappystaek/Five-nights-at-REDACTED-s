@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://textures_and_assets/Jumpscares/pass.jpg" type="Texture" id=1]
+[ext_resource path="res://scripts/night5end.gd" type="Script" id=2]
+[ext_resource path="res://things/sounds/Fireworks Finale-SoundBible.com-370363529.mp3" type="AudioStream" id=3]
+
+[node name="night5end" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="hurray" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.811765, 0.811765, 0.811765, 1 )
+
+[node name="pass" type="TextureRect" parent="."]
+margin_left = 280.0
+margin_top = 136.0
+margin_right = 754.0
+margin_bottom = 475.0
+texture = ExtResource( 1 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Fireworks Finale-SoundBible.com-370363529.mp3-6d56fcf8c56cb955100f732b0d54a389.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/Fireworks Finale-SoundBible.com-370363529.mp3"
+dest_files=[ "res://.import/Fireworks Finale-SoundBible.com-370363529.mp3-6d56fcf8c56cb955100f732b0d54a389.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
