@@ -36,10 +36,6 @@ func _ready():
 	_timer_hour.start()
 
 
-
-func _process(delta):
-	pass
-
 func _on_Timer_hour_timeout():
 	if n == 1:
 		if get_parent().hour == 0:

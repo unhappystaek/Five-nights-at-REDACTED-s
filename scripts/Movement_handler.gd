@@ -5,7 +5,7 @@ var rand_generate = RandomNumberGenerator.new()
 
 var FuzowLocation: String = "stage"
 var LichuLocation: String = "stage"
-var TerpilLocation: String = "doorRight"
+var TerpilLocation: String = "stage"
 var WierStage: float = 0
 
 var _timer_Fuzow = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=2]
+[gd_scene load_steps=89 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -38,6 +38,8 @@
 [ext_resource path="res://textures_and_assets/doors/door_lit.jpg" type="Texture" id=36]
 [ext_resource path="res://things/Light_on_left.tres" type="Animation" id=37]
 [ext_resource path="res://things/Light_on_right.tres" type="Animation" id=38]
+[ext_resource path="res://textures_and_assets/camera_ui/map.png" type="Texture" id=39]
+[ext_resource path="res://textures_and_assets/camera_ui/scene/scene-ftl.jpg" type="Texture" id=40]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1203,11 +1205,6 @@ margin_bottom = 600.0
 [node name="Cam_photo" type="CanvasLayer" parent="Room/main_camera/UI/Cams"]
 layer = -3
 
-[node name="ColorRect" type="ColorRect" parent="Room/main_camera/UI/Cams/Cam_photo"]
-margin_right = 1024.0
-margin_bottom = 600.0
-color = Color( 0.356863, 0.352941, 0.352941, 1 )
-
 [node name="Label" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo"]
 margin_left = 320.0
 margin_right = 1637.0
@@ -1216,6 +1213,20 @@ rect_scale = Vector2( 0.3, 0.3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 50 )
 text = "CamBook Pro"
+
+[node name="map" type="TextureRect" parent="Room/main_camera/UI/Cams/Cam_photo"]
+margin_left = 520.0
+margin_top = 320.0
+margin_right = 1184.0
+margin_bottom = 600.0
+texture = ExtResource( 39 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Room/main_camera/UI/Cams/Cam_photo"]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 40 )
+expand = true
 
 [node name="Cambook" type="Spatial" parent="Room/main_camera"]
 
