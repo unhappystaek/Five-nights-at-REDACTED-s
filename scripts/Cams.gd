@@ -60,6 +60,23 @@ func _on_mapButton_1b_pressed():
 		CamCode += 2
 	if LichuLocation == "dining":
 		CamCode += 1
+		
+	if CamCode == 1:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/dining/dining-l.jpg")
+	elif CamCode == 2:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/dining/dining-f.jpg")
+	elif CamCode == 3:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/dining/dining-fl.jpg")
+	elif CamCode == 4:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/dining/dining-t.jpg")
+	elif CamCode == 5:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/dining/dining-tl.jpg")
+	elif CamCode == 6:
+		$Cam_photo/camView.texture = ResourceLoader.load('res://textures_and_assets/camera_ui/dining/dining-ft.jpg')
+	elif CamCode == 7:
+		$Cam_photo/camView.texture = ResourceLoader.load('res://textures_and_assets/camera_ui/dining/dining-ftl.jpg')
+	elif CamCode == 0:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/dining/dining-empty.jpg")
 
 
 func _on_mapButton_2a_pressed():
