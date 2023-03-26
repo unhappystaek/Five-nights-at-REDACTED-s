@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -41,6 +41,7 @@
 [ext_resource path="res://textures_and_assets/camera_ui/map.png" type="Texture" id=39]
 [ext_resource path="res://textures_and_assets/camera_ui/scene/scene-ftl.jpg" type="Texture" id=40]
 [ext_resource path="res://things/Map_button_style.tres" type="StyleBox" id=41]
+[ext_resource path="res://scripts/Cams.gd" type="Script" id=42]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1200,6 +1201,7 @@ color = Color( 0.823529, 0, 0, 1 )
 [node name="Cams" type="Control" parent="Room/main_camera/UI"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 42 )
 
 [node name="Cam_view" type="CanvasLayer" parent="Room/main_camera/UI/Cams"]
 layer = -2
@@ -1213,7 +1215,7 @@ mouse_filter = 2
 [node name="Cam_photo" type="CanvasLayer" parent="Room/main_camera/UI/Cams"]
 layer = -3
 
-[node name="TextureRect" type="TextureRect" parent="Room/main_camera/UI/Cams/Cam_photo"]
+[node name="camView" type="TextureRect" parent="Room/main_camera/UI/Cams/Cam_photo"]
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
@@ -1787,6 +1789,18 @@ script = ExtResource( 29 )
 script = ExtResource( 30 )
 
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera/UI/Cams" method="_on_CamArrows_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_1a" to="Room/main_camera/UI/Cams" method="_on_mapButton_1a_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_1b" to="Room/main_camera/UI/Cams" method="_on_mapButton_1b_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_2a" to="Room/main_camera/UI/Cams" method="_on_mapButton_2a_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_2b" to="Room/main_camera/UI/Cams" method="_on_mapButton_2b_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_4a" to="Room/main_camera/UI/Cams" method="_on_mapButton_4a_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_4b" to="Room/main_camera/UI/Cams" method="_on_mapButton_4b_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_1c" to="Room/main_camera/UI/Cams" method="_on_mapButton_1c_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_5" to="Room/main_camera/UI/Cams" method="_on_mapButton_5_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_6" to="Room/main_camera/UI/Cams" method="_on_mapButton_6_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_7" to="Room/main_camera/UI/Cams" method="_on_mapButton_7_pressed"]
+[connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_3" to="Room/main_camera/UI/Cams" method="_on_mapButton_3_pressed"]
 [connection signal="input_event" from="Room/Door_right/Buttons/button_door_right" to="Room/Door_right" method="_on_button_door_right_input_event"]
 [connection signal="input_event" from="Room/Door_right/Buttons/button_light" to="Room/Door_right" method="_on_button_light_input_event"]
 [connection signal="animation_finished" from="Room/Door_right/Door_close_right" to="Room/Door_right" method="_on_Door_close_right_animation_finished"]

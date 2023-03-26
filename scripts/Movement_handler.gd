@@ -88,9 +88,11 @@ func _process(delta):
 		
 	
 func _on_Timer_Fuzow_timeout():
-	if get_parent().FuzowLevel >= randi()%20+1 and isBlackout == false:
+	Frand = randi()%20+1
+	if get_parent().FuzowLevel >= Frand and isBlackout == false:
 		if FuzowLocation == "stage":
 			Frand = randi()%2+1
+			print_debug(Frand)
 			if Frand == 2:
 				FuzowLocation = "dining"
 			else:
@@ -142,7 +144,8 @@ func _on_Timer_Fuzow_timeout():
 	
 	
 func _on_Timer_Wier_timeout():
-	if get_parent().WierLevel >= randi()%20+1 and isBlackout == false and Wier_locked == false:
+	Wrand = randi()%20+1
+	if get_parent().WierLevel >= Wrand and isBlackout == false and Wier_locked == false:
 		if WierStage < 3:
 			WierStage += 1
 		elif WierStage == 3:
@@ -150,12 +153,12 @@ func _on_Timer_Wier_timeout():
 	
 	
 func _on_Timer_Lichu_timeout():
-	if get_parent().LichuLevel >= randi()%20+1 and isBlackout == false:
 		pass
 	
 	
 func _on_Timer_Terpil_timeout():
-	if get_parent().TerpilLevel >= randi()%20+1 and isBlackout == false:
+	Trand = randi()%20+1
+	if get_parent().TerpilLevel >= Trand and isBlackout == false:
 		if TerpilLocation == "stage":
 			TerpilLocation = "dining"
 		elif TerpilLocation == "dining":

@@ -34,6 +34,8 @@ func _ready():
 	_timer_hour.set_wait_time(85.1)
 	_timer_hour.set_one_shot(false) # Make sure it loops
 	_timer_hour.start()
+	
+	_on_Timer_hour_timeout()
 
 
 func _on_Timer_hour_timeout():
