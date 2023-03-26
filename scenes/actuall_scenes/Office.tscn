@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -94,6 +94,14 @@ shader_param/vignette_opacity = 0.5
 [sub_resource type="DynamicFont" id=50]
 size = 200
 outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=69]
+size = 42
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=70]
+size = 42
 font_data = ExtResource( 22 )
 
 [sub_resource type="DynamicFont" id=67]
@@ -1230,6 +1238,138 @@ rect_scale = Vector2( 0.3, 0.3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 50 )
 text = "CamBook Pro"
+
+[node name="detectorLeft" type="Control" parent="Room/main_camera/UI/Cams/Cam_photo"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Room/main_camera/UI/Cams/Cam_photo/detectorLeft"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[node name="Label" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorLeft"]
+margin_left = 144.0
+margin_top = 32.0
+margin_right = 881.0
+margin_bottom = 176.0
+custom_fonts/font = SubResource( 69 )
+text = "Retard wave detector:
+Left Corridor"
+align = 1
+
+[node name="safe" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorLeft"]
+visible = false
+margin_left = 144.0
+margin_top = 216.0
+margin_right = 881.0
+margin_bottom = 360.0
+custom_colors/font_color = Color( 0.054902, 1, 0, 1 )
+custom_fonts/font = SubResource( 69 )
+text = "-No Retards Detected-"
+align = 1
+
+[node name="euclid" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorLeft"]
+visible = false
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 1012.0
+margin_bottom = 336.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 70 )
+text = "Presence of retards detected nearby
+ - exercise caution -"
+align = 1
+
+[node name="keter" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorLeft"]
+visible = false
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 1012.0
+margin_bottom = 336.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 70 )
+text = "Retard Detected!
+-exercise absolute caution-"
+align = 1
+
+[node name="thaumiel" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorLeft"]
+visible = false
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 1012.0
+margin_bottom = 336.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 70 )
+text = "Retard detected in office room
+!!!please evacuate immediately!!!"
+align = 1
+
+[node name="detectorRight" type="Control" parent="Room/main_camera/UI/Cams/Cam_photo"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Room/main_camera/UI/Cams/Cam_photo/detectorRight"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[node name="Label" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorRight"]
+margin_left = 144.0
+margin_top = 32.0
+margin_right = 881.0
+margin_bottom = 176.0
+custom_fonts/font = SubResource( 69 )
+text = "Retard wave detector:
+Right Corridor"
+align = 1
+
+[node name="safe" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorRight"]
+visible = false
+margin_left = 144.0
+margin_top = 216.0
+margin_right = 881.0
+margin_bottom = 360.0
+custom_colors/font_color = Color( 0.054902, 1, 0, 1 )
+custom_fonts/font = SubResource( 69 )
+text = "-No Retards Detected-"
+align = 1
+
+[node name="euclid" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorRight"]
+visible = false
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 1012.0
+margin_bottom = 336.0
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+custom_fonts/font = SubResource( 70 )
+text = "Presence of retards detected nearby
+ - exercise caution -"
+align = 1
+
+[node name="keter" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorRight"]
+visible = false
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 1012.0
+margin_bottom = 336.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 70 )
+text = "Retard Detected!
+-exercise absolute caution-"
+align = 1
+
+[node name="thaumiel" type="Label" parent="Room/main_camera/UI/Cams/Cam_photo/detectorRight"]
+visible = false
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 1012.0
+margin_bottom = 336.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 70 )
+text = "Retard detected in office room
+!!!please evacuate immediately!!!"
+align = 1
 
 [node name="map" type="TextureRect" parent="Room/main_camera/UI/Cams/Cam_photo"]
 margin_left = 520.0

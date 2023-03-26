@@ -24,6 +24,8 @@ func _process(delta):
 	# 1-lichu, 2-fuzow, 4-terpil, 8-wier
 
 func _on_mapButton_1a_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "1a"
 	CamCode = 0
 	if TerpilLocation == "stage":
@@ -52,6 +54,8 @@ func _on_mapButton_1a_pressed():
 
 
 func _on_mapButton_1b_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "1b"
 	CamCode = 0
 	if TerpilLocation == "dining":
@@ -80,6 +84,8 @@ func _on_mapButton_1b_pressed():
 
 
 func _on_mapButton_2a_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "2a"
 	if FuzowLocation == "leftCorridor":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/leftCorridor-f.jpg")
@@ -89,34 +95,69 @@ func _on_mapButton_2a_pressed():
 
 func _on_mapButton_2b_pressed():
 	lastCam = "2b"
+	$Cam_photo/detectorLeft.visible = true
+	$Cam_photo/detectorRight.visible = false
 	if FuzowLocation == "leftDetector":
-		pass
+		$Cam_photo/detectorLeft/keter.visible = true
+		$Cam_photo/detectorLeft/euclid.visible = false
+		$Cam_photo/detectorLeft/safe.visible = false
+	elif FuzowLocation == "leftCorridor" or FuzowLocation == "doorLeft":
+		$Cam_photo/detectorLeft/keter.visible = false
+		$Cam_photo/detectorLeft/euclid.visible = true
+		$Cam_photo/detectorLeft/safe.visible = false
+	elif FuzowLocation == "ready":
+		$Cam_photo/detectorLeft/keter.visible = false
+		$Cam_photo/detectorLeft/euclid.visible = false
+		$Cam_photo/detectorLeft/safe.visible = false
+		$Cam_photo/detectorLeft/thaumiel.visible = true
+		$Cam_photo/detectorLeft/ColorRect.color = Color(255, 0, 0, 255)
+	else:
+		$Cam_photo/detectorLeft/keter.visible = false
+		$Cam_photo/detectorLeft/euclid.visible = false
+		$Cam_photo/detectorLeft/safe.visible = true
 
 
 func _on_mapButton_4a_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "4a"
-	CamCode = 0
-	if TerpilLocation == "rightCorridor":
-		CamCode += 4
-	if LichuLocation == "rightCorridor":
-		CamCode += 1
+
 
 
 func _on_mapButton_4b_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = true
 	lastCam = "4b"
-	CamCode = 0
-	if TerpilLocation == "rightDetector":
-		CamCode += 4
-	if LichuLocation == "rightDetector":
-		CamCode += 1
+	if TerpilLocation == "rightDetector" or LichuLocation == "rightDetector":
+		$Cam_photo/detectorRight/keter.visible = true
+		$Cam_photo/detectorRight/euclid.visible = false
+		$Cam_photo/detectorRight/safe.visible = false
+	elif TerpilLocation == "rightCorridor" or LichuLocation == "doorRight" or TerpilLocation == "doorRight" or LichuLocation == "rightCorridor":
+		$Cam_photo/detectorRight/keter.visible = false
+		$Cam_photo/detectorRight/euclid.visible = true
+		$Cam_photo/detectorRight/safe.visible = false
+	elif TerpilLocation == "ready" or LichuLocation == "ready":
+		$Cam_photo/detectorRight/keter.visible = false
+		$Cam_photo/detectorRight/euclid.visible = false
+		$Cam_photo/detectorRight/safe.visible = false
+		$Cam_photo/detectorRight/thaumiel.visible = true
+		$Cam_photo/detectorRight/ColorRect.color = Color(255, 0, 0, 255)
+	else:
+		$Cam_photo/detectorRight/keter.visible = false
+		$Cam_photo/detectorRight/euclid.visible = false
+		$Cam_photo/detectorRight/safe.visible = true
 
 
 func _on_mapButton_1c_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "1c"
 	pass # Replace with function body.
 
 
 func _on_mapButton_5_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "5"
 	if FuzowLocation == "backstage":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/backstage-f.jpg")
@@ -125,6 +166,8 @@ func _on_mapButton_5_pressed():
 
 
 func _on_mapButton_6_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "6"
 	if TerpilLocation == "kitchen":
 		pass
@@ -132,6 +175,8 @@ func _on_mapButton_6_pressed():
 
 
 func _on_mapButton_7_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "7"
 	CamCode = 0
 	if TerpilLocation == "wc":
@@ -141,6 +186,8 @@ func _on_mapButton_7_pressed():
 
 
 func _on_mapButton_3_pressed():
+	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/detectorRight.visible = false
 	lastCam = "3"
 	if FuzowLocation == "closet":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/closet-f.jpg")
