@@ -82,7 +82,9 @@ func _on_mapButton_1b_pressed():
 func _on_mapButton_2a_pressed():
 	lastCam = "2a"
 	if FuzowLocation == "leftCorridor":
-		pass
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/leftCorridor-f.jpg")
+	else:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/leftCorridor-empty.jpg")
 
 
 func _on_mapButton_2b_pressed():
@@ -117,7 +119,9 @@ func _on_mapButton_1c_pressed():
 func _on_mapButton_5_pressed():
 	lastCam = "5"
 	if FuzowLocation == "backstage":
-		pass
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/backstage-f.jpg")
+	else:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/backstage-empty.jpg")
 
 
 func _on_mapButton_6_pressed():
@@ -139,7 +143,9 @@ func _on_mapButton_7_pressed():
 func _on_mapButton_3_pressed():
 	lastCam = "3"
 	if FuzowLocation == "closet":
-		pass
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/closet-f.jpg")
+	else:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/closet-empty.jpg")
 
 
 func _on_CamArrows_pressed():
