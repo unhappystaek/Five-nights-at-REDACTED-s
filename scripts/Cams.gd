@@ -121,6 +121,21 @@ func _on_mapButton_4a_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	lastCam = "4a"
+	CamCode = 0
+	if TerpilLocation == "rightCorridor":
+		CamCode += 4
+	if LichuLocation == "rightCorridor":
+		CamCode += 1
+		
+	if CamCode == 0:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/rightCorridor-empty.jpg")
+	elif CamCode == 1:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/rightCorridor-l.jpg")
+	elif CamCode == 4:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/rightCorridor-t.jpg")
+	elif CamCode == 5:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/rightCorridor-lt.jpg")
+	
 
 
 
@@ -169,7 +184,10 @@ func _on_mapButton_6_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	lastCam = "6"
+	$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/kitchen.png")
 	if TerpilLocation == "kitchen":
+		pass
+	else:
 		pass
 
 
