@@ -7,6 +7,11 @@ var WierStage: float = 0
 var CurrentView
 var CamCode: float = 7
 var lastCam: String = "1a"
+var wierWorking: bool = false
+var wierWaiting: bool = false
+
+var _timer = null
+var _timer_wait = null
 
 func _process(delta):
 	
@@ -14,6 +19,9 @@ func _process(delta):
 	FuzowLocation = get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(0).FuzowLocation
 	LichuLocation = get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(0).LichuLocation
 	WierStage = get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(0).WierStage
+	
+	if wierWaiting == true and get_parent().get_parent().get_parent().get_child(4).doorOpen == true:
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/vierJumpscare.tscn")
 	
 	
 	# cams: 1a - stage, 1b - dining, 7 - wc, 6 - kitchen, 5 - backstage, 1c - cave,
@@ -26,6 +34,7 @@ func _process(delta):
 func _on_mapButton_1a_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "1a"
 	CamCode = 0
 	if TerpilLocation == "stage":
@@ -56,6 +65,7 @@ func _on_mapButton_1a_pressed():
 func _on_mapButton_1b_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "1b"
 	CamCode = 0
 	if TerpilLocation == "dining":
@@ -86,17 +96,58 @@ func _on_mapButton_1b_pressed():
 func _on_mapButton_2a_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "2a"
 	if FuzowLocation == "leftCorridor":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/leftCorridor-f.jpg")
 	else:
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/leftCorridor-empty.jpg")
+	if WierStage == 3:
+		WierActivate()
+
+
+func WierActivate():
+	if wierWorking == false:
+		wierWorking = true
+		$Cam_photo/wierRun.visible = true
+		$Cam_photo/wierRun.play()
+		_timer = Timer.new()
+		add_child(_timer)
+		_timer.connect("timeout", self, "_on_Timer_timeout")
+		_timer.set_wait_time(1.68)
+		_timer.set_one_shot(true) # Make sure it loops
+		_timer.start()
+
+
+func _on_Timer_timeout():
+	if get_parent().get_parent().get_parent().get_child(4).doorOpen == true:
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/vierJumpscare.tscn")
+	else:
+		wierWaiting = true
+		get_parent().get_parent().get_parent().get_child(4).get_child(7).play()
+		_timer_wait = Timer.new()
+		add_child(_timer_wait)
+		_timer_wait.connect("timeout", self, "_on_Timer_wait_timeout")
+		_timer_wait.set_wait_time(5)
+		_timer_wait.set_one_shot(true) # Make sure it loops
+		_timer_wait.start()
+
+
+func _on_Timer_wait_timeout():
+	print_debug("dupa")
+	get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(0).WierStage = 1
+	wierWaiting = false
+	wierWorking = false
+	$Cam_photo/wierRun.visible = false
+	$Cam_photo/wierRun.stop()
+	get_parent().get_parent().get_parent().get_child(4).get_child(7).stop()
 
 
 func _on_mapButton_2b_pressed():
 	lastCam = "2b"
 	$Cam_photo/detectorLeft.visible = true
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	if FuzowLocation == "leftDetector":
 		$Cam_photo/detectorLeft/keter.visible = true
 		$Cam_photo/detectorLeft/euclid.visible = false
@@ -120,6 +171,7 @@ func _on_mapButton_2b_pressed():
 func _on_mapButton_4a_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "4a"
 	CamCode = 0
 	if TerpilLocation == "rightCorridor":
@@ -135,12 +187,11 @@ func _on_mapButton_4a_pressed():
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/rightCorridor-t.jpg")
 	elif CamCode == 5:
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/rightCorridor-lt.jpg")
-	
-
 
 
 func _on_mapButton_4b_pressed():
 	$Cam_photo/detectorLeft.visible = false
+	$Cam_photo/wierRun.visible = false
 	$Cam_photo/detectorRight.visible = true
 	lastCam = "4b"
 	if TerpilLocation == "rightDetector" or LichuLocation == "rightDetector":
@@ -166,13 +217,22 @@ func _on_mapButton_4b_pressed():
 func _on_mapButton_1c_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "1c"
-	pass # Replace with function body.
+	if WierStage == 0:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/cave/wierStage0.jpg")
+	elif WierStage == 1:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/cave/wierStage1.jpg")
+	elif WierStage == 2:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/cave/wierStage2.jpg")
+	elif WierStage == 3:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/cave/wierStage3.jpg")
 
 
 func _on_mapButton_5_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "5"
 	if FuzowLocation == "backstage":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/backstage-f.jpg")
@@ -183,6 +243,7 @@ func _on_mapButton_5_pressed():
 func _on_mapButton_6_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "6"
 	$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/kitchen.png")
 	if TerpilLocation == "kitchen":
@@ -191,10 +252,10 @@ func _on_mapButton_6_pressed():
 		pass
 
 
-
 func _on_mapButton_7_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "7"
 	CamCode = 0
 	if TerpilLocation == "wc":
@@ -206,6 +267,7 @@ func _on_mapButton_7_pressed():
 func _on_mapButton_3_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Cam_photo/wierRun.visible = false
 	lastCam = "3"
 	if FuzowLocation == "closet":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/closet-f.jpg")

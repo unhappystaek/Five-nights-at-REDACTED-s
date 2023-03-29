@@ -61,7 +61,7 @@ script = ExtResource( 3 )
 position = Vector2( 512, 300 )
 scale = Vector2( 0.256, 0.266667 )
 frames = SubResource( 5 )
-frame = 31
+frame = 16
 speed_scale = 2.0
 playing = true
 
@@ -123,6 +123,7 @@ text = "Night 1"
 material = SubResource( 4 )
 margin_right = 1024.0
 margin_bottom = 600.0
+mouse_filter = 2
 
 [connection signal="pressed" from="VBoxContainer/newGame" to="." method="_on_newGame_pressed"]
 [connection signal="pressed" from="VBoxContainer/continue" to="." method="_on_continue_pressed"]

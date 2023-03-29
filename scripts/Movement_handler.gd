@@ -15,6 +15,7 @@ var _timer_Wier = null
 
 var _timer_Fuzow_ready = null
 var _timer_Terpil_ready = null
+var _timer_Wier_ready = null
 
 var Frand: int
 var Wrand: int
@@ -86,13 +87,15 @@ func _process(delta):
 	if time >= timer_goal:
 		Wier_locked = false
 		
+	if get_parent().get_parent().get_child(0).get_child(0).get_child(0).get_child(7).wierWorking == true:
+		_timer_Wier_ready.stop()
+	
 	
 func _on_Timer_Fuzow_timeout():
 	Frand = randi()%20+1
 	if get_parent().FuzowLevel >= Frand and isBlackout == false:
 		if FuzowLocation == "stage":
 			Frand = randi()%2+1
-			print_debug(Frand)
 			if Frand == 2:
 				FuzowLocation = "dining"
 			else:
@@ -140,16 +143,21 @@ func _on_Timer_Fuzow_timeout():
 					_timer_Fuzow_ready.start()
 			else:
 				FuzowLocation = "dining"
-
 	
 	
 func _on_Timer_Wier_timeout():
 	Wrand = randi()%20+1
-	if get_parent().WierLevel >= Wrand and isBlackout == false and Wier_locked == false:
+	if get_parent().WierLevel >= Wrand and isBlackout == false and Wier_locked == false and cam_up == false:
 		if WierStage < 3:
 			WierStage += 1
 		elif WierStage == 3:
-			pass
+			_timer_Wier_ready = Timer.new()
+			add_child(_timer_Wier_ready)
+			
+			_timer_Wier_ready.connect("timeout", self, "_on_Timer_Wier_ready_timeout")
+			_timer_Wier_ready.set_wait_time(25)
+			_timer_Wier_ready.set_one_shot(true) # Make sure it loops
+			_timer_Wier_ready.start()
 	
 	
 func _on_Timer_Lichu_timeout():
@@ -206,9 +214,14 @@ func _on_Timer_Terpil_timeout():
 				TerpilLocation = "dining"
 	
 	
-
 func _on_Timer_Fuzow_ready_timeout():
 	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
 	
+	
 func _on_Timer_Terpil_ready_timeout():
 	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/terpilJumpscare.tscn")
+	
+	
+func _on_Timer_Wier_ready_timeout():
+	if WierStage == 3:
+		get_parent().get_parent().get_child(0).get_child(0).get_child(0).get_child(7).WierActivate()
