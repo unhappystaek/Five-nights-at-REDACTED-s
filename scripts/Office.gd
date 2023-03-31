@@ -24,32 +24,22 @@ func _process(delta):
 		
 	
 	if (power_usage == 1):
-		$Room/main_camera/UI/Control/ColorRect2.color = Color(0, 0, 0, 0)
-		$Room/main_camera/UI/Control/ColorRect3.color = Color(0, 0, 0, 0)
-		$Room/main_camera/UI/Control/ColorRect4.color = Color(0, 0, 0, 0)
-		$Room/main_camera/UI/Control/ColorRect5.color = Color(0, 0, 0, 0)
+		$Room/main_camera/UI/Control/ColorRect2.visible = false
+		$Room/main_camera/UI/Control/ColorRect3.visible = false
+		$Room/main_camera/UI/Control/ColorRect4.visible = false
 	elif (power_usage == 2):
-		$Room/main_camera/UI/Control/ColorRect2.color = Color(0.521569, 1, 0)
-		$Room/main_camera/UI/Control/ColorRect3.color = Color(0, 0, 0, 0)
-		$Room/main_camera/UI/Control/ColorRect4.color = Color(0, 0, 0, 0)
-		$Room/main_camera/UI/Control/ColorRect5.color = Color(0, 0, 0, 0)
-		
+		$Room/main_camera/UI/Control/ColorRect2.visible = true
+		$Room/main_camera/UI/Control/ColorRect3.visible = false
+		$Room/main_camera/UI/Control/ColorRect4.visible = false
 	elif (power_usage == 3):
-		$Room/main_camera/UI/Control/ColorRect2.color = Color(0.521569, 1, 0)
-		$Room/main_camera/UI/Control/ColorRect3.color = Color(0.862745, 0.807843, 0)
-		$Room/main_camera/UI/Control/ColorRect4.color = Color(0, 0, 0, 0)
-		$Room/main_camera/UI/Control/ColorRect5.color = Color(0, 0, 0, 0)
+		$Room/main_camera/UI/Control/ColorRect2.visible = true
+		$Room/main_camera/UI/Control/ColorRect3.visible = true
+		$Room/main_camera/UI/Control/ColorRect4.visible = false
 	elif (power_usage == 4):
-		$Room/main_camera/UI/Control/ColorRect2.color = Color(0.521569, 1, 0)
-		$Room/main_camera/UI/Control/ColorRect3.color = Color(0.862745, 0.807843, 0)
-		$Room/main_camera/UI/Control/ColorRect4.color = Color(0.823529, 0.270588, 0)
-		$Room/main_camera/UI/Control/ColorRect5.color = Color(0, 0, 0, 0)
-	elif (power_usage == 2):
-		$Room/main_camera/UI/Control/ColorRect2.color = Color(0.521569, 1, 0)
-		$Room/main_camera/UI/Control/ColorRect3.color = Color(0.862745, 0.807843, 0)
-		$Room/main_camera/UI/Control/ColorRect4.color = Color(0.823529, 0.270588, 0)
-		$Room/main_camera/UI/Control/ColorRect5.color = Color(0.823529, 0, 0)
-		
+		$Room/main_camera/UI/Control/ColorRect2.visible = true
+		$Room/main_camera/UI/Control/ColorRect3.visible = true
+		$Room/main_camera/UI/Control/ColorRect4.visible = true
+
 	power_display = power
 	
 	
