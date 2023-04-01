@@ -10,6 +10,7 @@ var hour: float = 0
 var isBlackout: bool = false
 
 
+
 func _process(delta):
 	
 	power_usage = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -44,6 +44,7 @@
 [ext_resource path="res://scripts/Cams.gd" type="Script" id=42]
 [ext_resource path="res://textures_and_assets/camera_ui/left/wierRun.ogv" type="VideoStream" id=43]
 [ext_resource path="res://things/sounds/koles-git-nie-spuszcze-ci-wpierdol.mp3" type="AudioStream" id=44]
+[ext_resource path="res://scripts/Esc_menu.gd" type="Script" id=45]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1091,8 +1092,24 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=71]
-size = 50
+size = 43
 font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=72]
+size = 23
+font_data = ExtResource( 22 )
+
+[sub_resource type="DynamicFont" id=73]
+size = 65
+font_data = ExtResource( 22 )
+
+[sub_resource type="StyleBoxFlat" id=74]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
 
 [node name="Office" type="Spatial"]
 script = ExtResource( 23 )
@@ -1108,7 +1125,6 @@ far = 20.0
 script = ExtResource( 26 )
 
 [node name="UI" type="Control" parent="Room/main_camera"]
-visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
@@ -1215,7 +1231,6 @@ script = ExtResource( 42 )
 
 [node name="Cam_view" type="CanvasLayer" parent="Room/main_camera/UI/Cams"]
 layer = -2
-visible = false
 
 [node name="VHS_shader" type="ColorRect" parent="Room/main_camera/UI/Cams/Cam_view"]
 material = SubResource( 49 )
@@ -1225,7 +1240,6 @@ mouse_filter = 2
 
 [node name="Cam_photo" type="CanvasLayer" parent="Room/main_camera/UI/Cams"]
 layer = -3
-visible = false
 
 [node name="camView" type="TextureRect" parent="Room/main_camera/UI/Cams/Cam_photo"]
 margin_right = 1024.0
@@ -1945,10 +1959,12 @@ script = ExtResource( 29 )
 script = ExtResource( 30 )
 
 [node name="Esc_menu" type="Control" parent="."]
+visible = false
 margin_left = 192.0
 margin_top = 128.0
 margin_right = 832.0
 margin_bottom = 472.0
+script = ExtResource( 45 )
 
 [node name="ColorRect" type="ColorRect" parent="Esc_menu"]
 margin_right = 640.0
@@ -1956,12 +1972,58 @@ margin_bottom = 344.0
 color = Color( 0, 0, 0, 0.894118 )
 
 [node name="Label" type="Label" parent="Esc_menu"]
-margin_left = 240.0
+margin_left = 64.0
 margin_top = 8.0
-margin_right = 387.0
-margin_bottom = 68.0
+margin_right = 576.0
+margin_bottom = 146.0
 custom_fonts/font = SubResource( 71 )
-text = "MENU"
+text = "Are you sure you want to exit the game?"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Label2" type="Label" parent="Esc_menu"]
+margin_left = 80.0
+margin_top = 128.0
+margin_right = 592.0
+margin_bottom = 184.0
+custom_fonts/font = SubResource( 72 )
+text = "Progress made during this night will be lost"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="yes" type="Button" parent="Esc_menu"]
+margin_left = 56.0
+margin_top = 208.0
+margin_right = 280.0
+margin_bottom = 296.0
+focus_neighbour_left = NodePath("../no")
+focus_neighbour_top = NodePath("../no")
+focus_neighbour_right = NodePath("../no")
+focus_neighbour_bottom = NodePath("../no")
+focus_next = NodePath("../no")
+focus_previous = NodePath("../no")
+custom_fonts/font = SubResource( 73 )
+custom_styles/focus = SubResource( 74 )
+text = "Yes"
+flat = true
+
+[node name="no" type="Button" parent="Esc_menu"]
+margin_left = 360.0
+margin_top = 208.0
+margin_right = 584.0
+margin_bottom = 296.0
+focus_neighbour_left = NodePath("../yes")
+focus_neighbour_top = NodePath("../yes")
+focus_neighbour_right = NodePath("../yes")
+focus_neighbour_bottom = NodePath("../yes")
+focus_next = NodePath("../yes")
+focus_previous = NodePath("../yes")
+custom_fonts/font = SubResource( 73 )
+custom_styles/focus = SubResource( 74 )
+text = "No"
+flat = true
 
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera/UI/Cams" method="_on_CamArrows_pressed"]
@@ -1985,3 +2047,5 @@ text = "MENU"
 [connection signal="input_event" from="Room/Door_left/Buttons/button_door_left" to="Room/Door_left" method="_on_button_door_left_input_event"]
 [connection signal="input_event" from="Room/Door_left/Buttons/button_light" to="Room/Door_left" method="_on_button_light_input_event"]
 [connection signal="input_event" from="Room/Front_area/phone/Area" to="Room/Front_area" method="_on_Area_input_event"]
+[connection signal="pressed" from="Esc_menu/yes" to="Esc_menu" method="_on_yes_pressed"]
+[connection signal="pressed" from="Esc_menu/no" to="Esc_menu" method="_on_no_pressed"]
