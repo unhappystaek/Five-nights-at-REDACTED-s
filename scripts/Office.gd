@@ -43,9 +43,6 @@ func _process(delta):
 
 	power_display = power
 	
-	
-	
-
 func _ready():
 	$Room/Front_area/Fan/Buzzing_sound.playing = true
 	
@@ -65,9 +62,6 @@ func _ready():
 	_timer_hour.set_one_shot(false) # Make sure it loops
 	_timer_hour.start()
 	
-	
-
-
 func _on_Timer_timeout():
 	power_display = stepify(power, 1)
 	if (power_display != 0):

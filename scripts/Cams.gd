@@ -9,6 +9,8 @@ var CamCode: float = 7
 var lastCam: String = "1a"
 var wierWorking: bool = false
 var wierWaiting: bool = false
+var isBlackout: bool = false
+var lichuPowerTake: float = 1
 
 var _timer = null
 var _timer_wait = null
@@ -19,8 +21,10 @@ func _process(delta):
 	FuzowLocation = get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(0).FuzowLocation
 	LichuLocation = get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(0).LichuLocation
 	WierStage = get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(0).WierStage
+	isBlackout = get_parent().get_parent().get_parent().get_parent().isBlackout
 	
-	if wierWaiting == true and get_parent().get_parent().get_parent().get_child(4).doorOpen == true:
+	
+	if wierWaiting == true and get_parent().get_parent().get_parent().get_child(4).doorOpen == true and isBlackout == false:
 		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/vierJumpscare.tscn")
 	
 	
@@ -107,7 +111,7 @@ func _on_mapButton_2a_pressed():
 
 
 func WierActivate():
-	if wierWorking == false:
+	if wierWorking == false and isBlackout == false:
 		wierWorking = true
 		$Cam_photo/wierRun.visible = true
 		$Cam_photo/wierRun.play()
@@ -120,11 +124,13 @@ func WierActivate():
 
 
 func _on_Timer_timeout():
-	if get_parent().get_parent().get_parent().get_child(4).doorOpen == true:
+	if get_parent().get_parent().get_parent().get_child(4).doorOpen == true and isBlackout == false:
 		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/vierJumpscare.tscn")
-	else:
+	elif isBlackout == false:
 		wierWaiting = true
 		get_parent().get_parent().get_parent().get_child(4).get_child(7).play()
+		get_parent().get_parent().get_parent().get_parent().power -= lichuPowerTake
+		lichuPowerTake += 5
 		_timer_wait = Timer.new()
 		add_child(_timer_wait)
 		_timer_wait.connect("timeout", self, "_on_Timer_wait_timeout")
@@ -134,7 +140,6 @@ func _on_Timer_timeout():
 
 
 func _on_Timer_wait_timeout():
-	print_debug("dupa")
 	get_parent().get_parent().get_parent().get_parent().get_child(1).get_child(0).WierStage = 1
 	wierWaiting = false
 	wierWorking = false

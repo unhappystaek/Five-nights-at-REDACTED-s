@@ -16,11 +16,17 @@ var _timer_Wier = null
 var _timer_Fuzow_ready = null
 var _timer_Terpil_ready = null
 var _timer_Wier_ready = null
+var _timer_Lichu_move_ready = null
+var _timer_Lichu_ready = null
 
 var Frand: int
 var Wrand: int
 var Trand: int
 var Lrand: int
+
+var lichuCountdown: float = 15
+var lichuMoveReady: bool = false
+var lichuCamping: bool = false
 
 var time = 0
 var timer_on = false
@@ -74,6 +80,14 @@ func _ready():
 	_timer_Wier.set_wait_time(5.01)
 	_timer_Wier.set_one_shot(false) # Make sure it loops
 	_timer_Wier.start()
+	
+	_timer_Lichu_ready = Timer.new()
+	add_child(_timer_Lichu_ready)
+	
+	_timer_Lichu_ready.connect("timeout", self, "_on_Timer_Lichu_ready_timeout")
+	_timer_Lichu_ready.set_wait_time(1)
+	_timer_Lichu_ready.set_one_shot(false) # Make sure it loops
+	_timer_Lichu_ready.start()
 
 # cams: 1a - stage, 1b - dining, 7 - wc, 6 - kitchen, 5 - backstage, 1c - cave,
 # 3 - closet, 2a - leftCorridor, 2b - leftDetector, 4a - rightCorridor, 4b - rightDetector
@@ -89,6 +103,17 @@ func _process(delta):
 		
 	if get_parent().get_parent().get_child(0).get_child(0).get_child(0).get_child(7).wierWorking == true:
 		_timer_Wier_ready.stop()
+		
+	if lichuMoveReady == true and cam_up == false:
+		lichuMoveReady = false
+		lichu_move()
+		
+	if lichuCamping == true and isBlackout == false and get_parent().get_parent().get_child(0).get_child(0).get_child(0).get_child(7).lastCam != "4b" :
+		lichuCamping = false
+		if get_parent().get_parent().get_child(0).get_child(3).doorOpen == true:
+			LichuLocation = "ready"
+		else:
+			LichuLocation = "rightDetector"
 	
 	
 func _on_Timer_Fuzow_timeout():
@@ -161,7 +186,43 @@ func _on_Timer_Wier_timeout():
 	
 	
 func _on_Timer_Lichu_timeout():
-		pass
+	if LichuLocation != "rightDetector":
+		Lrand = randi()%20+1
+		if get_parent().LichuLevel >= Lrand and isBlackout == false and cam_up == false:
+			lichuCountdown = 16.67 - ((100*get_parent().LichuLevel)/60)
+			_timer_Lichu_move_ready = Timer.new()
+			add_child(_timer_Lichu_move_ready)
+			
+			_timer_Lichu_move_ready.connect("timeout", self, "_on_Timer_Lichu_move_ready_timeout")
+			_timer_Lichu_move_ready.set_wait_time(lichuCountdown)
+			_timer_Lichu_move_ready.set_one_shot(true) # Make sure it loops
+			_timer_Lichu_move_ready.start()
+	else:
+		Lrand = randi()%20+1
+		if get_parent().LichuLevel >= Lrand and isBlackout == false:
+			lichuCamping = true
+	
+	
+func _on_Timer_Lichu_move_ready_timeout():
+	lichuMoveReady = true
+	
+	
+func lichu_move():
+	if LichuLocation == "stage":
+		LichuLocation = "dining"
+	elif LichuLocation == "dining":
+		LichuLocation = "wc"
+	elif LichuLocation == "wc":
+		LichuLocation = "kitchen"
+	elif LichuLocation == "kitchen":
+		LichuLocation = "rightCorridor"
+	elif LichuLocation == "rightCorridor":
+		LichuLocation = "rightDetector"
+	
+	
+func _on_Timer_Lichu_ready_timeout():
+	if randi()%5+1 == 3 and LichuLocation == "ready":
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/lichuJumpscare.tscn")
 	
 	
 func _on_Timer_Terpil_timeout():
@@ -215,11 +276,13 @@ func _on_Timer_Terpil_timeout():
 	
 	
 func _on_Timer_Fuzow_ready_timeout():
-	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
+	if isBlackout == false:
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
 	
 	
 func _on_Timer_Terpil_ready_timeout():
-	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/terpilJumpscare.tscn")
+	if isBlackout == false:
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/terpilJumpscare.tscn")
 	
 	
 func _on_Timer_Wier_ready_timeout():
