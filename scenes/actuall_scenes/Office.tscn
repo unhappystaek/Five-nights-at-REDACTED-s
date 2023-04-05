@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -45,6 +45,7 @@
 [ext_resource path="res://textures_and_assets/camera_ui/left/wierRun.ogv" type="VideoStream" id=43]
 [ext_resource path="res://things/sounds/koles-git-nie-spuszcze-ci-wpierdol.mp3" type="AudioStream" id=44]
 [ext_resource path="res://scripts/Esc_menu.gd" type="Script" id=45]
+[ext_resource path="res://things/sounds/ballin.mp3" type="AudioStream" id=46]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1546,6 +1547,14 @@ custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
 custom_styles/normal = ExtResource( 41 )
 text = "3"
+
+[node name="AudioKlichu" type="AudioStreamPlayer" parent="Room/main_camera/UI/Cams/Cam_photo"]
+stream = ExtResource( 46 )
+volume_db = 8.667
+
+[node name="AudioKterpil" type="AudioStreamPlayer" parent="Room/main_camera/UI/Cams/Cam_photo"]
+stream = ExtResource( 46 )
+volume_db = 8.667
 
 [node name="Cambook" type="Spatial" parent="Room/main_camera"]
 

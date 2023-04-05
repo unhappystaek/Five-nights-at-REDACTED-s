@@ -26,6 +26,13 @@ func _process(delta):
 	
 	if wierWaiting == true and get_parent().get_parent().get_parent().get_child(4).doorOpen == true and isBlackout == false:
 		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/vierJumpscare.tscn")
+		
+	
+	if TerpilLocation != "kitchen":
+		$Cam_photo/AudioKterpil.stop()
+		
+	if LichuLocation != "kitchen":
+		$Cam_photo/AudioKlichu.stop()
 	
 	
 	# cams: 1a - stage, 1b - dining, 7 - wc, 6 - kitchen, 5 - backstage, 1c - cave,
@@ -252,9 +259,11 @@ func _on_mapButton_6_pressed():
 	lastCam = "6"
 	$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/kitchen.png")
 	if TerpilLocation == "kitchen":
-		pass
-	else:
-		pass
+		$Cam_photo/AudioKterpil.play()
+		
+	if LichuLocation == "kitchen":
+		$Cam_photo/AudioKlichu.play()
+
 
 
 func _on_mapButton_7_pressed():
@@ -267,6 +276,15 @@ func _on_mapButton_7_pressed():
 		CamCode += 4
 	if LichuLocation == "wc":
 		CamCode += 1
+		
+	if CamCode == 0:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/wc/wc-empty.jpg")
+	elif CamCode == 1:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/wc/wc-l.jpg")
+	elif CamCode == 4:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/wc/wc-t.jpg")
+	elif CamCode == 5:
+		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/wc/wc-lt.jpg")
 
 
 func _on_mapButton_3_pressed():

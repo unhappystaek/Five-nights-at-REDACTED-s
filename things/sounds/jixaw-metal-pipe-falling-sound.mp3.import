@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/jixaw-metal-pipe-falling-sound.mp3-5bcba9539cd450dc20bb2f9e38333636.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/jixaw-metal-pipe-falling-sound.mp3"
+dest_files=[ "res://.import/jixaw-metal-pipe-falling-sound.mp3-5bcba9539cd450dc20bb2f9e38333636.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

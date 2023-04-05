@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ballin.mp3-f34e6f3b2af75aaf89e6982b0aecccc0.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/ballin.mp3"
+dest_files=[ "res://.import/ballin.mp3-f34e6f3b2af75aaf89e6982b0aecccc0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

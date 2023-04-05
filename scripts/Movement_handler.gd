@@ -190,13 +190,16 @@ func _on_Timer_Lichu_timeout():
 		Lrand = randi()%20+1
 		if get_parent().LichuLevel >= Lrand and isBlackout == false and cam_up == false:
 			lichuCountdown = 16.67 - ((100*get_parent().LichuLevel)/60)
-			_timer_Lichu_move_ready = Timer.new()
-			add_child(_timer_Lichu_move_ready)
-			
-			_timer_Lichu_move_ready.connect("timeout", self, "_on_Timer_Lichu_move_ready_timeout")
-			_timer_Lichu_move_ready.set_wait_time(lichuCountdown)
-			_timer_Lichu_move_ready.set_one_shot(true) # Make sure it loops
-			_timer_Lichu_move_ready.start()
+			if lichuCountdown > 0:
+				_timer_Lichu_move_ready = Timer.new()
+				add_child(_timer_Lichu_move_ready)
+				
+				_timer_Lichu_move_ready.connect("timeout", self, "_on_Timer_Lichu_move_ready_timeout")
+				_timer_Lichu_move_ready.set_wait_time(lichuCountdown)
+				_timer_Lichu_move_ready.set_one_shot(true) # Make sure it loops
+				_timer_Lichu_move_ready.start()
+			else:
+				_on_Timer_Lichu_move_ready_timeout()
 	else:
 		Lrand = randi()%20+1
 		if get_parent().LichuLevel >= Lrand and isBlackout == false:
