@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fnar_jumpscare.mp3-a67b5f151f7b70b679972ec2d3efe608.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/fnar_jumpscare.mp3"
+dest_files=[ "res://.import/fnar_jumpscare.mp3-a67b5f151f7b70b679972ec2d3efe608.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

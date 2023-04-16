@@ -6,9 +6,13 @@ var power_usage_math: float = 1
 var power_usage: float = 1
 var _timer = null
 var _timer_hour = null
+var _timer_blackout = null
+var _timer_song = null
+var _timer_end = null
 var hour: float = 0
 var isBlackout: bool = false
-
+var blackoutCountdown: int
+var songCountdown: int
 
 
 func _process(delta):
@@ -97,6 +101,14 @@ func _on_Timer_timeout():
 		
 		$Room/Blackout/Blackout_animation.play("Blackout_animation")
 		isBlackout = true
+		blackoutCountdown = randi()%10+10
+		_timer_blackout = Timer.new()
+		add_child(_timer_blackout)
+		
+		_timer_blackout.connect("timeout", self, "_on_timer_blackout_timeout")
+		_timer_blackout.set_wait_time(blackoutCountdown)
+		_timer_blackout.set_one_shot(true) # Make sure it loops
+		_timer_blackout.start()
 		
 		$Room/Front_area/Fan/Buzzing_sound.playing = false
 	
@@ -109,5 +121,24 @@ func _on_Timer_hour_timeout():
 		$Room/main_camera/UI/Time_label.text = str(hour) + " AM"
 	
 
+func _on_timer_blackout_timeout():
+	songCountdown = randi()%10+10
+	_timer_song = Timer.new()
+	add_child(_timer_song)
+	
+	_timer_song.connect("timeout", self, "_on_timer_song_timeout")
+	_timer_song.set_wait_time(songCountdown)
+	_timer_song.set_one_shot(true) # Make sure it loops
+	_timer_song.start()
 
-
+func _on_timer_song_timeout():
+	_timer_end = Timer.new()
+	add_child(_timer_end)
+	
+	_timer_end.connect("timeout", self, "_on_timer_end_timeout")
+	_timer_end.set_wait_time(3)
+	_timer_end.set_one_shot(true) # Make sure it loops
+	_timer_end.start()
+	
+func _on_timer_end_timeout():
+	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/lichuJumpscare.tscn")
