@@ -1,7 +1,6 @@
 extends Node
 
-var night = 7
-
+var night = 1
 
 var save_path = 'res://config.cfg'
 var config = ConfigFile.new()

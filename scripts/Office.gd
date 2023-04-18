@@ -123,6 +123,8 @@ func _on_Timer_hour_timeout():
 
 func _on_timer_blackout_timeout():
 	songCountdown = randi()%10+10
+	$Room/Blackout/song_animation.play("song_animation")
+	$Room/Blackout/OmniLight.visible = true
 	_timer_song = Timer.new()
 	add_child(_timer_song)
 	
@@ -132,6 +134,12 @@ func _on_timer_blackout_timeout():
 	_timer_song.start()
 
 func _on_timer_song_timeout():
+	$Room/Blackout/OmniLight.visible = false
+	$Room/Blackout/song_animation.stop()
+	$Room/Blackout/song.stop()
+	$Room/Door_left/light_left/Door_texture_left_dark.visible = true
+	$Room/Door_left/light_left/Door_texture_left_empty.visible = false
+	$Room/Door_left/light_left/Door_texture_left_fuzow.visible = false
 	_timer_end = Timer.new()
 	add_child(_timer_end)
 	
