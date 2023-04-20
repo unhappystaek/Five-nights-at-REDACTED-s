@@ -12,7 +12,9 @@ config_version=4
 
 config/name="Five_nights_at_retards"
 run/main_scene="res://scenes/actuall_scenes/Menu.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://textures_and_assets/other/boot_splash.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://icon.ico"
 
 [autoload]
 
@@ -22,6 +24,10 @@ SaveSystem="*res://scripts/Save_system.gd"
 
 window/size/fullscreen=true
 window/stretch/mode="2d"
+
+[global]
+
+icon=false
 
 [gui]
 
