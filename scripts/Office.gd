@@ -9,7 +9,7 @@ var _timer_hour = null
 var _timer_blackout = null
 var _timer_song = null
 var _timer_end = null
-var hour: float = 0
+var hour: float = 5
 var isBlackout: bool = false
 var blackoutCountdown: int
 var songCountdown: int
@@ -26,7 +26,8 @@ func _process(delta):
 		power_usage += 1
 	if ($Room/Door_left.lightOn == true):
 		power_usage +=1
-		
+	if ($Room/Door_right.lightOn == true):
+		power_usage +=1
 	
 	if (power_usage == 1):
 		$Room/main_camera/UI/Control/ColorRect2.visible = false
@@ -66,19 +67,22 @@ func _ready():
 	_timer_hour.set_one_shot(false) # Make sure it loops
 	_timer_hour.start()
 	
+	if (hour == 0):
+		$Room/main_camera/UI/Time_label.text = "12 PM"
+	else:
+		$Room/main_camera/UI/Time_label.text = str(hour) + " AM"
+	
 func _on_Timer_timeout():
 	power_display = stepify(power, 1)
 	if (power_display != 0):
 		if (power_usage == 1):
-			power -= 0.15
+			power -= 0.08
 		elif (power_usage == 2):
-			power -= 0.25
+			power -= 0.17
 		elif (power_usage == 3):
-			power -= 0.35
+			power -= 0.28
 		elif (power_usage == 4):
 			power -= 0.45
-		elif (power_usage == 5):
-			power -= 0.55
 	
 	$Room/main_camera/UI/Percent_label.text = str(power_display) + "%"
 	
@@ -113,8 +117,10 @@ func _on_Timer_timeout():
 		$Room/Front_area/Fan/Buzzing_sound.playing = false
 	
 func _on_Timer_hour_timeout():
-	if (hour !=6):
+	if (hour !=5):
 		hour +=1
+	elif hour == 5:
+		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/nightEnd.tscn")
 	if (hour == 0):
 		$Room/main_camera/UI/Time_label.text = "12 PM"
 	else:

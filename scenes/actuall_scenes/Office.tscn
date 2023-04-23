@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -49,6 +49,7 @@
 [ext_resource path="res://scripts/Random_events.gd" type="Script" id=47]
 [ext_resource path="res://things/sounds/fnar_song.mp3" type="AudioStream" id=48]
 [ext_resource path="res://things/song_animation.tres" type="Animation" id=49]
+[ext_resource path="res://things/Map_button_focus_style.tres" type="StyleBox" id=50]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -272,6 +273,18 @@ tracks/7/enabled = true
 tracks/7/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=32]
@@ -1063,6 +1076,18 @@ tracks/7/keys = {
 "points": PoolRealArray( 1, -0.25, 0, 0.25, 0 ),
 "times": PoolRealArray( 0 )
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("../button_light/AudioStreamPlayer3D:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="SpatialMaterial" id=59]
 albedo_texture = ExtResource( 35 )
@@ -1418,6 +1443,7 @@ margin_bottom = 17.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "1a"
 
@@ -1431,6 +1457,7 @@ margin_bottom = 49.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "1b"
 
@@ -1444,6 +1471,7 @@ margin_bottom = 185.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "2a"
 
@@ -1457,6 +1485,7 @@ margin_bottom = 225.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "2b"
 
@@ -1470,6 +1499,7 @@ margin_bottom = 185.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "4a"
 
@@ -1483,6 +1513,7 @@ margin_bottom = 225.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "4b"
 
@@ -1496,6 +1527,7 @@ margin_bottom = 89.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "1c"
 
@@ -1509,6 +1541,7 @@ margin_bottom = 65.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "5"
 
@@ -1522,6 +1555,7 @@ margin_bottom = 161.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "6"
 
@@ -1535,6 +1569,7 @@ margin_bottom = 42.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "7"
 
@@ -1548,6 +1583,7 @@ margin_bottom = 177.04
 custom_fonts/font = SubResource( 67 )
 custom_styles/hover = ExtResource( 41 )
 custom_styles/pressed = SubResource( 68 )
+custom_styles/focus = ExtResource( 50 )
 custom_styles/normal = ExtResource( 41 )
 text = "3"
 
@@ -1713,6 +1749,14 @@ shape = SubResource( 19 )
 anims/Light_on_right = ExtResource( 38 )
 anims/RESET = SubResource( 66 )
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Room/Door_right/Buttons/button_light"]
+transform = Transform( 2, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -1.22819, 2.07652, -1.19209e-07 )
+stream = ExtResource( 33 )
+unit_db = 6.2
+unit_size = 0.7
+pitch_scale = 1.8
+max_distance = 4.5
+
 [node name="Door_close_right" type="AnimationPlayer" parent="Room/Door_right"]
 anims/Door_close_right = ExtResource( 12 )
 anims/RESET = SubResource( 32 )
@@ -1833,6 +1877,14 @@ root_node = NodePath("../../button_door_left")
 anims/Light_on_left = ExtResource( 37 )
 anims/RESET = SubResource( 63 )
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Room/Door_left/Buttons/button_light"]
+transform = Transform( 2, 0, 0, 0, 1.42857, 0, 0, 0, 1.42857, -1.10991, 2.03287, 0 )
+stream = ExtResource( 33 )
+unit_db = 6.2
+unit_size = 0.7
+pitch_scale = 1.8
+max_distance = 4.5
+
 [node name="light_left" type="Spatial" parent="Room/Door_left"]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
@@ -1914,7 +1966,7 @@ transform = Transform( 0.00984886, 0, 0, 0, 0.01, 0, 0, 0, 0.00984886, 0.0343897
 
 [node name="Buzzing_sound" type="AudioStreamPlayer3D" parent="Room/Front_area/Fan"]
 stream = ExtResource( 33 )
-unit_db = -13.334
+unit_db = -18.218
 
 [node name="Desk_lamp" type="Spatial" parent="Room/Front_area"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.230003, 0.0336845, -0.00714117 )
