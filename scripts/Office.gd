@@ -9,7 +9,7 @@ var _timer_hour = null
 var _timer_blackout = null
 var _timer_song = null
 var _timer_end = null
-var hour: float = 5
+var hour: float = 0
 var isBlackout: bool = false
 var blackoutCountdown: int
 var songCountdown: int
