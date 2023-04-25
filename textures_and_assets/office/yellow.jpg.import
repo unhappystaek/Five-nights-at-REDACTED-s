@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/red.jpg-22828d336210e5839c0762e7c23c6f61.s3tc.stex"
-path.etc="res://.import/red.jpg-22828d336210e5839c0762e7c23c6f61.etc.stex"
+path.s3tc="res://.import/yellow.jpg-af09b5cbaed139d391a6990a5c19bd77.s3tc.stex"
+path.etc="res://.import/yellow.jpg-af09b5cbaed139d391a6990a5c19bd77.etc.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures_and_assets/Menu_animation/red.jpg"
-dest_files=[ "res://.import/red.jpg-22828d336210e5839c0762e7c23c6f61.s3tc.stex", "res://.import/red.jpg-22828d336210e5839c0762e7c23c6f61.etc.stex" ]
+source_file="res://textures_and_assets/office/yellow.jpg"
+dest_files=[ "res://.import/yellow.jpg-af09b5cbaed139d391a6990a5c19bd77.s3tc.stex", "res://.import/yellow.jpg-af09b5cbaed139d391a6990a5c19bd77.etc.stex" ]
 
 [params]
 

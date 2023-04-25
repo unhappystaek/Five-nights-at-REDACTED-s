@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/lee_poster.mp3-e103abfdfb8ddaaa8165e63338b4c7e7.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/lee_poster.mp3"
+dest_files=[ "res://.import/lee_poster.mp3-e103abfdfb8ddaaa8165e63338b4c7e7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
