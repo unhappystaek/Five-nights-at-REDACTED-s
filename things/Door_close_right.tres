@@ -2,7 +2,7 @@
 
 [resource]
 resource_name = "Door_close"
-length = 1.3
+length = 1.2
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("offset_right/actuall_door_main:translation:y")
 tracks/0/interp = 1
@@ -110,7 +110,7 @@ tracks/10/loop_wrap = true
 tracks/10/imported = false
 tracks/10/enabled = true
 tracks/10/keys = {
-"times": PoolRealArray( 0.3, 1.3 ),
+"times": PoolRealArray( 0.2, 1.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]

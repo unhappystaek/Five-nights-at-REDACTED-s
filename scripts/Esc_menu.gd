@@ -18,9 +18,11 @@ func _on_no_pressed():
 
 
 func _input(event):
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_action_just_pressed("ui_cancel"):
 		if escMenuVisible == false:
 			escMenuVisible = true
 			$".".visible = true
-		
-	
+		else:
+			escMenuVisible = false
+			$".".visible = false
+			visible = false
