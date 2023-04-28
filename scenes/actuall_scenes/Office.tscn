@@ -2041,19 +2041,18 @@ transform = Transform( 0.00766044, 0, 0.00642788, 0, 0.01, 0, -0.00642788, 0, 0.
 
 [node name="phone" type="Spatial" parent="Room/Front_area"]
 
-[node name="Area" type="Area" parent="Room/Front_area/phone"]
-
-[node name="CollisionShape" type="CollisionShape" parent="Room/Front_area/phone/Area"]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.2, -0.573, 1.44591, -1.841 )
-shape = SubResource( 40 )
-
-[node name="phone_scene" parent="Room/Front_area/phone/Area" instance=ExtResource( 20 )]
+[node name="phone_scene" parent="Room/Front_area/phone" instance=ExtResource( 20 )]
 transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.573025, 1.37573, -1.84085 )
 
-[node name="Phone_audio" type="Spatial" parent="Room/Front_area/phone"]
-
-[node name="Day1" type="AudioStreamPlayer3D" parent="Room/Front_area/phone/Phone_audio"]
+[node name="phoneAudio" type="AudioStreamPlayer3D" parent="Room/Front_area/phone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.551471, 1.5115, -1.91397 )
+
+[node name="phoneArea" type="Area" parent="Room/Front_area/phone"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.469017, 1.44543, -1.96776 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Room/Front_area/phone/phoneArea"]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.2, -0.103983, 0.000475764, 0.126764 )
+shape = SubResource( 40 )
 
 [node name="posters" type="Spatial" parent="Room/Front_area"]
 
@@ -2204,7 +2203,7 @@ script = ExtResource( 47 )
 [connection signal="animation_finished" from="Room/Door_left/Door_open_left" to="Room/Door_left" method="_on_Door_open_left_animation_finished"]
 [connection signal="input_event" from="Room/Door_left/Buttons/button_door_left" to="Room/Door_left" method="_on_button_door_left_input_event"]
 [connection signal="input_event" from="Room/Door_left/Buttons/button_light" to="Room/Door_left" method="_on_button_light_input_event"]
-[connection signal="input_event" from="Room/Front_area/phone/Area" to="Room/Front_area" method="_on_Area_input_event"]
+[connection signal="input_event" from="Room/Front_area/phone/phoneArea" to="Room/Front_area" method="_on_phoneArea_input_event"]
 [connection signal="input_event" from="Room/Front_area/posters/lee/Area" to="Room/Front_area" method="_on_Area_input_event"]
 [connection signal="pressed" from="Esc_menu/yes" to="Esc_menu" method="_on_yes_pressed"]
 [connection signal="pressed" from="Esc_menu/no" to="Esc_menu" method="_on_no_pressed"]
