@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -53,6 +53,11 @@
 [ext_resource path="res://textures_and_assets/office/yellow.jpg" type="Texture" id=51]
 [ext_resource path="res://things/sounds/lee_poster.mp3" type="AudioStream" id=52]
 [ext_resource path="res://textures_and_assets/Menu_animation/stock.jpg" type="Texture" id=53]
+[ext_resource path="res://things/sounds/phoneGuy/p1.mp3" type="AudioStream" id=54]
+[ext_resource path="res://things/p2.tres" type="Animation" id=55]
+[ext_resource path="res://things/p3.tres" type="Animation" id=56]
+[ext_resource path="res://things/p4.tres" type="Animation" id=57]
+[ext_resource path="res://things/p1.tres" type="Animation" id=58]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1108,6 +1113,33 @@ roughness_texture = ExtResource( 16 )
 [sub_resource type="BoxShape" id=40]
 extents = Vector3( 1, 1, 1.79273 )
 
+[sub_resource type="Animation" id=82]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("phoneAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("phoneAudio:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 54 ) ]
+}
+
 [sub_resource type="PlaneMesh" id=75]
 size = Vector2( 0.7, 1 )
 
@@ -2046,6 +2078,7 @@ transform = Transform( 0.02, 0, 0, 0, 0.02, 0, 0, 0, 0.02, -0.573025, 1.37573, -
 
 [node name="phoneAudio" type="AudioStreamPlayer3D" parent="Room/Front_area/phone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.551471, 1.5115, -1.91397 )
+stream = ExtResource( 54 )
 
 [node name="phoneArea" type="Area" parent="Room/Front_area/phone"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.469017, 1.44543, -1.96776 )
@@ -2053,6 +2086,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.469017, 1.44543, -1.96776 )
 [node name="CollisionShape" type="CollisionShape" parent="Room/Front_area/phone/phoneArea"]
 transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.2, -0.103983, 0.000475764, 0.126764 )
 shape = SubResource( 40 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Room/Front_area/phone"]
+anims/RESET = SubResource( 82 )
+anims/p1 = ExtResource( 58 )
+anims/p2 = ExtResource( 55 )
+anims/p3 = ExtResource( 56 )
+anims/p4 = ExtResource( 57 )
 
 [node name="posters" type="Spatial" parent="Room/Front_area"]
 

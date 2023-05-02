@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/nokia-ringtone-1994.mp3-38e3f0d43d171bd56ffebd913642e6bc.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/nokia-ringtone-1994.mp3"
+dest_files=[ "res://.import/nokia-ringtone-1994.mp3-38e3f0d43d171bd56ffebd913642e6bc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

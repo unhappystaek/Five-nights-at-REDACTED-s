@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/p1.mp3-f2d9e640f85078d1847de26847d46d0c.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/phoneGuy/p1.mp3"
+dest_files=[ "res://.import/p1.mp3-f2d9e640f85078d1847de26847d46d0c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
