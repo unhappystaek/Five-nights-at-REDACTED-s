@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=2]
+[gd_scene load_steps=124 format=2]
 
 [ext_resource path="res://textures_and_assets/office/walls/Concrete030_1K_Color.jpg" type="Texture" id=1]
 [ext_resource path="res://textures_and_assets/office/Metal/Metal038_1K_Color.jpg" type="Texture" id=2]
@@ -53,11 +53,12 @@
 [ext_resource path="res://textures_and_assets/office/yellow.jpg" type="Texture" id=51]
 [ext_resource path="res://things/sounds/lee_poster.mp3" type="AudioStream" id=52]
 [ext_resource path="res://textures_and_assets/Menu_animation/stock.jpg" type="Texture" id=53]
-[ext_resource path="res://things/sounds/phoneGuy/p1.mp3" type="AudioStream" id=54]
+[ext_resource path="res://things/sounds/nokia-ringtone-1994.mp3" type="AudioStream" id=54]
 [ext_resource path="res://things/p2.tres" type="Animation" id=55]
 [ext_resource path="res://things/p3.tres" type="Animation" id=56]
 [ext_resource path="res://things/p4.tres" type="Animation" id=57]
 [ext_resource path="res://things/p1.tres" type="Animation" id=58]
+[ext_resource path="res://things/ringing.tres" type="Animation" id=59]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1125,19 +1126,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("phoneAudio:stream")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ ExtResource( 54 ) ]
+"values": [ true ]
 }
 
 [sub_resource type="PlaneMesh" id=75]
@@ -2093,6 +2082,7 @@ anims/p1 = ExtResource( 58 )
 anims/p2 = ExtResource( 55 )
 anims/p3 = ExtResource( 56 )
 anims/p4 = ExtResource( 57 )
+anims/ringing = ExtResource( 59 )
 
 [node name="posters" type="Spatial" parent="Room/Front_area"]
 

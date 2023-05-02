@@ -2,7 +2,7 @@ extends Node
 
 var night = 1
 
-var save_path = 'res://config.cfg'
+var save_path = 'user://config.cfg'
 var config = ConfigFile.new()
 var load_response = 'config.load(save_path)'
 

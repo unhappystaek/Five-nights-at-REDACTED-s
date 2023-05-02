@@ -15,6 +15,7 @@ func _ready():
 func _on_timer_timeout():
 	if SaveSystem.night != 7:
 		SaveSystem.night += 1
+		get_node("/root/SaveSystem").saveValue("All", "night")
 		get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
 	else: 
 		get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
