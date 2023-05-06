@@ -4,8 +4,9 @@
 
 [resource]
 resource_name = "p2"
-length = 74.8
+length = 74.7
 loop = true
+step = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("phoneAudio:playing")
 tracks/0/interp = 1
@@ -13,7 +14,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 74.8 ),
+"times": PoolRealArray( 0, 0.1, 74.698 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]

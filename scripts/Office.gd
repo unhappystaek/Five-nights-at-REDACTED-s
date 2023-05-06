@@ -13,6 +13,7 @@ var hour: float = 0
 var isBlackout: bool = false
 var blackoutCountdown: int
 var songCountdown: int
+var phoneTalking: bool = false
 
 
 func _process(delta):

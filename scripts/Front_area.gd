@@ -59,5 +59,10 @@ func _on_phoneArea_input_event(camera, event, position, normal, shape_idx):
 			
 func _on_Timer_timeout():
 	if SaveSystem.night == 1 or SaveSystem.night == 2 or SaveSystem.night == 3 or SaveSystem.night == 4:
+		get_parent().get_parent().phoneTalking = true
 		$phone/AnimationPlayer.play("ringing")
 		phone_waiting = true
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	get_parent().get_parent().phoneTalking = false
