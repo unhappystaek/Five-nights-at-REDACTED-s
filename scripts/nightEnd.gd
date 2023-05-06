@@ -31,11 +31,11 @@ func _on_timer_timeout():
 	
 func _on_timer2_timeout():
 	if SaveSystem.night == 5:
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/night5end.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/night5end.tscn")
 	else:
 		if SaveSystem.night != 7:
 			SaveSystem.night += 1
 			get_node("/root/SaveSystem").saveValue("All", "night")
-			get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
+			get_tree().change_scene("res://scenes/actual_scenes/Menu.tscn")
 		else:
-			get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
+			get_tree().change_scene("res://scenes/actual_scenes/Menu.tscn")

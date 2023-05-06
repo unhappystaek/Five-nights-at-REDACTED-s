@@ -225,7 +225,7 @@ func lichu_move():
 	
 func _on_Timer_Lichu_ready_timeout():
 	if randi()%5+1 == 3 and LichuLocation == "ready":
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/lichuJumpscare.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/lichuJumpscare.tscn")
 	
 	
 func _on_Timer_Terpil_timeout():
@@ -280,12 +280,12 @@ func _on_Timer_Terpil_timeout():
 	
 func _on_Timer_Fuzow_ready_timeout():
 	if isBlackout == false:
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/fuzowJumpscare.tscn")
 	
 	
 func _on_Timer_Terpil_ready_timeout():
 	if isBlackout == false:
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/terpilJumpscare.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/terpilJumpscare.tscn")
 	
 	
 func _on_Timer_Wier_ready_timeout():

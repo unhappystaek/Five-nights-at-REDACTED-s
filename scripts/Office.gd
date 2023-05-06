@@ -120,7 +120,7 @@ func _on_Timer_hour_timeout():
 	if (hour !=5):
 		hour +=1
 	elif hour == 5:
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/nightEnd.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/nightEnd.tscn")
 	if (hour == 0):
 		$Room/main_camera/UI/Time_label.text = "12 PM"
 	else:
@@ -155,4 +155,4 @@ func _on_timer_song_timeout():
 	_timer_end.start()
 	
 func _on_timer_end_timeout():
-	get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/lichuJumpscare.tscn")
+	get_tree().change_scene("res://scenes/actual_scenes/Night_endings/lichuJumpscare.tscn")

@@ -7,7 +7,7 @@ func _ready():
 	
 
 func _on_yes_pressed():
-	get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
+	get_tree().change_scene("res://scenes/actual_scenes/Menu.tscn")
 
 
 func _on_no_pressed():

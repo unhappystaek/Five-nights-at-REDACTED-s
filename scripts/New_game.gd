@@ -8,7 +8,7 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
+	get_tree().change_scene("res://scenes/actual_scenes/Menu.tscn")
 
 
 func _on_LineEdit_text_entered(new_text):

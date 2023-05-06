@@ -29,5 +29,5 @@ func _on_timer_timeout():
 	$JumpSound.stop()
 	
 func _on_timer2_timeout():
-	get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
+	get_tree().change_scene("res://scenes/actual_scenes/Menu.tscn")
 

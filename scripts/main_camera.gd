@@ -34,10 +34,10 @@ func _process(delta):
 		$Cambook/rotation_axis.rotation_degrees.x = -200
 		
 	if cam_up == false and get_parent().get_parent().get_child(1).get_child(0).FuzowLocation == "ready":
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/fuzowJumpscare.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/fuzowJumpscare.tscn")
 		
 	if cam_up == false and get_parent().get_parent().get_child(1).get_child(0).TerpilLocation == "ready":
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/terpilJumpscare.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/terpilJumpscare.tscn")
 	
 	
 func _on_CamArrows_pressed():

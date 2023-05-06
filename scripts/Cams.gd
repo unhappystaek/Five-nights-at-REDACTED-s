@@ -25,7 +25,7 @@ func _process(delta):
 	
 	
 	if wierWaiting == true and get_parent().get_parent().get_parent().get_child(4).doorOpen == true and isBlackout == false:
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/vierJumpscare.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/vierJumpscare.tscn")
 		
 	
 	if TerpilLocation != "kitchen":
@@ -107,7 +107,8 @@ func _on_mapButton_1b_pressed():
 func _on_mapButton_2a_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
-	$Cam_photo/wierRun.visible = false
+	if wierWorking == false:
+		$Cam_photo/wierRun.visible = false
 	lastCam = "2a"
 	if FuzowLocation == "leftCorridor":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/leftCorridor-f.jpg")
@@ -132,7 +133,7 @@ func WierActivate():
 
 func _on_Timer_timeout():
 	if get_parent().get_parent().get_parent().get_child(4).doorOpen == true and isBlackout == false:
-		get_tree().change_scene("res://scenes/actuall_scenes/Night_endings/vierJumpscare.tscn")
+		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/vierJumpscare.tscn")
 	elif isBlackout == false:
 		wierWaiting = true
 		get_parent().get_parent().get_parent().get_child(4).get_child(7).play()

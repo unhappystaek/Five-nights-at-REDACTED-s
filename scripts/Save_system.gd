@@ -4,20 +4,21 @@ var night = 1
 
 var save_path = 'user://config.cfg'
 var config = ConfigFile.new()
-var load_response = 'config.load(save_path)'
+var load_response = config.load(save_path)
 
 func _ready():
-	pass # Replace with function body.
+	loadValue("All", "night")
 	
 func saveValue(section, key):
-	config.set_value(section, key, night)
+	config.set_value(section, key)
 	config.save(save_path)
 	
 func loadValue(section, key):
-	night = config.get_value(section, key, night)
+	print_debug(config)
+	night = config.get_value(section, key)
 	
 func reset(section, key):
 	night = 1
 	saveValue(section, key)
-	get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
+	get_tree().change_scene("res://scenes/actual_scenes/Menu.tscn")
 

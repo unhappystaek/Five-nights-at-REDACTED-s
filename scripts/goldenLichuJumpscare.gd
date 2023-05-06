@@ -61,5 +61,5 @@ func _on_timer_e_timeout():
 	_timer_fred.start()
 	
 func _on_timer_fred_timeout():
-	get_tree().change_scene("res://scenes/actuall_scenes/Menu.tscn")
+	get_tree().change_scene("res://scenes/actual_scenes/Menu.tscn")
 	

@@ -1,18 +1,18 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://scenes/asset_scenes/Button.tscn" type="PackedScene" id=1]
-[ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scripts/Menu.gd" type="Script" id=3]
-[ext_resource path="res://things/Menu.gdshader" type="Shader" id=4]
+[ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
+[ext_resource path="res://scenes/asset_scenes/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures_and_assets/Menu_animation/right.jpg" type="Texture" id=4]
 [ext_resource path="res://textures_and_assets/Menu_animation/red.jpg" type="Texture" id=5]
-[ext_resource path="res://textures_and_assets/Menu_animation/right.jpg" type="Texture" id=6]
-[ext_resource path="res://textures_and_assets/Menu_animation/wrong.jpg" type="Texture" id=7]
-[ext_resource path="res://textures_and_assets/Menu_animation/stock.jpg" type="Texture" id=8]
-[ext_resource path="res://textures_and_assets/Menu_animation/left.jpg" type="Texture" id=9]
+[ext_resource path="res://textures_and_assets/Menu_animation/left.jpg" type="Texture" id=6]
+[ext_resource path="res://textures_and_assets/Menu_animation/stock.jpg" type="Texture" id=7]
+[ext_resource path="res://textures_and_assets/Menu_animation/wrong.jpg" type="Texture" id=8]
+[ext_resource path="res://scripts/Menu.gd" type="Script" id=9]
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 5 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -20,15 +20,15 @@ animations = [ {
 
 [sub_resource type="DynamicFont" id=1]
 size = 52
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 39
-font_data = ExtResource( 2 )
+font_data = ExtResource( 1 )
 
 [sub_resource type="ShaderMaterial" id=4]
 resource_local_to_scene = true
-shader = ExtResource( 4 )
+shader = ExtResource( 2 )
 shader_param/overlay = true
 shader_param/scanlines_opacity = 0.4
 shader_param/scanlines_width = 0.25
@@ -55,13 +55,13 @@ shader_param/vignette_opacity = 0.5
 process_priority = -13
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
+script = ExtResource( 9 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 512, 300 )
 scale = Vector2( 0.256, 0.266667 )
 frames = SubResource( 5 )
-frame = 30
+frame = 10
 speed_scale = 2.0
 playing = true
 
@@ -88,19 +88,19 @@ margin_bottom = 323.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
 
-[node name="newGame" parent="VBoxContainer" instance=ExtResource( 1 )]
+[node name="newGame" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 327.0
 margin_right = 282.0
 margin_bottom = 394.0
 focus_neighbour_top = NodePath("../quit")
 
-[node name="continue" parent="VBoxContainer" instance=ExtResource( 1 )]
+[node name="continue" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 398.0
 margin_right = 237.0
 margin_bottom = 465.0
 text = "Continue"
 
-[node name="quit" parent="VBoxContainer" instance=ExtResource( 1 )]
+[node name="quit" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_right = 116.0
 focus_neighbour_bottom = NodePath("../newGame")
 text = "Quit"
