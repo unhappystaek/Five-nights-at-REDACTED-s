@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -45,7 +45,7 @@
 [ext_resource path="res://things/sounds/lee_poster.mp3" type="AudioStream" id=43]
 [ext_resource path="res://textures_and_assets/camera_ui/cam_arrows.png" type="Texture" id=44]
 [ext_resource path="res://textures_and_assets/office/wood/Wood028_1K_Color.jpg" type="Texture" id=45]
-[ext_resource path="res://things/sounds/phoneGuy/p4.mp3" type="AudioStream" id=46]
+[ext_resource path="res://things/sounds/nokia-ringtone-1994.mp3" type="AudioStream" id=46]
 [ext_resource path="res://textures_and_assets/office/yellow.jpg" type="Texture" id=47]
 [ext_resource path="res://textures_and_assets/doors/door_dark.jpg" type="Texture" id=48]
 [ext_resource path="res://textures_and_assets/camera_ui/scene/scene-ftl.jpg" type="Texture" id=49]
@@ -59,6 +59,13 @@
 [ext_resource path="res://things/ringing.tres" type="Animation" id=57]
 [ext_resource path="res://things/p2.tres" type="Animation" id=58]
 [ext_resource path="res://things/p1.tres" type="Animation" id=59]
+[ext_resource path="res://things/sounds/fnar_jumpscare.mp3" type="AudioStream" id=60]
+[ext_resource path="res://things/sounds/jixaw-metal-pipe-falling-sound.mp3" type="AudioStream" id=61]
+[ext_resource path="res://things/sounds/gay-echo.mp3" type="AudioStream" id=62]
+[ext_resource path="res://things/sounds/fart.mp3" type="AudioStream" id=63]
+[ext_resource path="res://textures_and_assets/Menu_animation/left.jpg" type="Texture" id=64]
+[ext_resource path="res://textures_and_assets/Menu_animation/right.jpg" type="Texture" id=65]
+[ext_resource path="res://textures_and_assets/Menu_animation/red.jpg" type="Texture" id=66]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1117,7 +1124,7 @@ extents = Vector3( 1, 1, 1.79273 )
 [sub_resource type="Animation" id=82]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("phoneAudio:playing")
+tracks/0/path = NodePath("phoneAudio:stream")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -1126,7 +1133,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ true ]
+"values": [ ExtResource( 46 ) ]
 }
 
 [sub_resource type="PlaneMesh" id=75]
@@ -1209,6 +1216,81 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=83]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Room/Front_area/Desk_lamp/Lamp_light:light_negative")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Room/Front_area/posters/lee:material:albedo_texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 29 ) ]
+}
+
+[sub_resource type="Animation" id=84]
+resource_name = "flicker"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Room/Main_light:light_negative")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.01, 0.03, 0.14 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Room/Front_area/Desk_lamp/Lamp_light:light_negative")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.01, 0.03, 0.14 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=86]
+resource_name = "golden"
+
+[sub_resource type="Animation" id=85]
+resource_name = "red_face"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Room/Front_area/posters/lee:material:albedo_texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.14, 0.36, 0.46, 0.56, 0.98 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 29 ), ExtResource( 66 ), ExtResource( 65 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 29 ) ]
+}
 
 [node name="Office" type="Spatial"]
 script = ExtResource( 34 )
@@ -2211,6 +2293,35 @@ flat = true
 
 [node name="Random_events" type="Node" parent="."]
 script = ExtResource( 30 )
+
+[node name="funny" type="AudioStreamPlayer3D" parent="Random_events"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.26296, -0.0731735, -17.3753 )
+stream = ExtResource( 60 )
+unit_db = -18.277
+pitch_scale = 0.47
+
+[node name="pipe" type="AudioStreamPlayer3D" parent="Random_events"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.24932, 0, -3.83327 )
+stream = ExtResource( 61 )
+unit_db = 12.308
+max_distance = 13.41
+
+[node name="shit" type="AudioStreamPlayer3D" parent="Random_events"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341745, 0.985002, 3.80682 )
+stream = ExtResource( 63 )
+pitch_scale = 0.86
+
+[node name="gay" type="AudioStreamPlayer3D" parent="Random_events"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.82462, 0, 1.20719 )
+stream = ExtResource( 62 )
+unit_db = -6.154
+pitch_scale = 0.8
+
+[node name="random" type="AnimationPlayer" parent="Random_events"]
+anims/RESET = SubResource( 83 )
+anims/flicker = SubResource( 84 )
+anims/golden = SubResource( 86 )
+anims/red_face = SubResource( 85 )
 
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera/UI/Cams" method="_on_CamArrows_pressed"]
