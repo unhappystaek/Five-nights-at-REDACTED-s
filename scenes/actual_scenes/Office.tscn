@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=2]
+[gd_scene load_steps=136 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -66,6 +66,7 @@
 [ext_resource path="res://textures_and_assets/Menu_animation/left.jpg" type="Texture" id=64]
 [ext_resource path="res://textures_and_assets/Menu_animation/right.jpg" type="Texture" id=65]
 [ext_resource path="res://textures_and_assets/Menu_animation/red.jpg" type="Texture" id=66]
+[ext_resource path="res://things/sounds/O-Allah-the-Almighty-Naat-lyrics-Sami-Yusuf.mp3" type="AudioStream" id=67]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1243,6 +1244,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [ ExtResource( 29 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("arab:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("arab:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -52.706 ]
+}
 
 [sub_resource type="Animation" id=84]
 resource_name = "flicker"
@@ -1275,6 +1300,32 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=86]
 resource_name = "golden"
+length = 25.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("arab:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.01, 24.69 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("arab:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.04, 0.64, 1.44, 2.4, 3.84, 9.13, 11.87, 14.41 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -52.706, -48.118, -43.53, -37.865, -34.382, -30.218, -19.029, -10.078 ]
+}
 
 [sub_resource type="Animation" id=85]
 resource_name = "red_face"
@@ -2322,6 +2373,10 @@ anims/RESET = SubResource( 83 )
 anims/flicker = SubResource( 84 )
 anims/golden = SubResource( 86 )
 anims/red_face = SubResource( 85 )
+
+[node name="arab" type="AudioStreamPlayer" parent="Random_events"]
+stream = ExtResource( 67 )
+volume_db = -52.706
 
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera/UI/Cams" method="_on_CamArrows_pressed"]

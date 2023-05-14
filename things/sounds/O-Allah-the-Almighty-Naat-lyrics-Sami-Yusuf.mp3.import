@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/O-Allah-the-Almighty-Naat-lyrics-Sami-Yusuf.mp3-2766c4edfbbd071cbc9cab3c08eb395f.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/O-Allah-the-Almighty-Naat-lyrics-Sami-Yusuf.mp3"
+dest_files=[ "res://.import/O-Allah-the-Almighty-Naat-lyrics-Sami-Yusuf.mp3-2766c4edfbbd071cbc9cab3c08eb395f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
