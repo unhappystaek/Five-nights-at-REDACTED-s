@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=137 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -67,6 +67,7 @@
 [ext_resource path="res://textures_and_assets/Menu_animation/right.jpg" type="Texture" id=65]
 [ext_resource path="res://textures_and_assets/Menu_animation/red.jpg" type="Texture" id=66]
 [ext_resource path="res://things/sounds/O-Allah-the-Almighty-Naat-lyrics-Sami-Yusuf.mp3" type="AudioStream" id=67]
+[ext_resource path="res://scripts/debug.gd" type="Script" id=68]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1300,7 +1301,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=86]
 resource_name = "golden"
-length = 25.0
+length = 30.0
 step = 0.01
 tracks/0/type = "value"
 tracks/0/path = NodePath("arab:playing")
@@ -1309,7 +1310,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.01, 24.69 ),
+"times": PoolRealArray( 0, 0.01, 29.89 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -2378,6 +2379,77 @@ anims/red_face = SubResource( 85 )
 stream = ExtResource( 67 )
 volume_db = -52.706
 
+[node name="debug" type="Control" parent="."]
+visible = false
+margin_left = 24.0
+margin_top = 24.0
+margin_right = 384.0
+margin_bottom = 256.0
+mouse_filter = 1
+script = ExtResource( 68 )
+
+[node name="ColorRect" type="ColorRect" parent="debug"]
+margin_right = 360.0
+margin_bottom = 232.0
+mouse_filter = 1
+color = Color( 0, 0, 0, 0.760784 )
+
+[node name="gold" type="Button" parent="debug"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 72.0
+margin_bottom = 40.0
+text = "start_gold"
+
+[node name="blackout" type="Button" parent="debug"]
+margin_left = 16.0
+margin_top = 47.0
+margin_right = 117.0
+margin_bottom = 71.0
+text = "start_blackout"
+
+[node name="hour +" type="Button" parent="debug"]
+margin_left = 280.0
+margin_top = 16.0
+margin_right = 344.0
+margin_bottom = 48.0
+text = "hour /\\"
+
+[node name="hour -" type="Button" parent="debug"]
+margin_left = 280.0
+margin_top = 56.0
+margin_right = 344.0
+margin_bottom = 89.0
+text = "hour \\/"
+
+[node name="day -" type="Button" parent="debug"]
+margin_left = 200.0
+margin_top = 56.0
+margin_right = 264.0
+margin_bottom = 88.0
+text = "day \\/"
+
+[node name="day +" type="Button" parent="debug"]
+margin_left = 200.0
+margin_top = 16.0
+margin_right = 264.0
+margin_bottom = 48.0
+text = "day /\\"
+
+[node name="Jumpscares_console" type="Button" parent="debug"]
+margin_left = 200.0
+margin_top = 200.0
+margin_right = 341.0
+margin_bottom = 220.0
+text = "Jumpscares_console"
+
+[node name="kill" type="Button" parent="debug"]
+margin_left = 16.0
+margin_top = 200.0
+margin_right = 112.0
+margin_bottom = 220.0
+text = "!kill_process!"
+
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera/UI/Cams" method="_on_CamArrows_pressed"]
 [connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_1a" to="Room/main_camera/UI/Cams" method="_on_mapButton_1a_pressed"]
@@ -2404,3 +2476,11 @@ volume_db = -52.706
 [connection signal="input_event" from="Room/Front_area/posters/lee/Area" to="Room/Front_area" method="_on_Area_input_event"]
 [connection signal="pressed" from="Esc_menu/yes" to="Esc_menu" method="_on_yes_pressed"]
 [connection signal="pressed" from="Esc_menu/no" to="Esc_menu" method="_on_no_pressed"]
+[connection signal="pressed" from="debug/gold" to="debug" method="_on_gold_pressed"]
+[connection signal="pressed" from="debug/blackout" to="debug" method="_on_blackout_pressed"]
+[connection signal="pressed" from="debug/hour +" to="debug" method="_on_hour__pressed"]
+[connection signal="pressed" from="debug/hour -" to="debug" method="_on_hour__pressed"]
+[connection signal="pressed" from="debug/day -" to="debug" method="_on_day__pressed"]
+[connection signal="pressed" from="debug/day +" to="debug" method="_on_day__pressed"]
+[connection signal="pressed" from="debug/Jumpscares_console" to="debug" method="_on_Jumpscares_console_pressed"]
+[connection signal="pressed" from="debug/kill" to="debug" method="_on_kill_pressed"]
