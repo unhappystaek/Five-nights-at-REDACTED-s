@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=2]
+[gd_scene load_steps=141 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -1269,6 +1269,54 @@ tracks/3/keys = {
 "update": 0,
 "values": [ -52.706 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("funny:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("gay:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("shit:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("pipe:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=84]
 resource_name = "flicker"
@@ -1294,6 +1342,38 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0.01, 0.03, 0.14 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=87]
+resource_name = "funny"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("funny:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=88]
+resource_name = "gay"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("gay:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 4 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
@@ -1328,6 +1408,22 @@ tracks/1/keys = {
 "values": [ -52.706, -48.118, -43.53, -37.865, -34.382, -30.218, -19.029, -10.078 ]
 }
 
+[sub_resource type="Animation" id=89]
+resource_name = "pipe"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("pipe:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
 [sub_resource type="Animation" id=85]
 resource_name = "red_face"
 step = 0.01
@@ -1342,6 +1438,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ ExtResource( 29 ), ExtResource( 66 ), ExtResource( 65 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 29 ) ]
+}
+
+[sub_resource type="Animation" id=90]
+resource_name = "shit"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("shit:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
 }
 
 [node name="Office" type="Spatial"]
@@ -2372,8 +2484,12 @@ pitch_scale = 0.8
 [node name="random" type="AnimationPlayer" parent="Random_events"]
 anims/RESET = SubResource( 83 )
 anims/flicker = SubResource( 84 )
+anims/funny = SubResource( 87 )
+anims/gay = SubResource( 88 )
 anims/golden = SubResource( 86 )
+anims/pipe = SubResource( 89 )
 anims/red_face = SubResource( 85 )
+anims/shit = SubResource( 90 )
 
 [node name="arab" type="AudioStreamPlayer" parent="Random_events"]
 stream = ExtResource( 67 )
@@ -2408,33 +2524,33 @@ margin_right = 117.0
 margin_bottom = 71.0
 text = "start_blackout"
 
-[node name="hour +" type="Button" parent="debug"]
+[node name="hour_up" type="Button" parent="debug"]
 margin_left = 280.0
 margin_top = 16.0
 margin_right = 344.0
 margin_bottom = 48.0
 text = "hour /\\"
 
-[node name="hour -" type="Button" parent="debug"]
+[node name="hour_down" type="Button" parent="debug"]
 margin_left = 280.0
 margin_top = 56.0
 margin_right = 344.0
 margin_bottom = 89.0
 text = "hour \\/"
 
-[node name="day -" type="Button" parent="debug"]
-margin_left = 200.0
-margin_top = 56.0
-margin_right = 264.0
-margin_bottom = 88.0
-text = "day \\/"
-
-[node name="day +" type="Button" parent="debug"]
+[node name="day_up" type="Button" parent="debug"]
 margin_left = 200.0
 margin_top = 16.0
 margin_right = 264.0
 margin_bottom = 48.0
-text = "day /\\"
+text = "night /\\"
+
+[node name="day_down" type="Button" parent="debug"]
+margin_left = 200.0
+margin_top = 56.0
+margin_right = 264.0
+margin_bottom = 88.0
+text = "night \\/"
 
 [node name="Jumpscares_console" type="Button" parent="debug"]
 margin_left = 200.0
@@ -2478,9 +2594,9 @@ text = "!kill_process!"
 [connection signal="pressed" from="Esc_menu/no" to="Esc_menu" method="_on_no_pressed"]
 [connection signal="pressed" from="debug/gold" to="debug" method="_on_gold_pressed"]
 [connection signal="pressed" from="debug/blackout" to="debug" method="_on_blackout_pressed"]
-[connection signal="pressed" from="debug/hour +" to="debug" method="_on_hour__pressed"]
-[connection signal="pressed" from="debug/hour -" to="debug" method="_on_hour__pressed"]
-[connection signal="pressed" from="debug/day -" to="debug" method="_on_day__pressed"]
-[connection signal="pressed" from="debug/day +" to="debug" method="_on_day__pressed"]
+[connection signal="pressed" from="debug/hour_up" to="debug" method="_on_hour_up_pressed"]
+[connection signal="pressed" from="debug/hour_down" to="debug" method="_on_hour_down_pressed"]
+[connection signal="pressed" from="debug/day_up" to="debug" method="_on_day_up_pressed"]
+[connection signal="pressed" from="debug/day_down" to="debug" method="_on_day_down_pressed"]
 [connection signal="pressed" from="debug/Jumpscares_console" to="debug" method="_on_Jumpscares_console_pressed"]
 [connection signal="pressed" from="debug/kill" to="debug" method="_on_kill_pressed"]

@@ -9,7 +9,7 @@ var _timer_hour = null
 var _timer_blackout = null
 var _timer_song = null
 var _timer_end = null
-var hour: float = 0
+var hour: float = 5
 var isBlackout: bool = false
 var blackoutCountdown: int
 var songCountdown: int
@@ -157,3 +157,9 @@ func _on_timer_song_timeout():
 	
 func _on_timer_end_timeout():
 	get_tree().change_scene("res://scenes/actual_scenes/Night_endings/lichuJumpscare.tscn")
+
+func _update_hour():
+	if (hour == 0):
+		$Room/main_camera/UI/Time_label.text = "12 PM"
+	else:
+		$Room/main_camera/UI/Time_label.text = str(hour) + " AM"

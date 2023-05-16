@@ -16,13 +16,13 @@ func _on_Timer_timeout():
 	num = randi()%100+1
 	if get_parent().phoneTalking == false:
 		if num == 44:
-			$funny.play()
+			$random.play("funny")
 		elif num == 32:
-			$gay.play()
+			$random.play("gay")
 		elif num == 71:
-			$pipe.play()
+			$random.play("pipe")
 		elif num == 4:
-			$shit.play()
+			$random.play("shit")
 		elif num == 15:
 			$random.play("flicker")
 		elif num == 26:

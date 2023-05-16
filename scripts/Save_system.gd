@@ -7,10 +7,12 @@ var config = ConfigFile.new()
 var load_response = config.load(save_path)
 
 func _ready():
-	loadValue("All", "night")
+	if config.get_value("All", "night") != null:
+		loadValue("All", "night")
+		print_debug(night)
 	
 func saveValue(section, key):
-	config.set_value(section, key)
+	config.set_value(section, key, night)
 	config.save(save_path)
 	
 func loadValue(section, key):
