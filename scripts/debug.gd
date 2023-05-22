@@ -8,7 +8,7 @@ func _input(event):
 		console_on = true
 
 func _on_gold_pressed():
-	pass # Replace with function body.
+	get_parent().get_child(3).Gold()
 
 
 func _on_blackout_pressed():
