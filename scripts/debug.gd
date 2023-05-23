@@ -16,7 +16,10 @@ func _on_blackout_pressed():
 
 
 func _on_Jumpscares_console_pressed():
-	pass # Replace with function body.
+	if $Jumpscare_menu.visible == false:
+		$Jumpscare_menu.visible = true
+	else:
+		$Jumpscare_menu.visible = false
 
 
 func _on_kill_pressed():

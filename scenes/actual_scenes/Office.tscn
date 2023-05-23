@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=2]
+[gd_scene load_steps=144 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -68,6 +68,8 @@
 [ext_resource path="res://textures_and_assets/Menu_animation/red.jpg" type="Texture" id=66]
 [ext_resource path="res://things/sounds/O-Allah-the-Almighty-Naat-lyrics-Sami-Yusuf.mp3" type="AudioStream" id=67]
 [ext_resource path="res://scripts/debug.gd" type="Script" id=68]
+[ext_resource path="res://scripts/Jumpscare_menu.gd" type="Script" id=69]
+[ext_resource path="res://things/MerriweatherSans-VariableFont_wght.ttf" type="DynamicFontData" id=70]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1456,6 +1458,10 @@ tracks/0/keys = {
 "values": [ false, true, false ]
 }
 
+[sub_resource type="DynamicFont" id=91]
+size = 21
+font_data = ExtResource( 70 )
+
 [node name="Office" type="Spatial"]
 script = ExtResource( 34 )
 
@@ -2566,6 +2572,62 @@ margin_right = 112.0
 margin_bottom = 220.0
 text = "!kill_process!"
 
+[node name="Jumpscare_menu" type="Control" parent="debug"]
+visible = false
+margin_left = 392.0
+margin_right = 432.0
+margin_bottom = 40.0
+script = ExtResource( 69 )
+
+[node name="ColorRect" type="ColorRect" parent="debug/Jumpscare_menu"]
+margin_right = 160.0
+margin_bottom = 232.0
+color = Color( 0, 0, 0, 0.760784 )
+
+[node name="Lee_Hoot" type="Button" parent="debug/Jumpscare_menu"]
+margin_left = 24.0
+margin_top = 64.0
+margin_right = 94.0
+margin_bottom = 84.0
+text = "Lee Hoot"
+
+[node name="Golden_Lee_Hoot" type="Button" parent="debug/Jumpscare_menu"]
+margin_left = 24.0
+margin_top = 96.0
+margin_right = 144.0
+margin_bottom = 116.0
+text = "Golden Lee Hoot"
+
+[node name="Vier" type="Button" parent="debug/Jumpscare_menu"]
+margin_left = 24.0
+margin_top = 128.0
+margin_right = 94.0
+margin_bottom = 148.0
+text = "Vier"
+
+[node name="Fuzow" type="Button" parent="debug/Jumpscare_menu"]
+margin_left = 24.0
+margin_top = 160.0
+margin_right = 94.0
+margin_bottom = 180.0
+text = "Fuzow"
+
+[node name="Terpil" type="Button" parent="debug/Jumpscare_menu"]
+margin_left = 24.0
+margin_top = 192.0
+margin_right = 94.0
+margin_bottom = 212.0
+text = "Terpil"
+
+[node name="Label" type="Label" parent="debug/Jumpscare_menu"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 111.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
+custom_fonts/font = SubResource( 91 )
+text = "Jumpscares:"
+
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera/UI/Cams" method="_on_CamArrows_pressed"]
 [connection signal="pressed" from="Room/main_camera/UI/Cams/Cam_photo/map/mapButton_1a" to="Room/main_camera/UI/Cams" method="_on_mapButton_1a_pressed"]
@@ -2600,3 +2662,8 @@ text = "!kill_process!"
 [connection signal="pressed" from="debug/day_down" to="debug" method="_on_day_down_pressed"]
 [connection signal="pressed" from="debug/Jumpscares_console" to="debug" method="_on_Jumpscares_console_pressed"]
 [connection signal="pressed" from="debug/kill" to="debug" method="_on_kill_pressed"]
+[connection signal="pressed" from="debug/Jumpscare_menu/Lee_Hoot" to="debug/Jumpscare_menu" method="_on_Lee_Hoot_pressed"]
+[connection signal="pressed" from="debug/Jumpscare_menu/Golden_Lee_Hoot" to="debug/Jumpscare_menu" method="_on_Golden_Lee_Hoot_pressed"]
+[connection signal="pressed" from="debug/Jumpscare_menu/Vier" to="debug/Jumpscare_menu" method="_on_Vier_pressed"]
+[connection signal="pressed" from="debug/Jumpscare_menu/Fuzow" to="debug/Jumpscare_menu" method="_on_Fuzow_pressed"]
+[connection signal="pressed" from="debug/Jumpscare_menu/Terpil" to="debug/Jumpscare_menu" method="_on_Terpil_pressed"]

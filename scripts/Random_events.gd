@@ -3,6 +3,7 @@ extends Node
 var _timer = null
 var _timer_gold = null
 var num: int
+var num2: int
 var golden_working: bool = false
 
 func _ready():
@@ -29,6 +30,10 @@ func _on_Timer_timeout():
 			$random.play("flicker")
 		elif num == 26:
 			$random.play("red_face")
+			
+	num2 = randi()%100000+1
+	if get_parent().phoneTalking == false and num2 == 43269:
+		Gold()
 
 
 func Gold():
