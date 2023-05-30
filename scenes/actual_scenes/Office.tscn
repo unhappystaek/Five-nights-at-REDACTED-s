@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=2]
+[gd_scene load_steps=148 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -70,6 +70,10 @@
 [ext_resource path="res://scripts/debug.gd" type="Script" id=68]
 [ext_resource path="res://scripts/Jumpscare_menu.gd" type="Script" id=69]
 [ext_resource path="res://things/MerriweatherSans-VariableFont_wght.ttf" type="DynamicFontData" id=70]
+[ext_resource path="res://textures_and_assets/gold/Hussein-56a48bdb3df78cf77282ed59-34410511.jpg" type="Texture" id=71]
+[ext_resource path="res://textures_and_assets/Jumpscares/fred.jpg" type="Texture" id=72]
+[ext_resource path="res://scenes/asset_scenes/scene.tscn" type="PackedScene" id=73]
+[ext_resource path="res://textures_and_assets/gold/carpet/scene.gltf" type="PackedScene" id=74]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1319,6 +1323,78 @@ tracks/7/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/8/type = "value"
+tracks/8/path = NodePath("../Room/Front_area/posters/yellow:material:albedo_texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 47 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../Room/Front_area/gold_front:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../Room/Front_area/phone:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../Room/Front_area/Fan:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../Room/Front_area/Desk_lamp:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("../Room/Front_area/Fan/Buzzing_sound:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=84]
 resource_name = "flicker"
@@ -1408,6 +1484,90 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ -52.706, -48.118, -43.53, -37.865, -34.382, -30.218, -19.029, -10.078 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Room/Front_area/posters/yellow:material:albedo_texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 9.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 47 ), ExtResource( 71 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Room/Front_area/gold_front:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 11.84 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Room/Front_area/phone:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 11.84 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Room/Front_area/Fan:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 11.84 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../Room/Front_area/Desk_lamp:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 11.84 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../Room/Front_area/posters/lee:material:albedo_texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 9.13 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 29 ), ExtResource( 72 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../Room/Front_area/Fan/Buzzing_sound:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.07, 11.66 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=89]
@@ -2363,6 +2523,15 @@ shape = SubResource( 79 )
 anims/RESET = SubResource( 80 )
 anims/posterFunny = SubResource( 81 )
 
+[node name="gold_front" type="Spatial" parent="Room/Front_area"]
+visible = false
+
+[node name="quaran" parent="Room/Front_area/gold_front" instance=ExtResource( 73 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56412, 1.43857, -1.93257 )
+
+[node name="carpet" parent="Room/Front_area/gold_front" instance=ExtResource( 74 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.91066, -5.35444, 7.77626 )
+
 [node name="Blackout" type="Spatial" parent="Room"]
 
 [node name="Blackout_sound" type="AudioStreamPlayer3D" parent="Room/Blackout"]
@@ -2500,6 +2669,8 @@ anims/shit = SubResource( 90 )
 [node name="arab" type="AudioStreamPlayer" parent="Random_events"]
 stream = ExtResource( 67 )
 volume_db = -52.706
+
+[node name="arab_letters" type="Spatial" parent="Random_events"]
 
 [node name="debug" type="Control" parent="."]
 visible = false

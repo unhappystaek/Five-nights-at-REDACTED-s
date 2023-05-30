@@ -34,7 +34,9 @@ func _process(delta):
 			$Fan.rotation.y += 1
 			$Fan.rotation.z += 1
 			$Fan.rotation.x += 1
+			
 	
+	get_parent().get_parent().phone_waiting = phone_waiting
 
 
 func _on_Area_input_event(camera, event, click_position, click_normal, shape_idx):

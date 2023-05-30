@@ -32,7 +32,7 @@ func _on_Timer_timeout():
 			$random.play("red_face")
 			
 	num2 = randi()%100000+1
-	if get_parent().phoneTalking == false and num2 == 43269:
+	if get_parent().phoneTalking == false and num2 == 43269 and get_parent().phone_waiting == false:
 		Gold()
 
 

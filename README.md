@@ -12,6 +12,34 @@ Chica - Terpil
 ## Used assets
 Most textures use CC0 license or are made by me/my friends
 
+### carpet:
+
+Model Information:
+* title:	Prayer carpet
+* source:	https://sketchfab.com/3d-models/prayer-carpet-deee7f51fb1045c49aba9eb5f364d226
+* author:	supahot (https://sketchfab.com/supahot)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Prayer carpet" (https://sketchfab.com/3d-models/prayer-carpet-deee7f51fb1045c49aba9eb5f364d226) by supahot (https://sketchfab.com/supahot) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+
+### quaran:
+
+Model Information:
+* title:	Al Quran 1
+* source:	https://sketchfab.com/3d-models/al-quran-1-bca760d9ba3a493688d44f63c5b2c118
+* author:	ikhsanime321 (https://sketchfab.com/ikhsanime321)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Al Quran 1" (https://sketchfab.com/3d-models/al-quran-1-bca760d9ba3a493688d44f63c5b2c118) by ikhsanime321 (https://sketchfab.com/ikhsanime321) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/
+
 ### office trashcan:
 
 Model Information:

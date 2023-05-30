@@ -14,6 +14,7 @@ var isBlackout: bool = false
 var blackoutCountdown: int
 var songCountdown: int
 var phoneTalking: bool = false
+var phone_waiting: bool = false
 
 
 func _process(delta):
