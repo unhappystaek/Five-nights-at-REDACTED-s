@@ -28,10 +28,10 @@ func _process(delta):
 		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/vierJumpscare.tscn")
 		
 	
-	if TerpilLocation != "kitchen":
+	if TerpilLocation != "kitchen" or lastCam !="6":
 		$Cam_photo/AudioKterpil.stop()
 		
-	if LichuLocation != "kitchen":
+	if LichuLocation != "kitchen" or lastCam !="6":
 		$Cam_photo/AudioKlichu.stop()
 	
 	

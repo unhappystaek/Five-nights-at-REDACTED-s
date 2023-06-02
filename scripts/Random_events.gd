@@ -5,6 +5,7 @@ var _timer_gold = null
 var num: int
 var num2: int
 var golden_working: bool = false
+var ct6: int = 0
 
 func _ready():
 	_timer = Timer.new()
@@ -49,3 +50,17 @@ func Gold():
 	
 func _on_Timer_gold_timeout():
 	get_tree().change_scene("res://scenes/actual_scenes/Night_endings/goldenLichuJumpscare.tscn")
+
+
+func _on_CamArrows_pressed():
+	if golden_working == true:
+		ct6 += 1
+		
+func _process(delta):
+	if ct6 >= 6:
+		ct6 = 0
+		golden_working = false
+		$random.stop()
+		$random.play("RESET")
+		_timer_gold.stop()
+
