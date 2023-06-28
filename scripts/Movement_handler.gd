@@ -246,11 +246,13 @@ func _on_Timer_Terpil_timeout():
 			elif Trand == 1:
 				TerpilLocation = "kitchen"
 		elif TerpilLocation == "kitchen":
-			Trand = randi()%2+1
+			Trand = randi()%3+1
 			if Trand == 2:
 				TerpilLocation = "rightCorridor"
 			elif Trand == 1:
 				TerpilLocation = "wc"
+			elif Trand == 3:
+				TerpilLocation = "dining"
 		elif TerpilLocation == "rightCorridor":
 			Trand = randi()%2+1
 			if Trand == 2:
