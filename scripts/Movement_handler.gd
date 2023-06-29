@@ -102,7 +102,7 @@ func _process(delta):
 		Wier_locked = false
 		
 	if get_parent().get_parent().get_child(0).get_child(0).get_child(0).get_child(7).wierWorking == true:
-		_timer_Wier_ready.stop()
+			$timer_Wier_ready.stop()
 		
 	if lichuMoveReady == true and cam_up == false:
 		lichuMoveReady = false
@@ -176,13 +176,7 @@ func _on_Timer_Wier_timeout():
 		if WierStage < 3:
 			WierStage += 1
 		elif WierStage == 3:
-			_timer_Wier_ready = Timer.new()
-			add_child(_timer_Wier_ready)
-			
-			_timer_Wier_ready.connect("timeout", self, "_on_Timer_Wier_ready_timeout")
-			_timer_Wier_ready.set_wait_time(25)
-			_timer_Wier_ready.set_one_shot(true) # Make sure it loops
-			_timer_Wier_ready.start()
+			$timer_Wier_ready.start()
 	
 	
 func _on_Timer_Lichu_timeout():
@@ -290,6 +284,7 @@ func _on_Timer_Terpil_ready_timeout():
 		get_tree().change_scene("res://scenes/actual_scenes/Night_endings/terpilJumpscare.tscn")
 	
 	
-func _on_Timer_Wier_ready_timeout():
+
+func _on_timer_Wier_ready_timeout():
 	if WierStage == 3:
 		get_parent().get_parent().get_child(0).get_child(0).get_child(0).get_child(7).WierActivate()

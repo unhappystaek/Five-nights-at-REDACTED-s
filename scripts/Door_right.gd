@@ -8,7 +8,7 @@ var lightOn: bool = false
 var lightAnimReady: bool = false
 
 func _ready():
-	$Buttons/button_light/Light_on_right.play_backwards("Light_on_right")
+	$Buttons/button_light/Light_on_right.play("RESET")
 
 
 func _on_button_door_right_input_event(camera, event, click_position, click_normal, shape_idx):

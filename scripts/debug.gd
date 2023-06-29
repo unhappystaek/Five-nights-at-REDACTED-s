@@ -51,3 +51,7 @@ func _on_day_down_pressed():
 		SaveSystem.night -= 1
 		get_parent().get_child(1).n = SaveSystem.night
 		get_parent().get_child(1)._on_Timer_hour_timeout()
+
+
+func _on_wier_pressed():
+	get_parent().get_child(0).get_child(0).get_child(0).get_child(7).WierActivate()

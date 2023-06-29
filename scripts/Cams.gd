@@ -10,7 +10,7 @@ var lastCam: String = "1a"
 var wierWorking: bool = false
 var wierWaiting: bool = false
 var isBlackout: bool = false
-var lichuPowerTake: float = 1
+var wierPowerTake: float = 1
 
 var _timer = null
 var _timer_wait = null
@@ -137,8 +137,8 @@ func _on_Timer_timeout():
 	elif isBlackout == false:
 		wierWaiting = true
 		get_parent().get_parent().get_parent().get_child(4).get_child(7).play()
-		get_parent().get_parent().get_parent().get_parent().power -= lichuPowerTake
-		lichuPowerTake += 5
+		get_parent().get_parent().get_parent().get_parent().power -= wierPowerTake
+		wierPowerTake += 5
 		_timer_wait = Timer.new()
 		add_child(_timer_wait)
 		_timer_wait.connect("timeout", self, "_on_Timer_wait_timeout")
