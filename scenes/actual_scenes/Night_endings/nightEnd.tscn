@@ -2,7 +2,7 @@
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/nightEnd.gd" type="Script" id=2]
-[ext_resource path="res://things/sounds/five-nights-at-freddys-6-am.mp3" type="AudioStream" id=3]
+[ext_resource path="res://things/sounds/Your_team_won.wav" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -46,3 +46,4 @@ color = Color( 0, 0, 0, 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -15.0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/victory-tf2.mp3-f9cd26230a5786ff499b5cf1e28b81a4.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/victory-tf2.mp3"
+dest_files=[ "res://.import/victory-tf2.mp3-f9cd26230a5786ff499b5cf1e28b81a4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

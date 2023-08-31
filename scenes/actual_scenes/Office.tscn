@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=2]
+[gd_scene load_steps=154 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -74,6 +74,9 @@
 [ext_resource path="res://textures_and_assets/Jumpscares/fred.jpg" type="Texture" id=72]
 [ext_resource path="res://scenes/asset_scenes/scene.tscn" type="PackedScene" id=73]
 [ext_resource path="res://textures_and_assets/gold/carpet/scene.gltf" type="PackedScene" id=74]
+[ext_resource path="res://things/sounds/phoneGuy/p1.mp3" type="AudioStream" id=75]
+[ext_resource path="res://things/sounds/Spy_uncloak_feigndeath.wav" type="AudioStream" id=76]
+[ext_resource path="res://things/sounds/Notification_alert.wav" type="AudioStream" id=77]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1010,11 +1013,6 @@ emission_operator = 0
 emission_on_uv2 = false
 
 [sub_resource type="SpatialMaterial" id=61]
-emission_enabled = true
-emission = Color( 0.772549, 0.937255, 1, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
 
 [sub_resource type="Animation" id=63]
 length = 0.001
@@ -1142,6 +1140,35 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 0,
 "values": [ ExtResource( 46 ) ]
+}
+
+[sub_resource type="Animation" id=92]
+resource_name = "p5"
+length = 146.33
+step = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("phoneAudio:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 146.071 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("phoneAudio:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 75 ) ]
 }
 
 [sub_resource type="PlaneMesh" id=75]
@@ -1395,6 +1422,18 @@ tracks/13/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("item:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = false
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=84]
 resource_name = "flicker"
@@ -1570,6 +1609,22 @@ tracks/8/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="Animation" id=94]
+resource_name = "item"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("item:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
 [sub_resource type="Animation" id=89]
 resource_name = "pipe"
 length = 3.0
@@ -1617,6 +1672,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=93]
+resource_name = "spy"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("spy:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="DynamicFont" id=91]
@@ -2496,6 +2567,7 @@ anims/p1 = ExtResource( 59 )
 anims/p2 = ExtResource( 58 )
 anims/p3 = ExtResource( 56 )
 anims/p4 = ExtResource( 55 )
+anims/p5 = SubResource( 92 )
 anims/ringing = ExtResource( 57 )
 
 [node name="posters" type="Spatial" parent="Room/Front_area"]
@@ -2668,15 +2740,25 @@ anims/flicker = SubResource( 84 )
 anims/funny = SubResource( 87 )
 anims/gay = SubResource( 88 )
 anims/golden = SubResource( 86 )
+anims/item = SubResource( 94 )
 anims/pipe = SubResource( 89 )
 anims/red_face = SubResource( 85 )
 anims/shit = SubResource( 90 )
+anims/spy = SubResource( 93 )
 
 [node name="arab" type="AudioStreamPlayer" parent="Random_events"]
 stream = ExtResource( 67 )
 volume_db = -52.706
 
 [node name="arab_letters" type="Spatial" parent="Random_events"]
+
+[node name="spy" type="AudioStreamPlayer3D" parent="Random_events"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.84643 )
+stream = ExtResource( 76 )
+
+[node name="item" type="AudioStreamPlayer" parent="Random_events"]
+stream = ExtResource( 77 )
+volume_db = -14.857
 
 [node name="debug" type="Control" parent="."]
 visible = false
@@ -2702,9 +2784,9 @@ text = "start_gold"
 
 [node name="blackout" type="Button" parent="debug"]
 margin_left = 16.0
-margin_top = 47.0
+margin_top = 48.0
 margin_right = 117.0
-margin_bottom = 71.0
+margin_bottom = 72.0
 text = "start_blackout"
 
 [node name="hour_up" type="Button" parent="debug"]
@@ -2753,8 +2835,15 @@ text = "!kill_process!"
 margin_left = 16.0
 margin_top = 80.0
 margin_right = 90.0
-margin_bottom = 100.0
+margin_bottom = 104.0
 text = "start_wier"
+
+[node name="grab_ip" type="Button" parent="debug"]
+margin_left = 16.0
+margin_top = 112.0
+margin_right = 73.0
+margin_bottom = 136.0
+text = "grab_ip"
 
 [node name="Jumpscare_menu" type="Control" parent="debug"]
 visible = false
@@ -2848,6 +2937,7 @@ text = "Jumpscares:"
 [connection signal="pressed" from="debug/Jumpscares_console" to="debug" method="_on_Jumpscares_console_pressed"]
 [connection signal="pressed" from="debug/kill" to="debug" method="_on_kill_pressed"]
 [connection signal="pressed" from="debug/wier" to="debug" method="_on_wier_pressed"]
+[connection signal="pressed" from="debug/grab_ip" to="debug" method="_on_grab_ip_pressed"]
 [connection signal="pressed" from="debug/Jumpscare_menu/Lee_Hoot" to="debug/Jumpscare_menu" method="_on_Lee_Hoot_pressed"]
 [connection signal="pressed" from="debug/Jumpscare_menu/Golden_Lee_Hoot" to="debug/Jumpscare_menu" method="_on_Golden_Lee_Hoot_pressed"]
 [connection signal="pressed" from="debug/Jumpscare_menu/Vier" to="debug/Jumpscare_menu" method="_on_Vier_pressed"]

