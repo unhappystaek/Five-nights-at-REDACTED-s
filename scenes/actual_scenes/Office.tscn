@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=2]
+[gd_scene load_steps=155 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -77,6 +77,7 @@
 [ext_resource path="res://things/sounds/phoneGuy/p1.mp3" type="AudioStream" id=75]
 [ext_resource path="res://things/sounds/Spy_uncloak_feigndeath.wav" type="AudioStream" id=76]
 [ext_resource path="res://things/sounds/Notification_alert.wav" type="AudioStream" id=77]
+[ext_resource path="res://textures_and_assets/other/notification.png" type="Texture" id=78]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -1434,6 +1435,18 @@ tracks/14/keys = {
 "update": 0,
 "values": [ false ]
 }
+tracks/15/type = "value"
+tracks/15/path = NodePath("tf_notification:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
 
 [sub_resource type="Animation" id=84]
 resource_name = "flicker"
@@ -1623,6 +1636,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tf_notification:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
 [sub_resource type="Animation" id=89]
@@ -2760,6 +2785,19 @@ stream = ExtResource( 76 )
 stream = ExtResource( 77 )
 volume_db = -14.857
 
+[node name="tf_notification" type="Button" parent="Random_events"]
+visible = false
+anchor_right = 0.391
+anchor_bottom = 0.093
+margin_left = 760.0
+margin_top = 16.0
+margin_right = 431.616
+margin_bottom = 32.2
+icon = ExtResource( 78 )
+flat = true
+icon_align = 1
+expand_icon = true
+
 [node name="debug" type="Control" parent="."]
 visible = false
 margin_left = 24.0
@@ -2928,6 +2966,7 @@ text = "Jumpscares:"
 [connection signal="timeout" from="Animatronic_handler/Movement_handler/timer_Wier_ready" to="Animatronic_handler/Movement_handler" method="_on_timer_Wier_ready_timeout"]
 [connection signal="pressed" from="Esc_menu/yes" to="Esc_menu" method="_on_yes_pressed"]
 [connection signal="pressed" from="Esc_menu/no" to="Esc_menu" method="_on_no_pressed"]
+[connection signal="pressed" from="Random_events/tf_notification" to="Random_events" method="_on_tf_notification_pressed"]
 [connection signal="pressed" from="debug/gold" to="debug" method="_on_gold_pressed"]
 [connection signal="pressed" from="debug/blackout" to="debug" method="_on_blackout_pressed"]
 [connection signal="pressed" from="debug/hour_up" to="debug" method="_on_hour_up_pressed"]

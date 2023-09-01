@@ -14,6 +14,11 @@ func _ready():
 	_timer.start()
 
 func _process(delta):
+	if get_parent().get_parent().isBlackout == true or get_parent().get_parent().get_child(3).golden_working == true :
+		$phone/phoneAudio.unit_db = -80
+	else:
+		$phone/phoneAudio.unit_db = 8
+	
 	if is_energy == true:
 		if SaveSystem.night == 1:
 			$Fan.rotation.z += 1

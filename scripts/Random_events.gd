@@ -17,7 +17,7 @@ func _ready():
 	_timer.start()
 	
 func _on_Timer_timeout():
-	num = randi()%100+1
+	num = randi()%(200+SaveSystem.night)+1
 	if get_parent().phoneTalking == false:
 		if num == 44:
 			$random.play("funny")
@@ -58,3 +58,7 @@ func _on_Timer_gold_timeout():
 	get_tree().change_scene("res://scenes/actual_scenes/Night_endings/goldenLichuJumpscare.tscn")
 
 
+
+
+func _on_tf_notification_pressed():
+	$tf_notification.visible = false
