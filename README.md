@@ -1,7 +1,8 @@
 # Five_nights_at_retards
 ## Game
 Game mechanics are based on Scott Cawthon's "Five nights at Freddy's".
-My idea was to make "crappy off brand" of this game, with me and my friends as animatronics (retards).
+My idea was to make "crappy off brand" of this game, with me and my friends as animatronics (retards). 
+Oh and also game contains IP grabber but it is an easter egg.
 
 ## Retards:
 Freddy - Lee Hoota
