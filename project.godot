@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Five_nights_at_retards"
+config/name="Five_nights_at_[REDACTED]'s"
 run/main_scene="res://scenes/actual_scenes/Menu.tscn"
 config/use_custom_user_dir=true
 boot_splash/image="res://textures_and_assets/other/boot_splash.png"
