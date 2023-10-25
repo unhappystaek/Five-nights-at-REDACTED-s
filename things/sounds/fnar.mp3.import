@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/fnar.mp3-ed5b42bcb514970b7e18348c85554797.mp3str"
+
+[deps]
+
+source_file="res://things/sounds/fnar.mp3"
+dest_files=[ "res://.import/fnar.mp3-ed5b42bcb514970b7e18348c85554797.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

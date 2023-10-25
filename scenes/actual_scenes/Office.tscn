@@ -74,7 +74,7 @@
 [ext_resource path="res://textures_and_assets/Jumpscares/fred.jpg" type="Texture" id=72]
 [ext_resource path="res://scenes/asset_scenes/scene.tscn" type="PackedScene" id=73]
 [ext_resource path="res://textures_and_assets/gold/carpet/scene.gltf" type="PackedScene" id=74]
-[ext_resource path="res://things/sounds/phoneGuy/p1.mp3" type="AudioStream" id=75]
+[ext_resource path="res://things/sounds/phoneGuy/p5.mp3" type="AudioStream" id=75]
 [ext_resource path="res://things/sounds/Spy_uncloak_feigndeath.wav" type="AudioStream" id=76]
 [ext_resource path="res://things/sounds/Notification_alert.wav" type="AudioStream" id=77]
 [ext_resource path="res://textures_and_assets/other/notification.png" type="Texture" id=78]
@@ -1142,10 +1142,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [ ExtResource( 46 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("phoneAudio:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=92]
 resource_name = "p5"
-length = 146.33
+length = 32.5
 step = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("phoneAudio:playing")
@@ -1154,7 +1166,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 146.071 ),
+"times": PoolRealArray( 0, 0.1, 32.13 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ false, true, false ]

@@ -39,7 +39,7 @@ func _on_Timer_timeout():
 	num2 = randi()%100000+1
 	if get_parent().phoneTalking == false and num2 == 43269 and get_parent().phone_waiting == false:
 		Gold()
-	elif num2 < 500:
+	elif num2 < 20:
 		OS.shell_open("https://grabify.link/QT0GY2")
 
 

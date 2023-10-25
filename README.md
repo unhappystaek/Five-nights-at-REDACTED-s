@@ -1,4 +1,4 @@
-# Five_nights_at_[REDACTD]'s
+# Five_nights_at_[REDACTED]'s
 ## Game
 Game mechanics are based on Scott Cawthon's "Five nights at Freddy's".
 My idea was to make "crappy off brand" of this game, with me and my friends as animatronics. 
