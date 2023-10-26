@@ -1,4 +1,4 @@
-[gd_scene load_steps=156 format=2]
+[gd_scene load_steps=158 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -78,6 +78,8 @@
 [ext_resource path="res://things/sounds/Spy_uncloak_feigndeath.wav" type="AudioStream" id=76]
 [ext_resource path="res://things/sounds/Notification_alert.wav" type="AudioStream" id=77]
 [ext_resource path="res://textures_and_assets/other/notification.png" type="Texture" id=78]
+[ext_resource path="res://scripts/First_menu.gd" type="Script" id=79]
+[ext_resource path="res://scripts/Settings_menu.gd" type="Script" id=80]
 
 [sub_resource type="Environment" id=3]
 background_energy = 0.0
@@ -2964,6 +2966,32 @@ margin_bottom = 37.0
 custom_colors/font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
 custom_fonts/font = SubResource( 91 )
 text = "Jumpscares:"
+
+[node name="First_menu" type="Control" parent="."]
+visible = false
+margin_left = 192.0
+margin_top = 128.0
+margin_right = 832.0
+margin_bottom = 472.0
+script = ExtResource( 79 )
+
+[node name="ColorRect" type="ColorRect" parent="First_menu"]
+margin_right = 640.0
+margin_bottom = 344.0
+color = Color( 0, 0, 0, 0.894118 )
+
+[node name="Settings_menu" type="Control" parent="."]
+visible = false
+margin_left = 192.0
+margin_top = 128.0
+margin_right = 832.0
+margin_bottom = 472.0
+script = ExtResource( 80 )
+
+[node name="ColorRect" type="ColorRect" parent="Settings_menu"]
+margin_right = 640.0
+margin_bottom = 344.0
+color = Color( 0, 0, 0, 0.894118 )
 
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera" method="_on_CamArrows_pressed"]
 [connection signal="pressed" from="Room/main_camera/UI/CamArrows" to="Room/main_camera/UI/Cams" method="_on_CamArrows_pressed"]

@@ -17,16 +17,4 @@ func _on_no_pressed():
 		visible = false
 
 
-func _input(event):
-	if Input.is_action_just_pressed("ui_cancel"):
-		if get_parent().get_child(4).console_on == false:
-			if escMenuVisible == false:
-				escMenuVisible = true
-				$".".visible = true
-			else:
-				escMenuVisible = false
-				$".".visible = false
-				visible = false
-		else:
-			get_parent().get_child(4).visible = false
-			get_parent().get_child(4).console_on = false
+
