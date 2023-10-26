@@ -46,6 +46,7 @@ func _on_mapButton_1a_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = false
 	lastCam = "1a"
 	CamCode = 0
 	if TerpilLocation == "stage":
@@ -77,6 +78,7 @@ func _on_mapButton_1b_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = false
 	lastCam = "1b"
 	CamCode = 0
 	if TerpilLocation == "dining":
@@ -107,6 +109,7 @@ func _on_mapButton_1b_pressed():
 func _on_mapButton_2a_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
+	$Clear.visible = false
 	if wierWorking == false:
 		$Cam_photo/wierRun.visible = false
 	lastCam = "2a"
@@ -161,6 +164,7 @@ func _on_mapButton_2b_pressed():
 	$Cam_photo/detectorLeft.visible = true
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = false
 	if FuzowLocation == "leftDetector":
 		$Cam_photo/detectorLeft/keter.visible = true
 		$Cam_photo/detectorLeft/euclid.visible = false
@@ -185,6 +189,7 @@ func _on_mapButton_4a_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = false
 	lastCam = "4a"
 	CamCode = 0
 	if TerpilLocation == "rightCorridor":
@@ -206,6 +211,7 @@ func _on_mapButton_4b_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/wierRun.visible = false
 	$Cam_photo/detectorRight.visible = true
+	$Clear.visible = false
 	lastCam = "4b"
 	if TerpilLocation == "rightDetector" or LichuLocation == "rightDetector":
 		$Cam_photo/detectorRight/keter.visible = true
@@ -231,6 +237,7 @@ func _on_mapButton_1c_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = true
 	lastCam = "1c"
 	if WierStage == 0:
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/cave/wierStage0.jpg")
@@ -246,6 +253,7 @@ func _on_mapButton_5_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = false
 	lastCam = "5"
 	if FuzowLocation == "backstage":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/backstage-f.jpg")
@@ -257,6 +265,7 @@ func _on_mapButton_6_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = false
 	lastCam = "6"
 	$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/right/kitchen.png")
 	if TerpilLocation == "kitchen":
@@ -271,6 +280,7 @@ func _on_mapButton_7_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = false
 	lastCam = "7"
 	CamCode = 0
 	if TerpilLocation == "wc":
@@ -292,6 +302,7 @@ func _on_mapButton_3_pressed():
 	$Cam_photo/detectorLeft.visible = false
 	$Cam_photo/detectorRight.visible = false
 	$Cam_photo/wierRun.visible = false
+	$Clear.visible = false
 	lastCam = "3"
 	if FuzowLocation == "closet":
 		$Cam_photo/camView.texture = ResourceLoader.load("res://textures_and_assets/camera_ui/left/closet-f.jpg")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=155 format=2]
+[gd_scene load_steps=156 format=2]
 
 [ext_resource path="res://things/WorkSans-VariableFont_wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://things/Menu.gdshader" type="Shader" id=2]
@@ -145,6 +145,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=68]
 bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=95]
+size = 31
+font_data = ExtResource( 70 )
 
 [sub_resource type="SpatialMaterial" id=45]
 albedo_color = Color( 0, 0, 0, 1 )
@@ -2186,6 +2190,16 @@ pitch_scale = 0.4
 [node name="AudioKterpil" type="AudioStreamPlayer" parent="Room/main_camera/UI/Cams/Cam_photo"]
 stream = ExtResource( 39 )
 volume_db = -9.904
+
+[node name="Clear" type="Label" parent="Room/main_camera/UI/Cams"]
+visible = false
+modulate = Color( 1, 1, 1, 0.490196 )
+margin_left = 304.0
+margin_top = 256.0
+margin_right = 720.0
+margin_bottom = 296.0
+custom_fonts/font = SubResource( 95 )
+text = "Please clean the camera lens"
 
 [node name="Cambook" type="Spatial" parent="Room/main_camera"]
 
