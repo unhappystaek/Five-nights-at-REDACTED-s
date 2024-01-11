@@ -2035,9 +2035,9 @@ custom_fonts/font = SubResource( 50 )
 text = "CamBook Pro"
 
 [node name="map" type="TextureRect" parent="Room/main_camera/UI/Cams/Cam_photo"]
-margin_left = 520.0
+margin_left = 521.0
 margin_top = 320.0
-margin_right = 1184.0
+margin_right = 1178.0
 margin_bottom = 600.0
 mouse_filter = 2
 texture = ExtResource( 50 )

@@ -66,34 +66,34 @@ mouse_filter = 2
 color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_left = 256.0
+margin_left = 128.0
 margin_top = 128.0
-margin_right = 768.0
+margin_right = 900.0
 margin_bottom = 472.0
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 512.0
+margin_right = 772.0
 margin_bottom = 113.0
 custom_fonts/font = SubResource( 5 )
-text = "Type: \"kutas_kozla\"
+text = "Type: \"Floccinaucinihilipilification\"
 to reset your progress"
 align = 1
 
 [node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
 margin_top = 117.0
-margin_right = 512.0
+margin_right = 772.0
 margin_bottom = 182.0
 custom_fonts/font = SubResource( 6 )
 
 [node name="Label2" type="Label" parent="VBoxContainer"]
 margin_top = 186.0
-margin_right = 512.0
+margin_right = 772.0
 margin_bottom = 241.0
 custom_fonts/font = SubResource( 7 )
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 margin_top = 245.0
-margin_right = 512.0
+margin_right = 772.0
 margin_bottom = 306.0
 custom_fonts/font = SubResource( 8 )
 custom_styles/focus = SubResource( 9 )

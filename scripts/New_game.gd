@@ -12,6 +12,6 @@ func _on_Button_pressed():
 
 
 func _on_LineEdit_text_entered(new_text):
-	if new_text == "kutas_kozla":
+	if new_text == "Floccinaucinihilipilification":
 		get_node("/root/SaveSystem").reset("All", "night")
 		

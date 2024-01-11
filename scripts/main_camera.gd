@@ -15,15 +15,13 @@ func _process(delta):
 		
 	if $Cambook/rotation_axis.rotation_degrees.x == 2:
 		$UI/Cams/Cam_view.visible = true
-		
-		
+		cam_on = true
 		$UI/Cams/Cam_photo.visible = true
 		
 		
 	elif $Cambook/rotation_axis.rotation_degrees.x != 2:
 		$UI/Cams/Cam_view.visible = false
-		
-		
+		cam_on = false
 		$UI/Cams/Cam_photo.visible = false
 		
 	

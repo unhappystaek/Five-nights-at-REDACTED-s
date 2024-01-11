@@ -34,6 +34,11 @@ func _process(delta):
 	if LichuLocation != "kitchen" or lastCam !="6":
 		$Cam_photo/AudioKlichu.stop()
 	
+	if get_parent().get_parent().cam_on == true and lastCam == "1c":
+		$Clear.visible = true
+	else:
+		$Clear.visible = false
+	
 	
 	# cams: 1a - stage, 1b - dining, 7 - wc, 6 - kitchen, 5 - backstage, 1c - cave,
 	# 3 - closet, 2a - leftCorridor, 2b - leftDetector, 4a - rightCorridor, 4b - rightDetector
@@ -311,6 +316,7 @@ func _on_mapButton_3_pressed():
 
 
 func _on_CamArrows_pressed():
+	
 	if lastCam == "1a":
 		_on_mapButton_1a_pressed()
 	if lastCam == "1b":
@@ -333,3 +339,4 @@ func _on_CamArrows_pressed():
 		_on_mapButton_6_pressed()
 	if lastCam == "7":
 		_on_mapButton_7_pressed()
+	
